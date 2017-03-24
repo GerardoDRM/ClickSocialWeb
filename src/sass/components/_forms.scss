@@ -1,0 +1,54 @@
+/**
+  * Forms Partial SASS
+  * This SASS file has all
+  * forms used on the app
+**/
+.product-form {
+  max-width: 1000px;
+  width: 100%;
+
+  .mdl-card {
+    width: 90%;
+    height: 600px;
+    margin: 0 auto;
+  }
+}
+// Products layout Admin
+
+.tabs-products {
+  .mdl-layout__header {
+    background: $deep-pink;
+    height: 150px;
+    position: relative;
+
+    .mdl-layout__tab-bar-container {
+      position: absolute;
+      bottom: 10px;
+    }
+
+    .mdl-layout__tab-bar {
+      background: $deep-pink;
+
+      .mdl-layout__tab.is-active::after {
+        background: transparent;
+      }
+    }
+  }
+}
+// pagination
+
+.pagination {
+  ul {
+    display: flex;
+    justify-content: center;
+    color: white;
+    list-style-type: none;
+    background: white;
+
+    li {
+      padding: 15px;
+      background: #e8e8e8;
+      border-radius: 5px;
+    }
+  }
+}

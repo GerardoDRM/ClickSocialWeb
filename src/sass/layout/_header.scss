@@ -1,0 +1,87 @@
+/**
+  * Header Partial SASS
+  * This SASS file has the header components
+  * used on the app
+**/
+/* Header */
+.android-header {
+  overflow: visible;
+  background-color: $deep-pink;
+
+  .material-icons {
+    color: #767777 !important;
+  }
+
+  .mdl-navigation__link {
+    color: $white;
+    font-weight: 400;
+    font-size: em(18px);
+  }
+}
+/* Tab container*/
+.cd-tabs-content {
+  height: auto;
+  padding: 0;
+
+  .tab {
+    display: none;
+    padding: 0;
+    height: auto;
+
+    &.selected {
+      display: block;
+      -webkit-animation: cd-fade-in 0.5s;
+      -moz-animation: cd-fade-in 0.5s;
+      animation: cd-fade-in 0.5s;
+    }
+  }
+}
+
+
+// Dashboard Drawer
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-bottom: 16px;
+}
+
+.drawer {
+  border: none;
+  /* iOS Safari specific workaround */
+  .mdl-menu__container {
+    z-index: -1;
+  }
+
+  .navigation {
+    z-index: -2;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+  /* END iOS Safari specific workaround */
+  .mdl-menu .mdl-menu__item {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+}
+
+.drawer-header {
+  background: $deep-pink;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 16px;
+  height: 151px;
+}
