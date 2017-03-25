@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { SuccesCaseComponent } from './succescase.component'
 import { SuccesCasesComponent } from './succescases.component'
 import { HomeComponent } from './home.component'
+import { ContestComponent } from './contest.component'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cases', component: SuccesCasesComponent },
   { path: 'case', component: SuccesCaseComponent },
+  { path: 'contests', component: ContestComponent }
 ];
 
 
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     AppComponent,
     SuccesCasesComponent,
     SuccesCaseComponent,
-    HomeComponent
+    HomeComponent,
+    ContestComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
