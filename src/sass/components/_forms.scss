@@ -3,52 +3,20 @@
   * This SASS file has all
   * forms used on the app
 **/
-.product-form {
-  max-width: 1000px;
+.portfolio-max-width {
+  max-width: 900px;
+  margin: auto;
+}
+
+img.article-image {
   width: 100%;
-
-  .mdl-card {
-    width: 90%;
-    height: 600px;
-    margin: 0 auto;
-  }
+  height: auto;
 }
-// Products layout Admin
 
-.tabs-products {
-  .mdl-layout__header {
-    background: $deep-pink;
-    height: 150px;
-    position: relative;
-
-    .mdl-layout__tab-bar-container {
-      position: absolute;
-      bottom: 10px;
-    }
-
-    .mdl-layout__tab-bar {
-      background: $deep-pink;
-
-      .mdl-layout__tab.is-active::after {
-        background: transparent;
-      }
-    }
-  }
+.portfolio-card .mdl-card__title {
+  padding-bottom: 0;
 }
-// pagination
 
-.pagination {
-  ul {
-    display: flex;
-    justify-content: center;
-    color: white;
-    list-style-type: none;
-    background: white;
-
-    li {
-      padding: 15px;
-      background: #e8e8e8;
-      border-radius: 5px;
-    }
-  }
+.mdl-card__media {
+  padding: 0;
 }

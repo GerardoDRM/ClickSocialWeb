@@ -250,36 +250,19 @@ html {
   * This SASS file has all
   * forms used on the app
 **/
-.product-form {
-  max-width: 1000px;
-  width: 100%; }
-  .product-form .mdl-card {
-    width: 90%;
-    height: 600px;
-    margin: 0 auto; }
+.portfolio-max-width {
+  max-width: 900px;
+  margin: auto; }
 
-.tabs-products .mdl-layout__header {
-  background: #FA3E51;
-  height: 150px;
-  position: relative; }
-  .tabs-products .mdl-layout__header .mdl-layout__tab-bar-container {
-    position: absolute;
-    bottom: 10px; }
-  .tabs-products .mdl-layout__header .mdl-layout__tab-bar {
-    background: #FA3E51; }
-    .tabs-products .mdl-layout__header .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
-      background: transparent; }
+img.article-image {
+  width: 100%;
+  height: auto; }
 
-.pagination ul {
-  display: flex;
-  justify-content: center;
-  color: white;
-  list-style-type: none;
-  background: white; }
-  .pagination ul li {
-    padding: 15px;
-    background: #e8e8e8;
-    border-radius: 5px; }
+.portfolio-card .mdl-card__title {
+  padding-bottom: 0; }
+
+.mdl-card__media {
+  padding: 0; }
 
 /**
   * Icons Partial SASS
@@ -323,7 +306,7 @@ html {
   width: 100%; }
 
 .amazing .mdl-card__title {
-  background-color: #263238; }
+  background-color: #388e3c; }
 
 .minilogo {
   width: 44px;
@@ -598,7 +581,7 @@ html {
   background-color: transparent; }
 
 .demo-blog__posts > .mdl-card .mdl-card__media {
-  background-image: url("../assets/imgs/road_big.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.41) 90%), linear-gradient(0deg, rgba(45, 47, 49, 0.3), transparent), url("http://blog.udlap.mx/wp-content/uploads/2017/01/click-social-udlap.jpg") center 45%/cover no-repeat;
   height: 280px; }
 
 .comments {
@@ -719,6 +702,10 @@ html {
     .comments .comment > .comment__answers {
       padding-top: 32px;
       padding-left: 48px; }
+
+.partners {
+  text-align: center;
+  color: black; }
 
 /**
   * Buttons Partial SASS

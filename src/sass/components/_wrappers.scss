@@ -35,7 +35,7 @@
 }
 
 .amazing .mdl-card__title {
-  background-color: #263238;
+  background-color: #388e3c;
 }
 
 .minilogo {
@@ -383,7 +383,7 @@
 }
 
 .demo-blog__posts > .mdl-card .mdl-card__media {
-  background-image: url('../assets/imgs/road_big.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.41) 90%), linear-gradient(0deg, rgba(45, 47, 49, 0.3), transparent), url('http://blog.udlap.mx/wp-content/uploads/2017/01/click-social-udlap.jpg') center 45%/cover no-repeat;
   height: 280px;
 }
 
@@ -543,4 +543,10 @@
       }
     }
   }
+}
+
+
+.partners {
+  text-align: center;
+  color: black;
 }
