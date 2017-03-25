@@ -1,0 +1,809 @@
+@charset "UTF-8";
+/**
+  * Main SASS file gets all partials
+  * this sass file will be compiled at
+  * the beginning
+**/
+/**
+  * Variables Partial SASS
+  * This SASS file has the palette color
+  * the media queries break points and fonts attributes.
+**/
+/**
+  * Utils Partial SASS
+  * This SASS file has all the functions used
+  * on the partials.
+**/
+@import url("http://fonts.googleapis.com/css?family=Open+Sans|Yeseva+One");
+/**
+  * Mixin Partial SASS
+  * This SASS file make groups of CSS declarations
+  * that are reuse throughout the site.
+**/
+/**
+  * Extend Partial SASS
+  * This SASS file has all common
+  * styles that are presented on some
+  * classes
+**/
+/**
+  * Index Partial SASS
+  * This SASS file is the manifest on
+  * components folder
+  * !Important import order is relevant while compiling SASS
+**/
+/**
+  * BASE Partial SASS
+  * This SASS file has general components
+  * used on the app
+**/
+/*General*/
+.mdl-layout,
+.mdl-layout__container,
+body,
+html {
+  height: 100%;
+  width: 100%; }
+
+.mdl-layout,
+.mdl-layout__container,
+.mdl-layout__content {
+  z-index: inherit !important; }
+
+._dialog_overlay {
+  z-index: inherit !important;
+  position: inherit !important; }
+
+.no-margin {
+  margin: 0; }
+
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1;
+  color: #767777;
+  font-weight: 500; }
+
+.phone-appear {
+  display: none; }
+
+.error-msg {
+  width: 100%;
+  color: #EC407A;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
+.zigzag-white:after {
+  background: linear-gradient(-45deg, transparent 24px, #FFF 0), linear-gradient(45deg, transparent 24px, #FFF 0);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 30px 40px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 32px;
+  position: relative;
+  top: 32px;
+  left: 0; }
+
+.zigzag-grey:after {
+  background: linear-gradient(-45deg, transparent 24px, #EEEEEE 0), linear-gradient(45deg, transparent 24px, #EEEEEE 0);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 30px 40px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 32px;
+  position: relative;
+  top: 32px;
+  left: 0; }
+
+.zigzag-pink:after {
+  background: linear-gradient(-45deg, transparent 24px, #FA3E51 0), linear-gradient(45deg, transparent 24px, #FA3E51 0);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 30px 40px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 32px;
+  position: relative;
+  top: 32px;
+  left: 0;
+  top: 140px; }
+
+.loading {
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: none; }
+  .loading .mdl-progress {
+    width: 100%; }
+  .loading .loading-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20%; }
+    .loading .loading-container img {
+      width: 50px;
+      height: 50px; }
+    .loading .loading-container p {
+      font-size: 1.25em; }
+
+.downloads {
+  bottom: 0;
+  z-index: 99;
+  right: 5px;
+  position: fixed; }
+
+/**
+  * Footer Partial SASS
+  * This SASS file has all footers style
+**/
+.mdl-mini-footer {
+  margin-top: 80px;
+  height: 120px;
+  padding: 40px;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: white;
+  box-sizing: border-box; }
+
+/**
+  * Header Partial SASS
+  * This SASS file has the header components
+  * used on the app
+**/
+/* Header */
+.android-header {
+  overflow: visible;
+  background-color: #FA3E51; }
+  .android-header .material-icons {
+    color: #767777 !important; }
+  .android-header .mdl-navigation__link {
+    color: #FFF;
+    font-weight: 400;
+    font-size: 1.125em; }
+
+/* Tab container*/
+.cd-tabs-content {
+  height: auto;
+  padding: 0; }
+  .cd-tabs-content .tab {
+    display: none;
+    padding: 0;
+    height: auto; }
+    .cd-tabs-content .tab.selected {
+      display: block;
+      -webkit-animation: cd-fade-in 0.5s;
+      -moz-animation: cd-fade-in 0.5s;
+      animation: cd-fade-in 0.5s; }
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-bottom: 16px; }
+
+.drawer {
+  border: none;
+  /* iOS Safari specific workaround */
+  /* END iOS Safari specific workaround */ }
+  .drawer .mdl-menu__container {
+    z-index: -1; }
+  .drawer .navigation {
+    z-index: -2;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1; }
+  .drawer .mdl-menu .mdl-menu__item {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+
+.drawer-header {
+  background: #FA3E51;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 16px;
+  height: 151px; }
+
+/**
+  * Index Partial SASS
+  * This SASS file is the manifest on
+  * components folder
+  * !Important import order is relevant while compiling SASS
+**/
+/**
+  * Backgrounds Partial SASS
+  * This SASS file create
+  * multiple backgrounds (colors/img)
+**/
+.layout-transparent {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(139, 195, 74, 0.37) 90%), linear-gradient(0deg, rgba(96, 125, 139, 0.59), transparent), url("../assets/imgs/bg_2880.jpg") center 45%/cover no-repeat; }
+  .layout-transparent .mdl-layout__drawer-button,
+  .layout-transparent .mdl-layout__header {
+    /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+    color: white; }
+
+/**
+  * Forms Partial SASS
+  * This SASS file has all
+  * forms used on the app
+**/
+.product-form {
+  max-width: 1000px;
+  width: 100%; }
+  .product-form .mdl-card {
+    width: 90%;
+    height: 600px;
+    margin: 0 auto; }
+
+.tabs-products .mdl-layout__header {
+  background: #FA3E51;
+  height: 150px;
+  position: relative; }
+  .tabs-products .mdl-layout__header .mdl-layout__tab-bar-container {
+    position: absolute;
+    bottom: 10px; }
+  .tabs-products .mdl-layout__header .mdl-layout__tab-bar {
+    background: #FA3E51; }
+    .tabs-products .mdl-layout__header .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
+      background: transparent; }
+
+.pagination ul {
+  display: flex;
+  justify-content: center;
+  color: white;
+  list-style-type: none;
+  background: white; }
+  .pagination ul li {
+    padding: 15px;
+    background: #e8e8e8;
+    border-radius: 5px; }
+
+/**
+  * Icons Partial SASS
+  * This SASS file has most of the icons
+  * used on the app
+**/
+/* These are general rules for logos */
+/* Logo */
+/**
+  * Modals Partial SASS
+  * This SASS has the modals dialogs
+**/
+.main {
+  max-width: 1400px;
+  padding: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0; }
+  .main .mdl-layout__content {
+    padding-top: 100px;
+    position: relative;
+    -webkit-overflow-scrolling: touch; }
+  .main .mdl-card {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    min-height: 360px; }
+
+.card-box {
+  width: 100%; }
+
+.amazing .mdl-card__title {
+  background-color: #263238; }
+
+.minilogo {
+  width: 44px;
+  height: 44px;
+  background-image: url("../assets/imgs/avatar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border-radius: 22px;
+  background-color: #F5F5F5; }
+
+.social-btn {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin: 0 16px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.46;
+  border-radius: 2px; }
+
+.social-btn__twitter {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/post_twitter_black_24dp.png"); }
+
+.social-btn__blogger {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/post_facebook_black_24dp.png"); }
+
+.social-btn__gplus {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/post_gplus_black_24dp.png"); }
+
+.social-btn__share {
+  color: rgba(0, 0, 0, 0.54);
+  background: transparent; }
+
+.main-title {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  font-size: 55px;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.15); }
+
+.slogan {
+  text-align: center;
+  color: white;
+  font-weight: 300;
+  font-size: 39px;
+  text-shadow: 0 0 0 #607D8B, 0 2px 0 #607D8B, 0 3px 0 #607D8B, 0 4px 0 #b9b9b9, 0 1px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.15); }
+
+.logo-container {
+  width: 100%;
+  text-align: center; }
+
+/****************************************************/
+.demo-blog__posts {
+  max-width: 900px;
+  padding: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0; }
+
+.demo-blog.mdl-layout .mdl-layout__content {
+  padding-top: 230px;
+  position: relative;
+  -webkit-overflow-scrolling: touch; }
+
+.mdl-card {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  min-height: 360px; }
+
+.mdl-card__title {
+  padding: 16px;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1; }
+
+.mdl-card__media {
+  box-sizing: border-box;
+  background-size: cover;
+  padding: 24px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  cursor: pointer; }
+  .mdl-card__media a {
+    color: inherit; }
+
+.mdl-card__title a {
+  color: inherit; }
+
+.mdl-card__supporting-text {
+  width: 100%;
+  padding: 16px;
+  min-height: 64px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .mdl-card__supporting-text strong {
+    font-weight: 400; }
+
+.mdl-card__media ~ .mdl-card__supporting-text {
+  min-height: 64px; }
+
+.mdl-card__supporting-text:not(:last-child) {
+  box-sizing: border-box;
+  min-height: 76px; }
+
+.demo-blog:not .mdl-card__supporting-text ~ .mdl-card__supporting-text {
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+
+.mdl-card__actions:first-child {
+  margin-left: 0; }
+
+.meta {
+  box-sizing: border-box;
+  padding: 16px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: auto; }
+  .meta > .meta__favorites {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin: 0 8px;
+    font-size: 13px;
+    font-weight: 500; }
+    .meta > .meta__favorites .material-icons {
+      font-size: 2em;
+      cursor: pointer;
+      margin-left: 12px; }
+
+.mdl-card .meta.meta--fill {
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.meta > * {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .meta > *:first-child {
+    margin-right: 16px; }
+
+.demo-blog.is-small-screen .demo-blog__posts > .mdl-card.coffee-pic {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0; }
+.demo-blog.is-small-screen .demo-blog__posts > .mdl-card.something-else {
+  -webkit-order: -1;
+  -ms-flex-order: -1;
+  order: -1; }
+
+.something-else .mdl-card__media {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px; }
+  .something-else .mdl-card__media img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px; }
+.something-else > button {
+  position: absolute;
+  top: 0;
+  right: 28px;
+  -webkit-transform: translate(0px, -28px);
+  transform: translate(0px, -28px); }
+.something-else .mdl-card__supporting-text {
+  background-color: #F5F5F5;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px; }
+
+/*.shopping .mdl-card__media {
+  background-image: url('../asstes/imgs/shopping.jpg');
+}*/
+.demo-blog__posts > .demo-nav {
+  margin: 12px 15px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white;
+  font-weight: 500; }
+  .demo-blog__posts > .demo-nav > .demo-nav__button {
+    color: white;
+    text-decoration: none; }
+  .demo-blog__posts > .demo-nav .mdl-button {
+    color: rgba(0, 0, 0, 0.54);
+    background-color: white; }
+  .demo-blog__posts > .demo-nav > .demo-nav__button:first-child .mdl-button {
+    margin-right: 16px; }
+  .demo-blog__posts > .demo-nav > .demo-nav__button:last-child .mdl-button {
+    margin-left: 16px; }
+
+.mdl-card > a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit; }
+.mdl-card h3 {
+  margin: 0; }
+  .mdl-card h3 a {
+    text-decoration: none; }
+  .mdl-card h3.quote:after, .mdl-card h3.quote:before {
+    display: block;
+    font-size: 3em;
+    margin-top: 0.5em; }
+  .mdl-card h3.quote:before {
+    content: '“'; }
+  .mdl-card h3.quote:after {
+    content: '”'; }
+
+.custom-header {
+  background-color: transparent; }
+
+.demo-blog__posts > .mdl-card .mdl-card__media {
+  background-image: url("../assets/imgs/road_big.jpg");
+  height: 280px; }
+
+.comments {
+  background-color: #EEE; }
+
+.meta > * {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+.meta + .mdl-card__supporting-text {
+  border: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .meta + .mdl-card__supporting-text p {
+    max-width: 512px;
+    margin: 16px auto;
+    font-size: 16px;
+    line-height: 28px; }
+
+.comments {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  padding: 32px;
+  box-sizing: border-box; }
+  .comments > form {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-bottom: 16px; }
+    .comments > form .mdl-textfield {
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      margin-right: 16px;
+      color: #616161; }
+      .comments > form .mdl-textfield .mdl-textfield__input {
+        font-family: 'Roboto', 'Helvetica', sans-serif; }
+      .comments > form .mdl-textfield input,
+      .comments > form .mdl-textfield textarea {
+        resize: none; }
+    .comments > form button {
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 0.24);
+      color: white; }
+  .comments .comment {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch; }
+    .comments .comment > .comment__header {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      margin-bottom: 16px; }
+      .comments .comment > .comment__header > .comment__avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 24px;
+        margin-right: 16px; }
+      .comments .comment > .comment__header > .comment__author {
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column; }
+    .comments .comment > .comment__text {
+      line-height: 1.5em; }
+    .comments .comment > .comment__actions {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      font-size: 0.8em;
+      margin-top: 16px; }
+      .comments .comment > .comment__actions button {
+        margin-right: 16px;
+        color: rgba(0, 0, 0, 0.24); }
+    .comments .comment > .comment__answers {
+      padding-top: 32px;
+      padding-left: 48px; }
+
+/**
+  * Buttons Partial SASS
+  * This SASS file has all
+  * buttons style on the web app
+**/
+/* General */
+.button-add-sale {
+  margin-right: 22%; }
+
+.addlink {
+  margin-top: 30px; }
+
+.mdl-button--fab.mdl-button--colored {
+  background: #A72F3F;
+  color: white; }
+
+.mdl-button--fab.mdl-button--colored:hover {
+  background-color: #A72F3F; }
+
+.mdl-layout__tab-bar {
+  height: 96px;
+  margin: 0;
+  width: calc(100% - 112px);
+  padding: 0 0 0 56px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fa3e51;
+  overflow-y: hidden;
+  overflow-x: scroll; }
+
+/**
+  * Media queries Partial SASS
+  * This SASS file has the break points
+  * for each media query used on the app
+  * !Important Sass extend cannot be used
+  * on media queries, just include and functions
+**/
+/*Media Queries*/
+@media (max-width: 768px) {
+  .span-employee {
+    margin-top: 7px; }
+
+  .mdl-list__item--three-line {
+    height: 150px; }
+
+  .right-link {
+    margin-left: 0px; }
+
+  .mdl-layout.is-small-screen .mdl-layout--large-screen-only {
+    display: flex;
+    margin-left: -68px; }
+
+  .header-title-sales select {
+    margin-right: 4px; }
+
+  .mdl-badge.mdl-badge--overlap {
+    padding-left: 84px; }
+
+  .div-car button {
+    margin-left: 30px;
+    margin-top: 23px; }
+
+  .mdl-textfield__input {
+    font-size: 9px;
+    width: 80%; }
+
+  .mdl-button {
+    margin-left: -28px; }
+
+  .table-dash.mdl-data-table th {
+    font-size: 15px; }
+
+  .backLogin .mdl-card {
+    width: 80%; }
+    .backLogin .mdl-card form {
+      padding: 10px; }
+      .backLogin .mdl-card form button {
+        width: 90%; }
+
+  .disappear {
+    display: none; }
+
+  .mdl-dialog {
+    width: 80%; } }
+
+/*# sourceMappingURL=main.css.map */
