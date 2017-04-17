@@ -7,10 +7,10 @@ declare var dialogPolyfill: any;
 
 
 @Component({
-  templateUrl: './contest.component.html',
+  templateUrl: './announces.component.html',
   styleUrls: ['./main.css']
 })
-export class ContestComponent implements AfterViewInit {
+export class AnnouncesComponent implements AfterViewInit {
   @ViewChild('dialog') dialog: ElementRef;
   constructor(private _elRef: ElementRef) {
   }

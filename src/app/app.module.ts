@@ -9,14 +9,16 @@ import { SuccesCaseComponent } from './succescase.component'
 import { SuccesCasesComponent } from './succescases.component'
 import { HomeComponent } from './home.component'
 import { ContestComponent } from './contest.component'
+import { AnnouncesComponent } from './announces.component'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cases', component: SuccesCasesComponent },
   { path: 'case', component: SuccesCaseComponent },
-  { path: 'contests', component: ContestComponent }
-];
+  { path: 'contests', component: ContestComponent },
+  { path: 'announces', component: AnnouncesComponent }
 
+];
 
 @NgModule({
   imports: [
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     SuccesCasesComponent,
     SuccesCaseComponent,
     HomeComponent,
-    ContestComponent
+    ContestComponent,
+    AnnouncesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
