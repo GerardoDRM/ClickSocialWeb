@@ -738,6 +738,22 @@ img.article-image {
   text-align: center;
   color: black; }
 
+.mdl-card[_ngcontent-cwi-5] {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -ms-flex-align: stretch;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  /* min-height: 360px; */ }
+
+.mdl-color--teal-100 {
+  background: url("http://blog.udlap.mx/wp-content/uploads/2017/01/click-social-udlap.jpg") center/cover no-repeat; }
+
 /**
   * Buttons Partial SASS
   * This SASS file has all
