@@ -10,13 +10,15 @@ import { SuccesCasesComponent } from './succescases.component'
 import { HomeComponent } from './home.component'
 import { ContestComponent } from './contest.component'
 import { AnnouncesComponent } from './announces.component'
+import { DirectoryComponent } from './directory.component'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cases', component: SuccesCasesComponent },
   { path: 'case', component: SuccesCaseComponent },
   { path: 'contests', component: ContestComponent },
-  { path: 'announces', component: AnnouncesComponent }
+  { path: 'announces', component: AnnouncesComponent },
+  { path: 'directory', component: DirectoryComponent }
 
 ];
 
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     SuccesCaseComponent,
     HomeComponent,
     ContestComponent,
-    AnnouncesComponent
+    AnnouncesComponent,
+    DirectoryComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
