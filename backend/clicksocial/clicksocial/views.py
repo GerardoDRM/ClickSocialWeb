@@ -79,7 +79,30 @@ class Stories(Resource):
         ]
         return jsonify(stories=s)
 
+'''
+    Get all challenges stored on the database
+    this class just retrieve all data without any constraint
+'''
+
+
+class Challenge(Resource):
+    @cross_origin()
+    def get(self):
+        s = create_dic(mongo.db.challenges.find(
+            {}, {"creation_date": 1, "description": 1, "img": 1, "title": 1, "likes":1}))
+        test = [
+            {
+                "_id": "58f4f2fa516ea6d697a45bc9",
+                "creation_date": 122202.0,
+                "description": "Lorem Ipsum",
+                "img": "/img",
+                "title": "Click Social",
+                "likes": 10
+            }
+        ]
+        return jsonify(stories=s)
 
 api.add_resource(HelloWorld, '/')
 api.add_resource(Convocations, '/api/v0/convocations')
 api.add_resource(Stories, '/api/v0/stories')
+api.add_resource(Challenge, '/api/v0/challenges')
