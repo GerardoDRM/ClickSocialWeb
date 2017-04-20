@@ -43,7 +43,7 @@ class Convocations(Resource):
                         "name": "Coparmex"
                     }
                 ],
-                "creation_date": 122202.0,
+                "creation_date": 1492659697,
                 "description": "Lorem Ipsum",
                 "img": "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg",
                 "model": [
@@ -71,9 +71,9 @@ class Stories(Resource):
         test = [
             {
                 "_id": "58f4f2fa516ea6d697a45bc9",
-                "creation_date": 122202.0,
+                "creation_date": 1492659697,
                 "description": "Lorem Ipsum",
-                "img": "/img",
+                "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
                 "title": "Click Social"
             }
         ]
@@ -93,14 +93,22 @@ class Challenge(Resource):
         test = [
             {
                 "_id": "58f4f2fa516ea6d697a45bc9",
-                "creation_date": 122202.0,
+                "creation_date": 1492659697,
                 "description": "Lorem Ipsum",
-                "img": "/img",
+                "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
+                "title": "Click Social",
+                "likes": 10
+            },
+            {
+                "_id": "58f4f2fa516ea6d697a45bc9",
+                "creation_date": 1492659697,
+                "description": "Lorem Ipsum",
+                "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
                 "title": "Click Social",
                 "likes": 10
             }
         ]
-        return jsonify(stories=s)
+        return jsonify(challenges=test)
 
 api.add_resource(HelloWorld, '/')
 api.add_resource(Convocations, '/api/v0/convocations')

@@ -552,7 +552,7 @@
 }
 
 
-.mdl-card[_ngcontent-cwi-5] {
+.mdl-card {
     display: -ms-flexbox;
     display: -webkit-box;
     display: flex;
@@ -566,9 +566,24 @@
     /* min-height: 360px; */
 }
 
+// Challenges section
+.challenges {
+  width: 100%;
+  margin-bottom: 5%;
+  height: 300px;
 
-.mdl-color--teal-100 {
-
-  background: url('http://blog.udlap.mx/wp-content/uploads/2017/01/click-social-udlap.jpg') center/cover no-repeat;
+  .description {
+    min-height: 100%;
+    .text {
+      display: block;
+      .data {
+        display: inline-flex;
+        .group {
+          margin: 0 10px;
+          display: inline-flex;
+        }
+      }
+    }
+  }
 
 }

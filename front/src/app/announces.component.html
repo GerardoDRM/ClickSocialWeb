@@ -4,76 +4,33 @@
 </main>
 
 
-  <div class="mdl-grid portfolio-max-width">
+<div class="mdl-grid portfolio-max-width" *ngFor="let c of challenges">
 
-    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="margin-bottom:5%;">
-          <header class=" mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+  <section class="challenges mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+    <header class=" mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone" [ngStyle]="{'background': 'url('+c.img+') center/cover no-repeat'}">
 
-
-          </header>
-          <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone" style="    min-height: 50px;">
-            <div class="mdl-card__supporting-text" style="display: block;">
-              <h4>Reto 1</h4>
-            <p>  Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.</p>
-            </div>
-            <div class="mdl-card__actions">
-              <a href="#" class="mdl-button">Ver más</a>
-            </div>
+    </header>
+    <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone description">
+      <div class="mdl-card__supporting-text text">
+        <h4>{{c.title}}</h4>
+        <div class="data">
+          <div class="group">
+            <div class="icon material-icons">today</div>
+            <p>{{dateTransform(c.creation_date)}}</p>
           </div>
-        </section>
-
-        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="margin-bottom:5%;">
-              <header class="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
-              
-              </header>
-              <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone" style="    min-height: 50px;">
-                <div class="mdl-card__supporting-text" style="display: block;">
-                  <h4>Reto 2</h4>
-                  Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.
-                </div>
-                <div class="mdl-card__actions">
-                  <a href="#" class="mdl-button">Ver más</a>
-                </div>
-              </div>
-            </section>
-
-
-
-            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="margin-bottom:5%;">
-                  <header class=" mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
-
-                  </header>
-                  <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone" style="    min-height: 50px;">
-                    <div class="mdl-card__supporting-text" style="display: block;">
-                      <h4>Reto 3</h4>
-                      Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.
-                    </div>
-                    <div class="mdl-card__actions">
-                      <a href="#" class="mdl-button">Ver más</a>
-                    </div>
-                  </div>
-                </section>
-
-
-                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="margin-bottom:5%;">
-                      <header class=" mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
-
-                      </header>
-                      <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone" style="    min-height: 50px;">
-                        <div class="mdl-card__supporting-text" style="display: block;">
-                          <h4>Reto 4</h4>
-                          Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.
-                        </div>
-                        <div class="mdl-card__actions">
-                          <a href="#" class="mdl-button">Ver más</a>
-                        </div>
-                      </div>
-                    </section>
-
-  </div>
-
-
-
+          <div class="group">
+            <div class="icon material-icons">favorite</div>
+            <p>{{c.likes}}</p>
+          </div>
+        </div>
+        <p> {{c.description}} </p>
+      </div>
+      <div class="mdl-card__actions">
+        <a href="#" class="mdl-button">Ver más</a>
+      </div>
+    </div>
+  </section>
+</div>
 
 
 <dialog class="mdl-dialog" #dialog>
