@@ -1,7 +1,7 @@
 <div class="demo-blog__posts mdl-grid">
   <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
     <div class="mdl-card__media mdl-color-text--grey-50">
-      <h3>Caso de Exito - Click Social</h3>
+      <h3>Caso de Exito - {{story.title}}</h3>
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
       <div class="minilogo"></div>
@@ -17,89 +17,8 @@
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
       <p>
-        Gerardo de la Rosa, Pablo de la Rosa, y Daniel Arenas, estudiantes y egresados de la Universidad de las Américas Puebla, obtuvieron el primer lugar a nivel nacional del concurso Reto Click Social, evento organizado por el Instituto Nacional del Emprendedor
-        (INADEM), el Centro Nacional de Investigación de Desarrollo Empresarial (CENIDE) y Sociedad en Movimiento. “Este concurso constó en realizar el prototipo de una aplicación móvil que permitiera la vinculación entre empresarios, empresas, emprendedores
-        e instituciones gubernamentales con el fin de fomentar e impulsar la llamada economía naranja”, reveló en entrevista Gerardo de la Rosa Michicol, egresado de Ingeniería en Sistemas Computacionales de la UDLAP, quien además explicó que la economía
-        naranja es un conjunto de actividades que de manera desencadenada permite que las ideas se transformen en bienes. “En México este tipo de economía ha quedado muy rezagada a diferencia de otros países, es por ello que con este concurso lo que se
-        quiere propiciar es que crezca este tipo de economía”, comentó. Sobre la aplicación “Click social”, con la que los estudiantes y egresados de la UDLAP participaron y ganaron el primer lugar a nivel nacional, Gerardo de la Rosa explicó que ésta
-        ayuda a la vinculación entre empresarios y emprendedores; “por ejemplo si quieres encontrar un nuevo socio la aplicación te ayudará a encontrar a un socio interesado en el mismo tema pero dedicado a la mejor a otra rama; también puede ayudar a
-        buscar inversionistas, mentorías de empresarios y saber cuándo aplicas para apoyos ofertados por el gobierno”, declaró.
+        {{story.description}}
       </p>
     </div>
-    <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
-      <form>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <textarea rows=1 class="mdl-textfield__input" id="comment"></textarea>
-          <label for="comment" class="mdl-textfield__label">Agrega un comentario</label>
-        </div>
-        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-          <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
-        </button>
-      </form>
-      <div class="comment mdl-color-text--grey-700">
-        <header class="comment__header">
-          <img src="../assets/imgs/co1.jpg" class="comment__avatar">
-          <div class="comment__author">
-            <strong>Juan Perez</strong>
-            <span>Hace 2 dias</span>
-          </div>
-        </header>
-        <div class="comment__text">
-          In in culpa nulla elit esse. Ex cillum enim aliquip sit sit ullamco ex eiusmod fugiat. Cupidatat ad minim officia mollit laborum magna dolor tempor cupidatat mollit. Est velit sit ad aliqua ullamco laborum excepteur dolore proident incididunt in labore
-          elit.
-        </div>
-        <nav class="comment__actions">
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
-          </button>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
-          </button>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
-          </button>
-        </nav>
-        <div class="comment__answers">
-          <div class="comment">
-            <header class="comment__header">
-              <img src="../assets/imgs/co2.jpg" class="comment__avatar">
-              <div class="comment__author">
-                <strong>Juan Perez</strong>
-                <span>Hace 2 dias</span>
-              </div>
-            </header>
-            <div class="comment__text">
-              Yep
-            </div>
-            <nav class="comment__actions">
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
-              </button>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
-              </button>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
-              </button>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-
-  <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <a href="index.html" class="demo-nav__button">
-      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-        <i class="material-icons">arrow_back</i>
-      </button> Siguiente
-    </a>
-    <div class="section-spacer"></div>
-    <a href="index.html" class="demo-nav__button">
-      Atras
-      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-        <i class="material-icons">arrow_forward</i>
-      </button>
-    </a>
-  </nav>
 </div>

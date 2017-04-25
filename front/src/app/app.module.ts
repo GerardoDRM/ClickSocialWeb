@@ -16,7 +16,7 @@ import { ChallengeComponent } from './challenge.component'
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cases', component: SuccesCasesComponent },
-  { path: 'case', component: SuccesCaseComponent },
+  { path: 'case/:id', component: SuccesCaseComponent },
   { path: 'contests', component: ContestComponent },
   { path: 'announces', component: AnnouncesComponent },
   { path: 'directory', component: DirectoryComponent },
