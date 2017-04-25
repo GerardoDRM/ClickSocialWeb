@@ -26,11 +26,7 @@ export class SuccesCasesComponent implements OnInit {
   }
   getStories() {
     this.storyService.getStories().subscribe(
-      function(response) {
-        this.stories = response
-        console.log(this.stories);
-      },
-      function(error) { console.log("Error happened" + error) },
+      response => this.stories = response
     )
   }
 }
