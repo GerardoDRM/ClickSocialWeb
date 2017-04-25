@@ -61,7 +61,7 @@ html {
 
 .zigzag-green:after {
   @include styling_zigzag($dark-color);
-  top: 140px;
+  top: 0px;
   z-index: 99;
 }
 

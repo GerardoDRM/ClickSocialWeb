@@ -52,6 +52,10 @@ export class ChallengeComponent implements OnInit, OnDestroy {
       this.getData(this.id);
     });
   }
+  dateTransform(number) {
+    var t = new Date( number * 1000 );
+    return t.getDate() + "/" + (t.getMonth()+1) + "/" + t.getFullYear();
+  }
   getData(id) {
     this.challengesService.getChallenge(id).subscribe(
      response => this.challenge = response

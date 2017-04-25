@@ -126,7 +126,7 @@ html {
   position: relative;
   top: 32px;
   left: 0;
-  top: 140px;
+  top: 0px;
   z-index: 99; }
 
 .loading {
@@ -244,7 +244,7 @@ html {
 .filters-header {
   background: #388e3c;
   width: 100%;
-  height: 400px; }
+  height: 250px; }
   .filters-header .filter-opt {
     color: white;
     text-align: center; }
@@ -764,6 +764,9 @@ img.article-image {
         .challenges .description .text .data .group {
           margin: 0 10px;
           display: inline-flex; }
+
+.dialog-contest {
+  width: 400px; }
 
 /**
   * Buttons Partial SASS

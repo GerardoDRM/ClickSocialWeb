@@ -1,13 +1,13 @@
 <div class="demo-blog__posts mdl-grid">
   <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-    <div class="mdl-card__media mdl-color-text--grey-50">
-      <h3>Caso de Exito - {{story.title}}</h3>
+    <div class="mdl-card__media mdl-color-text--grey-50" [ngStyle]="{'background': 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.41) 90%), linear-gradient(0deg, rgba(45, 47, 49, 0.3), transparent), url('+story.img+') center/cover no-repeat'}">
+      <h3>Caso de éxito - {{story.title}}</h3>
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
       <div class="minilogo"></div>
       <div>
-        <strong>Caso</strong>
-        <span>Hace 3 dias</span>
+        <strong>Fecha</strong>
+        <span>{{dateTransform(story.creation_date)}}</span>
       </div>
       <div class="section-spacer"></div>
       <div class="meta__favorites">

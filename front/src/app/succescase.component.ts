@@ -44,6 +44,10 @@ export class SuccesCaseComponent implements OnInit, OnDestroy {
       this.getData(this.id);
     });
   }
+  dateTransform(number) {
+    var t = new Date( number * 1000 );
+    return t.getDate() + "/" + (t.getMonth()+1) + "/" + t.getFullYear();
+  }
   getData(id) {
     this.storyService.getStories(id).subscribe(
       response => this.story = response

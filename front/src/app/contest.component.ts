@@ -72,8 +72,10 @@ export class ContestComponent implements OnInit, AfterViewInit {
       response => this.convocations = response
       )
   }
-
-
+  dateTransform(number) {
+    var t = new Date( number * 1000 );
+    return t.getDate() + "/" + (t.getMonth()+1) + "/" + t.getFullYear();
+  }
   ngAfterViewInit() {
     var d = this.dialog.nativeElement;
     if (!d.showModal) {

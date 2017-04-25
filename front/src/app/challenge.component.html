@@ -1,21 +1,26 @@
 <div class="demo-blog__posts mdl-grid">
   <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-    <div class="mdl-card__media mdl-color-text--grey-50">
+    <div class="mdl-card__media mdl-color-text--grey-50" [ngStyle]="{'background': 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.41) 90%), linear-gradient(0deg, rgba(45, 47, 49, 0.3), transparent), url('+challenge.img+') center/cover no-repeat'}">
       <h3>{{challenge.title}}</h3>
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
       <div class="minilogo"></div>
       <div>
-        <strong>Caso</strong>
-        <span>Hace 3 dias</span>
+        <strong>Fecha</strong>
+        <span>{{dateTransform(challenge.creation_date)}}</span>
       </div>
       <div class="section-spacer"></div>
       <div class="meta__favorites">
-        425 <i class="material-icons" role="presentation">favorite</i>
+        {{challenge.likes}} <i class="material-icons" role="presentation">favorite</i>
         <span class="visuallyhidden">favorites</span>
       </div>
     </div>
     <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+      <h3>Info</h3>
+      <p>
+        {{challenge.description}}
+      </p>
+      <h3>Reto</h3>
       <p>
         {{challenge.challenge}}
       </p>
@@ -39,8 +44,7 @@
           </div>
         </header>
         <div class="comment__text">
-          In in culpa nulla elit esse. Ex cillum enim aliquip sit sit ullamco ex eiusmod fugiat. Cupidatat ad minim officia mollit laborum magna dolor tempor cupidatat mollit. Est velit sit ad aliqua ullamco laborum excepteur dolore proident incididunt in labore
-          elit.
+          Entre las aportaciones que se pueden presentar sobre este tema....
         </div>
         <nav class="comment__actions">
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -63,7 +67,7 @@
               </div>
             </header>
             <div class="comment__text">
-              Yep
+              Excelente Idea, yo puedo aportar un desarrollo sobre...
             </div>
             <nav class="comment__actions">
               <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
