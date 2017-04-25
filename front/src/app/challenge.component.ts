@@ -10,7 +10,7 @@ export interface Author {
   name:string;
   email:string;
 }
-export interface Commnet {
+export interface Comment {
   user:string;
   name:string;
   content:string;
@@ -37,7 +37,7 @@ export interface Challenge {
 export class ChallengeComponent implements OnInit, OnDestroy {
   private sub: any;
   id: string;
-  challenge: Challenge[]
+  challenge: Challenge[];
   mode = 'Observable';
 
   constructor(private route: ActivatedRoute, private challengesService: ChallengeService) { }
@@ -49,7 +49,8 @@ export class ChallengeComponent implements OnInit, OnDestroy {
   }
   getChallenge(id) {
     this.challengesService.getChallenge(id).subscribe(
-      response => this.challenge = response
+    //  response => this.challenge = response
+
     )
   }
   ngOnDestroy() {
