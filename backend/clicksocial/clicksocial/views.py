@@ -4,6 +4,7 @@ from flask import jsonify
 from flask_cors import cross_origin
 from bson.objectid import ObjectId
 
+
 def create_dic(cursor):
     k = []
     for doc in cursor:
@@ -24,6 +25,7 @@ class HelloWorld(Resource):
 
 
 class Convocations(Resource):
+
     @cross_origin()
     def get(self, id=None):
         if id is None:
@@ -57,8 +59,8 @@ class Convocations(Resource):
                 }
             ]
         else:
-            convocation = mongo.db.find_one({"_id":ObjectId(id)})
-            test={
+            convocation = mongo.db.convocation.find_one({"_id": ObjectId(id)})
+            test = {
                 "_id": "58f4f269516ea6d697a45bc8",
                 "addresses": [
                     {
@@ -95,32 +97,33 @@ class Convocations(Resource):
 
 
 class Stories(Resource):
+
     @cross_origin()
     def get(self, id=None):
-      if id is None:
-        s = create_dic(mongo.db.success_stories.find(
-            {}, {"creation_date": 1, "description": 1, "img": 1, "title": 1}))
-        test = [
-            {
+        if id is None:
+            s = create_dic(mongo.db.success_stories.find(
+                {}, {"creation_date": 1, "description": 1, "img": 1, "title": 1}))
+            test = [
+                {
+                    "_id": "58f4f2fa516ea6d697a45bc9",
+                    "creation_date": 1492659697,
+                    "description": "Lorem Ipsum",
+                    "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
+                    "title": "Click Social"
+                }
+            ]
+        else:
+            story = mongo.db.success_stories.find_one({"_id": ObjectId(id)})
+            test = {
                 "_id": "58f4f2fa516ea6d697a45bc9",
                 "creation_date": 1492659697,
                 "description": "Lorem Ipsum",
                 "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
                 "title": "Click Social"
             }
-          ]
-      else:
-            story = mongo.db.find_one({"_id":ObjectId(id)})
-            test={
-                    "_id": "58f4f2fa516ea6d697a45bc9",
-                    "creation_date": 1492659697,
-                    "description": "Lorem Ipsum",
-                    "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
-                    "title": "Click Social"
-            }
             return jsonify(test)
 
-      return jsonify(stories=test)
+        return jsonify(stories=test)
 
 '''
     Get all challenges stored on the database
@@ -129,52 +132,132 @@ class Stories(Resource):
 
 
 class Challenge(Resource):
+
     @cross_origin()
     def get(self, id=None):
-      if id is None:
-        s = create_dic(mongo.db.challenges.find(
-            {}, {"creation_date": 1, "description": 1, "img": 1, "title": 1, "likes":1}))
-        test = [
-            {
-                "_id": "58f4f2fa516ea6d697a45bc9",
+        if id is None:
+            s = create_dic(mongo.db.challenges.find(
+                {}, {"creation_date": 1, "description": 1, "img": 1, "title": 1, "likes": 1}))
+            test = [
+                {
+                    "_id": "58f4f2fa516ea6d697a45bc9",
+                    "creation_date": 1492659697,
+                    "description": "Lorem Ipsum",
+                    "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
+                    "title": "Click Social",
+                    "likes": 10
+                },
+                {
+                    "_id": "58f4f2fa516ea6d697a45bc9",
+                    "creation_date": 1492659697,
+                    "description": "Lorem Ipsum",
+                    "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
+                    "title": "Click Social",
+                    "likes": 10
+                }
+            ]
+        else:
+            challenge = mongo.db.challenges.find_one({"_id": ObjectId(id)})
+            test = {
+                "_id": "58f4f144516ea6d697a45bc7",
+                "title": "Reto 1",
+                "model": [
+                    "Pobreza",
+                    "Sustentabilidad"
+                ],
                 "creation_date": 1492659697,
                 "description": "Lorem Ipsum",
-                "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
-                "title": "Click Social",
-                "likes": 10
-            },
-            {
-                "_id": "58f4f2fa516ea6d697a45bc9",
-                "creation_date": 1492659697,
-                "description": "Lorem Ipsum",
-                "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
-                "title": "Click Social",
-                "likes": 10
+                "challenge": "Lorem Ipsum",
+                "img": "/img",
+                "comments": [
+                    {
+                        "user": "0124",
+                        "name": "Test",
+                        "content": "test",
+                        "publish_date": 1492659697
+                    }
+                ],
+                "authors": [
+                    {
+                        "name": "Gerar de la Rosa",
+                        "email": "contacto.craftcode@gmail.com"
+                    }
+                ],
+                "likes": 10,
+                "participants": 20,
+                "address": [
+                    {
+                        "state": "Puebla",
+                        "city": "Puebla"
+                    }
+                ]
             }
-        ]
-      else:
-        challenge = mongo.db.find_one({"_id":ObjectId(id)})
-        test={
-            "_id": "58f4f2fa516ea6d697a45bc9",
-            "creation_date": 1492659697,
-            "description": "Lorem Ipsum",
-            "img": "https://i.ytimg.com/vi/opKg3fyqWt4/hqdefault.jpg",
-            "title": "Click Social",
-            "likes": 10
-        }
-        return jsonify(test)
-      return jsonify(challenges=test)
+            return jsonify(test)
+        return jsonify(challenges=test)
+
+'''
+    Get all challenges stored on the database
+    this class just retrieve all data without any constraint
+'''
+
+
+class Organization(Resource):
+
+    @cross_origin()
+    def get(self, id=None):
+        if id is None:
+            s = create_dic(mongo.db.organizations.find({}))
+            test = [
+                {
+                    "_id": "58f4efe9516ea6d697a45bc6",
+                    "model": "Fundacion Empresarial",
+                    "entity": "American Express, S.A. de C.V",
+                    "social_group": "Poblacion en general",
+                    "federal_entity": "Ciudad de Mexico",
+                    "geo_issue": "Nacional",
+                    "web": "www.americanexpress.com",
+                    "contact": [
+                        "Adriana Rivera, Directora de Asuntos Corporativos y Comunicacion"
+                    ],
+                    "email": "adriana.a.rivera@aexp.com",
+                    "type": "Desarrollo Integral"
+                }
+            ]
+        else:
+            organization = mongo.db.organization.find_one(
+                {"_id": ObjectId(id)})
+            test = {
+                "_id": "58f4efe9516ea6d697a45bc6",
+                "model": "Fundacion Empresarial",
+                "entity": "American Express, S.A. de C.V",
+                "social_group": "Poblacion en general",
+                "federal_entity": "Ciudad de Mexico",
+                "geo_issue": "Nacional",
+                "web": "www.americanexpress.com",
+                "contact": [
+                    "Adriana Rivera, Directora de Asuntos Corporativos y Comunicacion"
+                ],
+                "email": "adriana.a.rivera@aexp.com",
+                "type": "Desarrollo Integral"
+            }
+            return jsonify(test)
+        return jsonify(organizations=test)
+
 
 api.add_resource(HelloWorld, '/')
 api.add_resource(Convocations,
-        '/api/v0/convocations',
-        '/api/v0/convocations/<id>',
-        endpoint="convocations")
+                 '/api/v0/convocations',
+                 '/api/v0/convocations/<id>',
+                 endpoint="convocations")
 api.add_resource(Stories,
-        '/api/v0/stories',
-        '/api/v0/stories/<id>',
-        endpoint="stories")
+                 '/api/v0/stories',
+                 '/api/v0/stories/<id>',
+                 endpoint="stories")
 api.add_resource(Challenge,
-        '/api/v0/challenges',
-        '/api/v0/challenges/<id>',
-        endpoint="challenges")
+                 '/api/v0/challenges',
+                 '/api/v0/challenges/<id>',
+                 endpoint="challenges")
+api.add_resource(Organization,
+                 '/api/v0/organizations',
+                 '/api/v0/organizations/<id>',
+                 endpoint="organizations")

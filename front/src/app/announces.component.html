@@ -26,7 +26,7 @@
         <p> {{c.description}} </p>
       </div>
       <div class="mdl-card__actions">
-        <a href="#" class="mdl-button">Ver más</a>
+        <a [routerLink]="['/challenge', c._id]" class="mdl-button">Ver más</a>
       </div>
     </div>
   </section>

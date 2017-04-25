@@ -11,6 +11,7 @@ import { HomeComponent } from './home.component'
 import { ContestComponent } from './contest.component'
 import { AnnouncesComponent } from './announces.component'
 import { DirectoryComponent } from './directory.component'
+import { ChallengeComponent } from './challenge.component'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,8 +19,8 @@ const appRoutes: Routes = [
   { path: 'case', component: SuccesCaseComponent },
   { path: 'contests', component: ContestComponent },
   { path: 'announces', component: AnnouncesComponent },
-  { path: 'directory', component: DirectoryComponent }
-
+  { path: 'directory', component: DirectoryComponent },
+  { path: 'challenge/:id', component: ChallengeComponent }
 ];
 
 @NgModule({
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     HomeComponent,
     ContestComponent,
     AnnouncesComponent,
-    DirectoryComponent
+    DirectoryComponent,
+    ChallengeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
