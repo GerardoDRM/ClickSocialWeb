@@ -40,12 +40,26 @@
 
 </div>
 
-<dialog class="mdl-dialog" #dialog>
-  <h4 class="mdl-dialog__title">{{dialogC.title}}</h4>
+<dialog class=" mdl-dialog" style="width:400px;" #dialog>
+  <h4 class="mdl-dialog__title" style="    text-align: center;
+    margin-bottom: 5%;">{{dialogC.title}}</h4>
+  <div>
+    <img class="article-image" src={{dialogC.img}} border="0" alt="">
+  </div>
   <div class="mdl-dialog__content">
+    <div class="group" style="display:inline-flex;">
+      <div class="icon material-icons">today</div>
+      <p>{{dialogC.creation_date}}</p>
+</div>
     <p>
       {{dialogC.description}}
     </p>
+      <div class="group" style="display:inline-flex;">
+    <div class="icon material-icons" style="display:inline-flex;">web</div>
+    <p>
+      {{dialogC.web}}
+    </p>
+  </div>
   </div>
   <div class="mdl-dialog__actions">
     <button type="button" class="mdl-button close" (click)="closeDialog()">Cerrar</button>
