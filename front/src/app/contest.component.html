@@ -18,97 +18,33 @@
       </div>
     </div>
   </div>
-  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+
+
+  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card" *ngFor="let c of convocations">
     <div>
-      <img class="article-image" src="http://blog.udlap.mx/wp-content/uploads/2017/01/click-social-udlap.jpg" border="0" alt="">
+      <img class="article-image" src={{c.img}} border="0" alt="">
     </div>
     <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Reto Click Social</h2>
+      <h2 class="mdl-card__title-text">{{c.title}}</h2>
     </div>
     <div class="mdl-card__supporting-text">
-      Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+      {{c.description}}
     </div>
     <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="show-dialog" (click)="openDialog()">Ver mas</a>
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="show-dialog" (click)="openDialog(c)">Ver mas</a>
     </div>
   </div>
-  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-    <div>
-      <img class="article-image" src="http://i.investopedia.com/dimages/graphics/10_habits_every_entrepreneur_should_have.jpg" border="0" alt="">
-    </div>
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Convocatoria 1</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Ver mas</a>
-    </div>
-  </div>
-  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-    <div>
-      <img class="article-image" src="http://www.businessnewsdaily.com/images/i/000/009/527/original/entrepreneur.jpg?interpolation=lanczos-none&fit=around%7C700:500" border="0" alt="">
-    </div>
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Convocatoria 2</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Ver mas</a>
-    </div>
-  </div>
-  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-    <div>
-      <img class="article-image" src="https://assets.entrepreneur.com/content/3x2/1300/20160408155709-default-hero-entrepreneur.png" border="0" alt="">
-    </div>
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Convocatoria 3</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Ver mas</a>
-    </div>
-  </div>
-  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-    <div>
-      <img class="article-image" src="https://assets.entrepreneur.com/content/3x2/1300/20160408155709-default-hero-entrepreneur.png" border="0" alt="">
-    </div>
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Convocatoria 4</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Ver mas</a>
-    </div>
-  </div>
-  <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
-    <div>
-      <img class="article-image" src="http://i.investopedia.com/dimages/graphics/10_habits_every_entrepreneur_should_have.jpg" border="0" alt="">
-    </div>
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Convocatoria 5</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Ver mas</a>
-    </div>
-  </div>
+
+
+
+
 </div>
 
 <dialog class="mdl-dialog" #dialog>
-  <h4 class="mdl-dialog__title">Reto Click Social</h4>
+  <h4 class="mdl-dialog__title">{{dialogC.title}}</h4>
   <div class="mdl-dialog__content">
     <p>
-      Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+      {{dialogC.description}}
     </p>
   </div>
   <div class="mdl-dialog__actions">
