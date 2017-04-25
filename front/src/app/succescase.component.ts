@@ -15,7 +15,6 @@ export interface Story {
     img: string;
     creation_date: number;
     web:string;
-    contact: Contact;
  }
 
 
@@ -28,7 +27,14 @@ export interface Story {
 export class SuccesCaseComponent implements OnInit, OnDestroy {
   private sub: any;
   id: string;
-  story: Story;
+  story: Story = {
+    _id: "",
+    title: "",
+    description: "",
+    img: "",
+    creation_date: 0,
+    web: ""
+  };
   mode = 'Observable';
 
   constructor(private route: ActivatedRoute, private storyService: StoryService) { }

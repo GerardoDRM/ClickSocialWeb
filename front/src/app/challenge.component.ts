@@ -23,9 +23,6 @@ export interface Challenge {
     img: string;
     creation_date: number;
     likes: number;
-    comments: Comment[];
-    authors:Author[];
-    address:Address;
  }
 
 @Component({
@@ -37,19 +34,27 @@ export interface Challenge {
 export class ChallengeComponent implements OnInit, OnDestroy {
   private sub: any;
   id: string;
-  challenge: Challenge[];
+  challenge: Challenge = {
+    _id: "",
+    title: "",
+    description: "",
+    challenge: "",
+    img: "",
+    creation_date: 0,
+    likes: 0
+  };
   mode = 'Observable';
 
   constructor(private route: ActivatedRoute, private challengesService: ChallengeService) { }
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = params['id'];
-      this.getChallenge(this.id);
+      this.getData(this.id);
     });
   }
-  getChallenge(id) {
+  getData(id) {
     this.challengesService.getChallenge(id).subscribe(
-    //  response => this.challenge = response
+     response => this.challenge = response
 
     )
   }

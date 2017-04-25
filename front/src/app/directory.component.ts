@@ -30,7 +30,6 @@ export class DirectoryComponent implements AfterViewInit {
   constructor(private _elRef: ElementRef, private challengesService: organizationService) {
   }
   ngAfterViewInit() {
-
   }
   ngOnInit() {
     this.getOrganizations();
