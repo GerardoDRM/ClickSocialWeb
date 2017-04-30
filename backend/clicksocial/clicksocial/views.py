@@ -327,6 +327,32 @@ class Challenge(Resource):
         return jsonify(challenges=test)
 
 '''
+    This class inserts and gets comments on specific challenge
+'''
+class Comments(Resource):
+
+    @cross_origin()
+    def get(self, id):
+        challenge = mongo.db.challenges.find_one({"_id": ObjectId(id)}, {"comments":1})
+        return jsonify(challenge)
+
+    @cross_origin()
+    def post(self, id):
+        parser = reqparse.RequestParser()
+        parser.add_argument('comment', type=dict, required=True)
+        args = parser.parse_args()
+
+        result = mongo.db.challenge.update_one({"_id":ObjectId(id)}, {"$push": args.comment)
+        message = {
+            "status": 500
+        }
+        if result.matched_count is 1:
+            message["status"] = 200
+
+        return jsonify(message)
+
+
+'''
     Get all challenges stored on the database
     this class just retrieve all data without any constraint
 '''
@@ -336,8 +362,28 @@ class Organization(Resource):
 
     @cross_origin()
     def get(self, id=None):
+
         if id is None:
-            s = create_dic(mongo.db.organizations.find({}))
+            parser = reqparse.RequestParser()
+            parser.add_argument('group', type=list, required=False, location='json')
+            parser.add_argument('type', type=list, required=False, location='json')
+            parser.add_argument('issue', type=list, required=False, location='json')
+            parser.add_argument('filters', type=int, required=True)
+            args = parser.parse_args()
+
+            # Check filters
+            if args.filters is 1: # Add filters
+                # Check which filter to apply
+                s = create_dic(mongo.db.organizations.find({
+                    "$or": [
+                        {"social_group": {"$in": args.group}},
+                        {"type": {"$in": args.type}},
+                        {"issue": {"$in": args.issue}}
+                    ]
+                }))
+            else:
+                s = create_dic(mongo.db.organizations.find({}))
+
             test = [
                 {
                     "_id": "58f4efe9516ea6d697a45bc6",
