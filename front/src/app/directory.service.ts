@@ -13,7 +13,8 @@ export interface Organization {
   geo_issue:string,
   web:string,
   email:string,
-  type:string
+  type:string,
+  img:string
  }
 
 @Injectable()
