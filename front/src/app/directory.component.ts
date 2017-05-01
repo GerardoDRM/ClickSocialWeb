@@ -48,6 +48,28 @@ export class DirectoryComponent implements AfterViewInit {
     "Delegacion"
   ]
 
+  selectedTypes=[
+    {"value": false},
+    {"value": false},
+    {"value": false},
+    {"value": false},
+    {"value": false},
+    {"value": false}
+  ];
+
+  selectedGroup=[
+    {"value": false},
+    {"value": false},
+    {"value": false}
+  ];
+
+  selectedIssue=[
+    {"value": false},
+    {"value": false},
+    {"value": false},
+    {"value": false}
+  ];
+
 
   constructor(private _elRef: ElementRef, private challengesService: organizationService) {
   }
@@ -56,6 +78,34 @@ export class DirectoryComponent implements AfterViewInit {
     if (!d.showModal) {
       dialogPolyfill.registerDialog(d);
     }
+  }
+  searchData() {
+    let newTypes = "";
+    let newGroup = "";
+    let newIssues = "";
+    for(var i=0; i < this.selectedTypes.length; i++) {
+      if (this.selectedTypes[i].value) {
+        newTypes+=this.type_filter[i] + ',';
+      }
+    }
+    newTypes = newTypes.slice(0, -1);
+    for(var i=0; i < this.selectedGroup.length; i++) {
+      if (this.selectedGroup[i].value) {
+        newGroup+=this.group_filter[i] + ',';
+      }
+    }
+    newGroup = newGroup.slice(0, -1);
+    for(var i=0; i < this.selectedIssue.length; i++) {
+      if (this.selectedIssue[i].value) {
+        newIssues+=this.issue_filter[i] + ',';
+      }
+    }
+    newIssues = newIssues.slice(0, -1);
+
+    console.log(newGroup, newIssues);
+    // this.challengesService.getFilterData(newTypes, newGroup, newIssues).subscribe(
+    //   response => this.organizations = response
+    // )
   }
   openDialog() {
     var d = this.dialog.nativeElement;

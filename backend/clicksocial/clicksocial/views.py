@@ -365,9 +365,9 @@ class Organization(Resource):
 
         if id is None:
             parser = reqparse.RequestParser()
-            parser.add_argument('group', type=list, required=False, location='json')
-            parser.add_argument('type', type=list, required=False, location='json')
-            parser.add_argument('issue', type=list, required=False, location='json')
+            parser.add_argument('group', type=str, required=False)
+            parser.add_argument('type', type=str, required=False)
+            parser.add_argument('issue', type=str, required=False)
             parser.add_argument('filters', type=int, required=True)
             args = parser.parse_args()
 
@@ -376,9 +376,9 @@ class Organization(Resource):
                 # Check which filter to apply
                 s = create_dic(mongo.db.organizations.find({
                     "$or": [
-                        {"social_group": {"$in": args.group}},
-                        {"type": {"$in": args.type}},
-                        {"issue": {"$in": args.issue}}
+                        {"social_group": {"$in": args.group.split(',')}},
+                        {"type": {"$in": args.type.split(',')}},
+                        {"issue": {"$in": args.issue.split(',')}}
                     ]
                 }))
             else:
