@@ -284,6 +284,7 @@ html {
   * forms used on the app
 **/
 .portfolio-max-width {
+  justify-content: center;
   max-width: 900px;
   margin: auto; }
 
@@ -292,6 +293,7 @@ img.article-image {
   height: auto; }
 
 .portfolio-card .mdl-card__title {
+  margin: 5px;
   padding-bottom: 0; }
 
 .mdl-card__media {
@@ -456,6 +458,17 @@ img.article-image {
   color: inherit; }
 
 .mdl-card__supporting-text {
+  display: block;
+  display: -webkit-box;
+  max-width: 400px;
+  height: 20px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   width: 100%;
   padding: 16px;
   min-height: 64px;
@@ -781,7 +794,7 @@ img.article-image {
     color: white; }
 
 .card-align {
-  margin-right: 12%;
+  margin: 5px;
   margin-bottom: 0; }
 
 /**
