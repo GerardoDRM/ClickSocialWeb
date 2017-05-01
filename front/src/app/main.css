@@ -457,7 +457,7 @@ img.article-image {
 .mdl-card__title a {
   color: inherit; }
 
-.mdl-card__supporting-text {
+.elipsis-effect {
   display: block;
   display: -webkit-box;
   max-width: 400px;
@@ -468,7 +468,9 @@ img.article-image {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; }
+
+.mdl-card__supporting-text {
   width: 100%;
   padding: 16px;
   min-height: 64px;
