@@ -7,17 +7,17 @@ import { organizationService } from './directory.service';
 declare var dialogPolyfill: any;
 
 export interface Organization {
-  _id:string,
-  model:string,
-  entity:string,
-  social_group:string,
-  federal_entity:string,
-  geo_issue:string,
-  web:string,
-  email:string,
-  type:string,
+  _id: string,
+  model: string,
+  entity: string,
+  social_group: string,
+  federal_entity: string,
+  geo_issue: string,
+  web: string,
+  email: string,
+  type: string,
   img: string;
- }
+}
 
 @Component({
   templateUrl: './directory.component.html',
@@ -25,13 +25,45 @@ export interface Organization {
   providers: [organizationService]
 })
 export class DirectoryComponent implements AfterViewInit {
+  @ViewChild('dialog') dialog: ElementRef;
   organizations: Organization[];
   mode = 'Observable';
+  type_filter = [
+    "Desarrollo Integral",
+    "Sociedad Incluyente",
+    "Alimentacion",
+    "Equidad de genero",
+    "Profesionalizacion",
+    "Investigacion"
+  ]
+  group_filter = [
+    "Población en general",
+    "Productores",
+    "Comunidades"
+  ]
+  issue_filter = [
+    "Nacional",
+    "Estatal",
+    "Municipal",
+    "Delegacion"
+  ]
 
 
   constructor(private _elRef: ElementRef, private challengesService: organizationService) {
   }
   ngAfterViewInit() {
+    var d = this.dialog.nativeElement;
+    if (!d.showModal) {
+      dialogPolyfill.registerDialog(d);
+    }
+  }
+  openDialog() {
+    var d = this.dialog.nativeElement;
+    d.showModal();
+  }
+  closeDialog() {
+    var d = this.dialog.nativeElement;
+    d.close();
   }
   ngOnInit() {
     this.getOrganizations();
