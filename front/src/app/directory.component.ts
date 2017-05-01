@@ -102,10 +102,12 @@ export class DirectoryComponent implements AfterViewInit {
     }
     newIssues = newIssues.slice(0, -1);
 
-    console.log(newGroup, newIssues);
-    // this.challengesService.getFilterData(newTypes, newGroup, newIssues).subscribe(
-    //   response => this.organizations = response
-    // )
+    this.challengesService.getFilterData(newTypes, newGroup, newIssues).subscribe(
+      response => this.organizations = response
+    )
+
+    var d = this.dialog.nativeElement;
+    d.close();
   }
   openDialog() {
     var d = this.dialog.nativeElement;

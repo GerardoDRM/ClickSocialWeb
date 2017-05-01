@@ -18,16 +18,29 @@ export interface Organization {
   web:string,
   email:string,
   type:string,
-  img: string;
+  img: string,
+  contact: Array<string>,
  }
 
 @Component({
-  templateUrl: './directory.component.html',
+  templateUrl: './org.component.html',
   styleUrls: ['./main.css'],
   providers: [organizationService]
 })
 export class OrgComponent implements AfterViewInit,OnInit, OnDestroy {
-  organization: Organization;
+  organization: Organization = {
+    _id:"",
+    model:"",
+    entity:"",
+    social_group:"",
+    federal_entity:"",
+    geo_issue:"",
+    web:"",
+    email:"",
+    type:"",
+    img: "",
+    contact: []
+  };
   mode = 'Observable';
   private sub: any;
   id: string;

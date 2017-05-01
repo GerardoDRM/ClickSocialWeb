@@ -27,8 +27,8 @@ export interface Challenge {
     creation_date: number;
     likes: number;
     comments: Comment[];
-    authors:Author[];
-    address:Address;
+    authors: Array<Author>;
+    address: Array<Address>;
  }
 
 @Injectable()

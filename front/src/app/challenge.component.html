@@ -24,6 +24,21 @@
       <p>
         {{challenge.challenge}}
       </p>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--6-col">
+          <h3>Autores</h3>
+          <div *ngFor="let author of challenge?.authors">
+            <p>{{author.name}}</p>
+            <p>{{author.email}}</p>
+          </div>
+        </div>
+        <div class="mdl-cell mdl-cell--6-col">
+          <h3>Direccion</h3>
+          <div *ngFor="let a of challenge?.address">
+            <p>{{a.state}}, {{a.city}}</p>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
       <form>

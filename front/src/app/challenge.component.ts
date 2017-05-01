@@ -23,6 +23,8 @@ export interface Challenge {
     img: string;
     creation_date: number;
     likes: number;
+    authors: Array<Author>;
+    address: Array<Address>;
  }
 
 @Component({
@@ -41,7 +43,9 @@ export class ChallengeComponent implements OnInit, OnDestroy {
     challenge: "",
     img: "",
     creation_date: 0,
-    likes: 0
+    likes: 0,
+    authors: [],
+    address: []
   };
   mode = 'Observable';
 

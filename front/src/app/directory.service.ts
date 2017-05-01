@@ -34,11 +34,9 @@ export class organizationService {
     this.params.set('type', t);
     this.params.set('group', g);
     this.params.set('issue', i);
-
     return this.http.get(this.orgUrl, {search:this.params})
       .map(this.extractData)
       .catch(this.handleError);
-
   }
   private extractData(res: Response) {
     let body = res.json();

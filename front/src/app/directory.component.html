@@ -24,8 +24,11 @@
           <p>{{o.type}}</p>
         </div>
       </div>
+      <div class="elipsis-effect mdl-card__supporting-text" style="    display: block;">
+        {{o.description}}
+      </div>
       <div class="mdl-card__actions mdl-card--border">
-        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">Ver mas</a>
+        <a [routerLink]="['/org', o._id]" class="mdl-button mdl-js-button mdl-js-ripple-effect" >Ver mas</a>
       </div>
     </div>
   </div>

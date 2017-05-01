@@ -398,7 +398,8 @@ class Organization(Resource):
                     ],
                     "email": "adriana.a.rivera@aexp.com",
                     "type": "Desarrollo Integral",
-                    "img":"https://www.sams.com.mx/Images/Informativas/amex_1.jpg"
+                    "img":"https://www.sams.com.mx/Images/Informativas/amex_1.jpg",
+                    "description": "ok"
                 },
                 {
                     "_id": "58f4efe9516ea6d697a45bc6",
@@ -413,7 +414,8 @@ class Organization(Resource):
                     ],
                     "email": "adriana.a.rivera@aexp.com",
                     "type": "Desarrollo Integral",
-                    "img":"https://www.sams.com.mx/Images/Informativas/amex_1.jpg"
+                    "img":"https://www.sams.com.mx/Images/Informativas/amex_1.jpg",
+                    "description": "ok"
                 }
             ]
         else:
@@ -425,13 +427,15 @@ class Organization(Resource):
                 "entity": "American Express, S.A. de C.V",
                 "social_group": "Poblacion en general",
                 "federal_entity": "Ciudad de Mexico",
+                "description": "ok",
                 "geo_issue": "Nacional",
                 "web": "www.americanexpress.com",
                 "contact": [
                     "Adriana Rivera, Directora de Asuntos Corporativos y Comunicacion"
                 ],
                 "email": "adriana.a.rivera@aexp.com",
-                "type": "Desarrollo Integral"
+                "type": "Desarrollo Integral",
+                "img":"https://www.sams.com.mx/Images/Informativas/amex_1.jpg"
             }
             return jsonify(test)
         return jsonify(organizations=test)
