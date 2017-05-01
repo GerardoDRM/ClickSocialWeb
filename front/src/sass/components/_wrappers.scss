@@ -98,6 +98,10 @@
 .logo-container {
   width: 100%;
   text-align: center;
+
+  img {
+    width: 100px;
+  }
 }
 /****************************************************/
 .demo-blog__posts {
@@ -591,5 +595,22 @@
 
 .dialog-contest {
   width: 400px;
-  
+
+}
+
+.drawerc {
+  color: white;
+  margin-top: 5%;
+background: #212121;
+border: none;
+
+
+a {
+  color: white;
+}
+}
+
+.card-align {
+  margin-right: 12%;
+  margin-bottom: 0;
 }

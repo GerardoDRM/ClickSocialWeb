@@ -9,6 +9,17 @@
 @include mq($brk-max-md) {}
 @include mq($brk-max-sm) {
 
+
+  .logo-container {
+
+
+    img {
+      margin-top: 20px;
+      width: 82px;
+    }
+  }
+
+
   .span-employee {
     margin-top: 7px;
   }
@@ -48,7 +59,7 @@
 }
 
   .mdl-button {
-    margin-left: -28px;
+
 }
 
   .table-dash.mdl-data-table th {
@@ -73,4 +84,50 @@
   .mdl-dialog {
     width: 80%;
   }
+
+  .mdl-card__supporting-text {
+    display: block;
+display: -webkit-box;
+max-width: 400px;
+height: 20px;
+margin: 0 auto;
+font-size: 14px;
+line-height: 1.4;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+  }
+
+  .mdl-card__supporting-texta {
+    display: block;
+display: -webkit-box;
+max-width: 400px;
+
+margin: 0 auto;
+font-size: 14px;
+line-height: 1.4;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+  }
+
+  .card-align {
+    margin-left: 8px;
+    margin-right: 0;
+    margin-bottom: 5%;
+  }
+  .challenges {
+
+    margin-bottom: 15%;
+
+
+
+
+  }
+
+
+
+
 }

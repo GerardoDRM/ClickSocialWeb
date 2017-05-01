@@ -208,6 +208,7 @@ html {
   margin-bottom: 16px; }
 
 .drawer {
+  color: white;
   border: none;
   /* iOS Safari specific workaround */
   /* END iOS Safari specific workaround */ }
@@ -227,6 +228,7 @@ html {
     align-items: center; }
 
 .drawer-header {
+  color: white;
   background: #FA3E51;
   box-sizing: border-box;
   display: -webkit-flex;
@@ -391,6 +393,8 @@ img.article-image {
 .logo-container {
   width: 100%;
   text-align: center; }
+  .logo-container img {
+    width: 100px; }
 
 /****************************************************/
 .demo-blog__posts {
@@ -768,6 +772,18 @@ img.article-image {
 .dialog-contest {
   width: 400px; }
 
+.drawerc {
+  color: white;
+  margin-top: 5%;
+  background: #212121;
+  border: none; }
+  .drawerc a {
+    color: white; }
+
+.card-align {
+  margin-right: 12%;
+  margin-bottom: 0; }
+
 /**
   * Buttons Partial SASS
   * This SASS file has all
@@ -808,6 +824,10 @@ img.article-image {
 **/
 /*Media Queries*/
 @media (max-width: 768px) {
+  .logo-container img {
+    margin-top: 20px;
+    width: 82px; }
+
   .span-employee {
     margin-top: 7px; }
 
@@ -835,9 +855,6 @@ img.article-image {
     font-size: 9px;
     width: 80%; }
 
-  .mdl-button {
-    margin-left: -28px; }
-
   .table-dash.mdl-data-table th {
     font-size: 15px; }
 
@@ -852,6 +869,39 @@ img.article-image {
     display: none; }
 
   .mdl-dialog {
-    width: 80%; } }
+    width: 80%; }
+
+  .mdl-card__supporting-text {
+    display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    height: 20px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+
+  .mdl-card__supporting-texta {
+    display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+
+  .card-align {
+    margin-left: 8px;
+    margin-right: 0;
+    margin-bottom: 5%; }
+
+  .challenges {
+    margin-bottom: 15%; } }
 
 /*# sourceMappingURL=main.css.map */
