@@ -3,14 +3,14 @@
   <h3 class="slogan">Casos de Éxito</h3>
 </main>
   <div class="mdl-grid portfolio-max-width">
-    <div class="mdl-cell--4-col mdl-card mdl-shadow--4dp portfolio-card card-align" style="" *ngFor="let s of stories">
+    <div class="mdl-cell--4-col mdl-card mdl-shadow--4dp portfolio-card card-align" style="    height: 382px;" *ngFor="let s of stories">
       <div>
         <img class="article-image" src={{s.img}} border="0" alt="">
       </div>
       <div class="mdl-card__title">
         <h2 class="mdl-card__title-text">{{s.title}}</h2>
       </div>
-      <div class="mdl-card__supporting-text">
+      <div class="mdl-card__supporting-text" style="    display: block;">
         {{s.description}}
       </div>
       <div class="mdl-card__actions mdl-card--border">

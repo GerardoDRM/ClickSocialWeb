@@ -4,6 +4,7 @@
   * forms used on the app
 **/
 .portfolio-max-width {
+  justify-content: center;
   max-width: 900px;
   margin: auto;
 }
@@ -14,7 +15,7 @@ img.article-image {
 }
 
 .portfolio-card .mdl-card__title {
-  
+  margin: 5px;
   padding-bottom: 0;
 }
 
