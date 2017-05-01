@@ -45,6 +45,7 @@
 }
 
 .drawer {
+  color: white;
   border: none;
   /* iOS Safari specific workaround */
   .mdl-menu__container {
@@ -69,6 +70,7 @@
 }
 
 .drawer-header {
+  color: white;
   background: $deep-pink;
   box-sizing: border-box;
   display: -webkit-flex;
