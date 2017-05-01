@@ -1,5 +1,5 @@
 import { Injectable }              from '@angular/core';
-import { Http, Response }          from '@angular/http';
+import { Http, Response, URLSearchParams }          from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -20,9 +20,12 @@ export interface Organization {
 @Injectable()
 export class organizationService {
   private orgUrl = 'http://localhost:5000/api/v0/organizations';  // URL to web API
+  params = new URLSearchParams();
+
   constructor(private http: Http) { }
   getData(): Observable<Organization[]> {
-    return this.http.get(this.orgUrl)
+    this.params.set('filters', '0');
+    return this.http.get(this.orgUrl, {search:this.params})
       .map(this.extractData)
       .catch(this.handleError);
   }

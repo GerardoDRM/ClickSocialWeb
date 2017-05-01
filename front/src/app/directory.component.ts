@@ -28,6 +28,7 @@ export class DirectoryComponent implements AfterViewInit {
   organizations: Organization[];
   mode = 'Observable';
 
+
   constructor(private _elRef: ElementRef, private challengesService: organizationService) {
   }
   ngAfterViewInit() {

@@ -32,7 +32,7 @@ export class OrgComponent implements AfterViewInit,OnInit, OnDestroy {
   private sub: any;
   id: string;
 
-  constructor(private _elRef: ElementRef, private organizationService: organizationService) {
+  constructor(private route: ActivatedRoute, private _elRef: ElementRef, private organizationService: organizationService) {
   }
   ngAfterViewInit() {
   }
