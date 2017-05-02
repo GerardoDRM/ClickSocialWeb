@@ -483,6 +483,19 @@ img.article-image {
   .mdl-card__supporting-text strong {
     font-weight: 400; }
 
+.mdl-card__supporting-text-challenge {
+  width: 100%;
+  padding: 16px;
+  min-height: 64px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .mdl-card__supporting-text-challenge strong {
+    font-weight: 400; }
+
 .mdl-card__supporting-text-directory {
   width: 100%;
   padding: 16px;
@@ -785,7 +798,7 @@ img.article-image {
 
 .challenges {
   width: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 15%;
   margin-top: -99px;
   height: 300px; }
   .challenges header {
@@ -798,6 +811,24 @@ img.article-image {
       .challenges .description .text .data {
         display: inline-flex; }
         .challenges .description .text .data .group {
+          margin: 0 10px;
+          display: inline-flex; }
+
+.challengess {
+  width: 100%;
+  margin-bottom: 5%;
+  margin-top: -99px;
+  height: 300px; }
+  .challengess header {
+    z-index: 99;
+    background: #212121; }
+  .challengess .description {
+    min-height: 100%; }
+    .challengess .description .text {
+      display: block; }
+      .challengess .description .text .data {
+        display: inline-flex; }
+        .challengess .description .text .data .group {
           margin: 0 10px;
           display: inline-flex; }
 
@@ -836,6 +867,9 @@ img.article-image {
 
 .display-directory  div {
   display: block; }
+
+.anounce-dialog {
+  height: inherit; }
 
 /**
   * Buttons Partial SASS
@@ -877,16 +911,27 @@ img.article-image {
 **/
 /*Media Queries*/
 @media (max-width: 768px) {
+  .mdl-dialog__title {
+    font-size: 20px; }
+
+  .anounce-dialog {
+    height: 100%; }
+
   .display-directory  {
     display: -webkit-inline-box; }
 
   .mdl-card__supporting-text:not(:last-child) {
     display: flex;
     box-sizing: initial;
-    height: 100px; }
+    height: 110px; }
 
-  .challenges .description .text .data {
-    display: -webkit-inline-box; }
+  .challenges {
+    margin-bottom: 39%; }
+    .challenges .description .text .data {
+      display: -webkit-inline-box; }
+
+  .challengess {
+    margin-bottom: 39%; }
 
   .mdl-card__supporting-text-directory {
     margin: 0;
@@ -973,6 +1018,6 @@ img.article-image {
     margin-bottom: 5%; }
 
   .challenges {
-    margin-bottom: 15%; } }
+    margin-bottom: 40%; } }
 
 /*# sourceMappingURL=main.css.map */

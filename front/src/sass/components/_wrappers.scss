@@ -200,6 +200,23 @@ text-overflow: ellipsis;
   }
 }
 
+.mdl-card__supporting-text-challenge {
+
+  width: 100%;
+  padding: 16px;
+  min-height: 64px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  strong {
+    font-weight: 400;
+  }
+}
+
 .mdl-card__supporting-text-directory {
 
   width: 100%;
@@ -606,6 +623,33 @@ text-overflow: ellipsis;
 // Challenges section
 .challenges {
   width: 100%;
+  margin-bottom: 15%;
+  margin-top: -99px;
+  height: 300px;
+
+  header {
+    z-index: 99;
+    background: #212121;
+  }
+
+  .description {
+    min-height: 100%;
+    .text {
+      display: block;
+      .data {
+        display: inline-flex;
+        .group {
+          margin: 0 10px;
+          display: inline-flex;
+        }
+      }
+    }
+  }
+
+}
+
+.challengess {
+  width: 100%;
   margin-bottom: 5%;
   margin-top: -99px;
   height: 300px;
@@ -681,5 +725,10 @@ margin-top: 20%;
   div {
     display: block
   }
+
+}
+
+.anounce-dialog {
+  height: inherit;
 
 }
