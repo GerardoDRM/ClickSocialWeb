@@ -1,5 +1,5 @@
 <main class="mdl-layout__content" style="width:100%; text-align:center">
-  <div class="logo-container"><img src="../assets/imgs/megaphone.svg" width="100px" /></div>
+  <div class="logo-container"><img src="../assets/imgs/teamwork.svg" width="100px" /></div>
   <h3 class="slogan">Directorio</h3>
   <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="openDialog()">
   <i class="material-icons">search</i>
@@ -10,18 +10,25 @@
 
   <div class="mdl-grid ">
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col" *ngFor="let o of organizations">
-      <div class="mdl-card__title mdl-card--expand" [ngStyle]="{'background': 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.41) 90%), linear-gradient(0deg, rgba(45, 47, 49, 0.3), transparent), url('+o.img+') center/cover no-repeat'}">
-        <h2 class="mdl-card__title-text">{{o.entity}}</h2>
+      <div class="mdl-card__title mdl-card--expand" style="height: 250px;" [ngStyle]="{'background': 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.41) 90%), linear-gradient(0deg, rgba(45, 47, 49, 0.3), transparent), url('+o.img+') center/cover no-repeat'}">
+        <h2 class="mdl-card__title-text" style="color: white;">{{o.entity}}</h2>
       </div>
       <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-        <div class="group" style="width:100%;">
+        <div class="display-directory group" style="width: 12%; margin-top: 0;">
           <div class="icon material-icons" style="display:inline-flex;">web</div>
-          <p>
+            <div class="icon material-icons" style="    padding-top: 31px;
+    display: inline-flex;">public</div>
+          <p style="    margin-top: -27px;
+    margin-left: 36px;">
             {{o.web}}
           </p>
         </div>
-        <div class="group">
-          <p>{{o.type}}</p>
+        <div class="group" style="    margin-left: 6px;
+    margin-bottom: 24px;">
+
+          <p style="margin-left: -4px;
+    /* margin-bottom: 36px; */
+    margin-top: -38px;">{{o.type}}</p>
         </div>
       </div>
       <div class="elipsis-effect mdl-card__supporting-text" style="    display: block;">
@@ -34,7 +41,7 @@
   </div>
 </div>
 
-<dialog class="mdl-dialog filters-dialog" #dialog>
+<dialog class="filters-dialog mdl-dialog" style="" #dialog>
   <h4 class="mdl-dialog__title">Filtros</h4>
   <div class="mdl-dialog__content">
     <p>

@@ -483,6 +483,19 @@ img.article-image {
   .mdl-card__supporting-text strong {
     font-weight: 400; }
 
+.mdl-card__supporting-text-directory {
+  width: 100%;
+  padding: 16px;
+  min-height: 64px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .mdl-card__supporting-text-directory strong {
+    font-weight: 400; }
+
 .mdl-card__media ~ .mdl-card__supporting-text {
   min-height: 64px; }
 
@@ -773,7 +786,11 @@ img.article-image {
 .challenges {
   width: 100%;
   margin-bottom: 5%;
+  margin-top: -99px;
   height: 300px; }
+  .challenges header {
+    z-index: 99;
+    background: #212121; }
   .challenges .description {
     min-height: 100%; }
     .challenges .description .text {
@@ -798,6 +815,27 @@ img.article-image {
 .card-align {
   margin: 5px;
   margin-bottom: 0; }
+
+.filters-dialog {
+  width: 700px; }
+
+.mdl-card__title {
+  padding: 16px;
+  -ms-flex-positive: 1;
+  -webkit-box-flex: 1;
+  /* flex-grow: 1; */ }
+
+.card-picture {
+  height: 250px;
+  margin: 0; }
+
+.directory-image {
+  width: 68%;
+  margin-left: 24px;
+  margin-top: 20%; }
+
+.display-directory  div {
+  display: block; }
 
 /**
   * Buttons Partial SASS
@@ -839,6 +877,24 @@ img.article-image {
 **/
 /*Media Queries*/
 @media (max-width: 768px) {
+  .display-directory  {
+    display: -webkit-inline-box; }
+
+  .mdl-card__supporting-text:not(:last-child) {
+    display: flex;
+    box-sizing: initial;
+    height: 100px; }
+
+  .challenges .description .text .data {
+    display: -webkit-inline-box; }
+
+  .mdl-card__supporting-text-directory {
+    margin: 0;
+    height: 800px; }
+
+  .filters-dialog {
+    width: 300px; }
+
   .logo-container img {
     margin-top: 20px;
     width: 82px; }

@@ -9,6 +9,43 @@
 @include mq($brk-max-md) {}
 @include mq($brk-max-sm) {
 
+  .display-directory {
+      display: -webkit-inline-box;
+  }
+
+  .mdl-card__supporting-text:not(:last-child) {
+    display: flex;
+    box-sizing: initial;
+    height: 100px
+
+  }
+
+  .challenges {
+
+
+    .description {
+
+      .text {
+
+        .data {
+              display: -webkit-inline-box;
+
+        }
+      }
+    }
+
+  }
+
+
+  .mdl-card__supporting-text-directory {
+    margin: 0;
+    height: 800px;
+  }
+
+  .filters-dialog {
+    width: 300px;
+  }
+
 
   .logo-container {
 
