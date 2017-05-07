@@ -1,4 +1,4 @@
-from clicksocial.clicksocial import app, api, mongo
+from clicksocial import app, api, mongo
 from flask_restful import Resource, reqparse
 from flask import jsonify
 from flask_cors import cross_origin
