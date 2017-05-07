@@ -14,7 +14,9 @@ export interface Organization {
   web:string,
   email:string,
   type:string,
-  img:string
+  img:string,
+  contact: Array<string>
+  
  }
 
 @Injectable()

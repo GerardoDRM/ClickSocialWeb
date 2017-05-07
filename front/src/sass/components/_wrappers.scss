@@ -200,6 +200,40 @@ text-overflow: ellipsis;
   }
 }
 
+.mdl-card__supporting-text-challenge {
+
+  width: 100%;
+  padding: 16px;
+  min-height: 64px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  strong {
+    font-weight: 400;
+  }
+}
+
+.mdl-card__supporting-text-directory {
+
+  width: 100%;
+  padding: 16px;
+  min-height: 64px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  strong {
+    font-weight: 400;
+  }
+}
+
 .mdl-card__media ~ .mdl-card__supporting-text {
   min-height: 64px;
 }
@@ -208,6 +242,8 @@ text-overflow: ellipsis;
   box-sizing: border-box;
   min-height: 76px;
 }
+
+
 
 .demo-blog:not .mdl-card__supporting-text ~ .mdl-card__supporting-text {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -587,8 +623,41 @@ text-overflow: ellipsis;
 // Challenges section
 .challenges {
   width: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 15%;
+  margin-top: -99px;
   height: 300px;
+
+  header {
+    z-index: 99;
+    background: #212121;
+  }
+
+  .description {
+    min-height: 100%;
+    .text {
+      display: block;
+      .data {
+        display: inline-flex;
+        .group {
+          margin: 0 10px;
+          display: inline-flex;
+        }
+      }
+    }
+  }
+
+}
+
+.challengess {
+  width: 100%;
+  margin-bottom: 5%;
+  margin-top: -99px;
+  height: 300px;
+
+  header {
+    z-index: 99;
+    background: #212121;
+  }
 
   .description {
     min-height: 100%;
@@ -627,4 +696,39 @@ a {
 .card-align {
   margin: 5px;
   margin-bottom: 0;
+}
+
+.filters-dialog {
+  width: 700px;
+}
+
+.mdl-card__title {
+  padding: 16px;
+    -ms-flex-positive: 1;
+    -webkit-box-flex: 1;
+    /* flex-grow: 1; */
+}
+
+.card-picture {
+  height:250px;
+  margin: 0;
+}
+
+.directory-image {
+      width: 68%;
+margin-left: 24px;
+margin-top: 20%;
+}
+
+.display-directory {
+
+  div {
+    display: block
+  }
+
+}
+
+.anounce-dialog {
+  height: inherit;
+
 }

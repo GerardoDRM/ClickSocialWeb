@@ -9,6 +9,59 @@
 @include mq($brk-max-md) {}
 @include mq($brk-max-sm) {
 
+  .mdl-dialog__title {
+
+    font-size: 20px;
+}
+
+
+  .anounce-dialog {
+    height: 100%;
+
+  }
+
+
+  .display-directory {
+      display: -webkit-inline-box;
+  }
+
+  .mdl-card__supporting-text:not(:last-child) {
+    display: flex;
+    box-sizing: initial;
+    height: 110px
+
+  }
+
+  .challenges {
+margin-bottom: 39%;
+
+    .description {
+
+      .text {
+
+        .data {
+              display: -webkit-inline-box;
+
+        }
+      }
+    }
+
+  }
+
+  .challengess {
+    margin-bottom: 39%;
+  }
+
+
+  .mdl-card__supporting-text-directory {
+    margin: 0;
+    height: 800px;
+  }
+
+  .filters-dialog {
+    width: 300px;
+  }
+
 
   .logo-container {
 
@@ -120,7 +173,7 @@ text-overflow: ellipsis;
   }
   .challenges {
 
-    margin-bottom: 15%;
+    margin-bottom: 40%;
 
 
 
