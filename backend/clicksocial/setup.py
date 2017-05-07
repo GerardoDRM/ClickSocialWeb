@@ -8,6 +8,7 @@ setup(
         'flask',
         'flask-restful',
         'flask-pymongo',
-        'flask-cors'
+        'flask-cors',
+        'gunicorn'
     ],
 )
