@@ -38,7 +38,7 @@ export interface Authors {
 @Injectable()
 
 export class ConvocationService {
-  private ConvocationsUrl = 'http://localhost:5000/api/v0/convocations';  // URL to web API
+  private ConvocationsUrl = 'http://clicksocial.mx/api/v0/convocations';  // URL to web API
   constructor(private http: Http) { }
   getConvocations(): Observable<Convocations[]> {
     return this.http.get(this.ConvocationsUrl)

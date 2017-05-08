@@ -14,7 +14,7 @@ export interface Story {
 
 @Injectable()
 export class StoryService {
-  private storiesUrl = 'http://localhost:5000/api/v0/stories';  // URL to web API
+  private storiesUrl = 'http://clicksocial.mx/api/v0/stories';  // URL to web API
   constructor(private http: Http) { }
   getStories(): Observable<Story[]> {
     return this.http.get(this.storiesUrl)

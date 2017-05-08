@@ -19,7 +19,7 @@ export interface Organization {
 
 @Injectable()
 export class organizationService {
-  private orgUrl = 'http://localhost:5000/api/v0/organizations';  // URL to web API
+  private orgUrl = 'http://clicksocial.mx/api/v0/organizations';  // URL to web API
   params = new URLSearchParams();
 
   constructor(private http: Http) { }

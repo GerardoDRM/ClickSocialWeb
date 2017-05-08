@@ -16,12 +16,12 @@ export interface Organization {
   type:string,
   img:string,
   contact: Array<string>
-  
+
  }
 
 @Injectable()
 export class organizationService {
-  private orgUrl = 'http://localhost:5000/api/v0/organizations';  // URL to web API
+  private orgUrl = 'http://clicksocial.mx/api/v0/organizations';  // URL to web API
   constructor(private http: Http) { }
   getData(id): Observable<Organization> {
     return this.http.get(this.orgUrl+"/"+id)

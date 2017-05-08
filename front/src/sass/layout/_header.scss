@@ -69,6 +69,30 @@
   }
 }
 
+.mdl-layout__drawer-button {
+    display: block;
+    position: absolute;
+    height: 48px;
+    width: 48px;
+    border: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    font-size: 26px;
+    line-height: 56px;
+    font-family: Helvetica,Arial,sans-serif;
+    margin: 8px 12px;
+    top: 0;
+    left: 0;
+    color: #8bc34a !important;
+    z-index: 4;
+}
+
+
+
 .drawer-header {
   color: white;
   background: $deep-pink;
@@ -89,7 +113,7 @@
 .filters-header {
   background: $dark-color;
   width: 100%;
-  height: 250px;
+  height: 180px;
 
   .filter-opt {
     color: white;

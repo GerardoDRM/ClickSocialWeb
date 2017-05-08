@@ -227,6 +227,27 @@ html {
     -ms-flex-align: center;
     align-items: center; }
 
+.mdl-layout__drawer-button {
+  display: block;
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  border: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 56px;
+  font-family: Helvetica,Arial,sans-serif;
+  margin: 8px 12px;
+  top: 0;
+  left: 0;
+  color: #8bc34a !important;
+  z-index: 4; }
+
 .drawer-header {
   color: white;
   background: #FA3E51;
@@ -246,7 +267,7 @@ html {
 .filters-header {
   background: #388e3c;
   width: 100%;
-  height: 250px; }
+  height: 180px; }
   .filters-header .filter-opt {
     color: white;
     text-align: center; }
@@ -271,7 +292,7 @@ html {
   * multiple backgrounds (colors/img)
 **/
 .layout-transparent {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(139, 195, 74, 0.37) 90%), linear-gradient(0deg, rgba(96, 125, 139, 0.59), transparent), url("../assets/imgs/bg_2880.jpg") center 45%/cover no-repeat; }
+  background: linear-gradient(rgba(26, 25, 25, 0.68), rgba(132, 203, 50, 0.56) 90%), linear-gradient(0deg, rgba(183, 198, 205, 0.35), transparent), url("../assets/imgs/bg_2880.jpg") center 45%/cover no-repeat; }
   .layout-transparent .mdl-layout__drawer-button,
   .layout-transparent .mdl-layout__header {
     /* This background is dark, so we set text to white. Use 87% black instead if
@@ -839,13 +860,13 @@ img.article-image {
   color: white;
   margin-top: 5%;
   background: #212121;
-  border: none; }
+  border: none;
+  z-index: 9999; }
   .drawerc a {
     color: white; }
 
 .card-align {
-  margin: 5px;
-  margin-bottom: 0; }
+  margin: 5px 5px 0; }
 
 .filters-dialog {
   width: 700px; }
@@ -865,7 +886,7 @@ img.article-image {
   margin-left: 24px;
   margin-top: 20%; }
 
-.display-directory  div {
+.display-directory div {
   display: block; }
 
 .anounce-dialog {
@@ -910,6 +931,10 @@ img.article-image {
   * on media queries, just include and functions
 **/
 /*Media Queries*/
+@media screen and (max-width: 1024px) {
+  .mdl-layout__drawer-button {
+    margin: 4px;
+    color: #8bc34a !important; } }
 @media (max-width: 768px) {
   .mdl-dialog__title {
     font-size: 20px; }
@@ -917,7 +942,7 @@ img.article-image {
   .anounce-dialog {
     height: 100%; }
 
-  .display-directory  {
+  .display-directory {
     display: -webkit-inline-box; }
 
   .mdl-card__supporting-text:not(:last-child) {
@@ -951,7 +976,7 @@ img.article-image {
     height: 150px; }
 
   .right-link {
-    margin-left: 0px; }
+    margin-left: 0; }
 
   .mdl-layout.is-small-screen .mdl-layout--large-screen-only {
     display: flex;

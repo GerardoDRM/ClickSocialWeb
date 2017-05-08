@@ -6,52 +6,47 @@
   * on media queries, just include and functions
 **/
 /*Media Queries*/
+@include mq("screen and (max-width: 1024px)") {
+  .mdl-layout__drawer-button {
+    margin: 4px;
+    color: #8bc34a !important;
+  }
+}
 @include mq($brk-max-md) {}
 @include mq($brk-max-sm) {
-
   .mdl-dialog__title {
-
     font-size: 20px;
-}
-
+  }
 
   .anounce-dialog {
     height: 100%;
-
   }
 
-
-  .display-directory {
-      display: -webkit-inline-box;
+  .display-directory {
+    display: -webkit-inline-box;
   }
 
   .mdl-card__supporting-text:not(:last-child) {
     display: flex;
     box-sizing: initial;
-    height: 110px
-
+    height: 110px;
   }
 
   .challenges {
-margin-bottom: 39%;
+    margin-bottom: 39%;
 
     .description {
-
       .text {
-
         .data {
-              display: -webkit-inline-box;
-
+          display: -webkit-inline-box;
         }
       }
     }
-
   }
 
   .challengess {
     margin-bottom: 39%;
   }
-
 
   .mdl-card__supporting-text-directory {
     margin: 0;
@@ -62,16 +57,12 @@ margin-bottom: 39%;
     width: 300px;
   }
 
-
   .logo-container {
-
-
     img {
       margin-top: 20px;
       width: 82px;
     }
   }
-
 
   .span-employee {
     margin-top: 7px;
@@ -79,46 +70,41 @@ margin-bottom: 39%;
 
   .mdl-list__item--three-line {
     height: 150px;
-}
+  }
 
   .right-link {
-    margin-left: 0px;
+    margin-left: 0;
   }
+
   .mdl-layout.is-small-screen .mdl-layout--large-screen-only {
     display: flex;
-        margin-left: -68px;
-}
+    margin-left: -68px;
+  }
 
   .header-title-sales select {
     margin-right: 4px;
-
-}
+  }
 
   .mdl-badge.mdl-badge--overlap {
     padding-left: 84px;
-}
+  }
 
   .div-car button {
     margin-left: 30px;
     margin-top: 23px;
-}
+  }
 
   .mdl-textfield__input {
-
     font-size: 9px;
-
     width: 80%;
+  }
 
-}
-
-  .mdl-button {
-
-}
+  .mdl-button {}
 
   .table-dash.mdl-data-table th {
     font-size: 15px;
+  }
 
-}
   .backLogin {
     .mdl-card {
       width: 80%;
@@ -128,42 +114,44 @@ margin-bottom: 39%;
 
         button {
           width: 90%;
-        }      }
+        }
+      }
     }
   }
+
   .disappear {
     display: none;
   }
+
   .mdl-dialog {
     width: 80%;
   }
 
   .mdl-card__supporting-text {
     display: block;
-display: -webkit-box;
-max-width: 400px;
-height: 20px;
-margin: 0 auto;
-font-size: 14px;
-line-height: 1.4;
--webkit-line-clamp: 3;
--webkit-box-orient: vertical;
-overflow: hidden;
-text-overflow: ellipsis;
+    display: -webkit-box;
+    max-width: 400px;
+    height: 20px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .mdl-card__supporting-texta {
     display: block;
-display: -webkit-box;
-max-width: 400px;
-
-margin: 0 auto;
-font-size: 14px;
-line-height: 1.4;
--webkit-line-clamp: 3;
--webkit-box-orient: vertical;
-overflow: hidden;
-text-overflow: ellipsis;
+    display: -webkit-box;
+    max-width: 400px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .card-align {
@@ -171,16 +159,8 @@ text-overflow: ellipsis;
     margin-right: 0;
     margin-bottom: 5%;
   }
+
   .challenges {
-
     margin-bottom: 40%;
-
-
-
-
   }
-
-
-
-
 }

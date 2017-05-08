@@ -33,7 +33,7 @@ export interface Challenge {
 
 @Injectable()
 export class ChallengeService {
-  private challengesUrl = 'http://localhost:5000/api/v0/challenges';  // URL to web API
+  private challengesUrl = 'http://clicksocial.mx/api/v0/challenges';  // URL to web API
   constructor(private http: Http) { }
   getChallenge(id): Observable<Challenge> {
     return this.http.get(this.challengesUrl+"/"+id)
