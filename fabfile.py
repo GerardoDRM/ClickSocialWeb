@@ -18,24 +18,30 @@ from fabtools.shorewall import Ping, SSH, hosts, rule
 
 
 env.use_ssh_config = True
+# env.key_filename = "/home/gerardo/.ssh/id_rsa"
 env.hosts = [
     '107.20.154.158'
 ]
-env.user = 'clicksocial'
-env.app_user = 'clicksocial'
-env.app_group = 'clicksocial'
-env.settings = 'clicksocial'
-env.data_site_path = '/clicksocial/backend'
-env.data_site_path_front = '/clicksocial/front'
+env.user = 'mixtli'
+env.app_user = 'mixtli'
+env.app_group = 'kimetrics'
+env.settings = 'datawarehouse'
+env.data_site_path = '/home/gerardo/Documents/Business/ClickSocial/ClickSocialWeb'
+env.data_site_path_front = '/clicksocial/l'
 env.parent = 'origin'
 env.branch = 'master'
 env.app_port = '5000'
+env.git_repo = "git@bitbucket.org:kimetrics/kimetrics-datawarehouse.git"
 env.ip = '127.0.0.1'
-env.root = '/clicksocial'
-env.app_name = 'clicksocial'
-env.cookie_secret = 'clicksocial'
-env.app_host = 'clicksocial.mx'
-env.site = "clicksocial.mx"
+env.root = '/kimetrics'
+env.app_name = 'kimetrics-datawarehouse'
+env.cookie_secret = 'kimetrics'
+env.app_host = 'data.kimetrics.com'
+env.site = "data.kimetrics.com"
+env.db_name = 'redash'
+env.db_user = 'kimetrics'
+env.db_host = 'kliento-backup.cfe7cc4dillv.us-east-1.rds.amazonaws.com'
+env.db_pass = 'Kpfp7eLt'
 
 
 ENV_TPL = '''\
@@ -157,26 +163,26 @@ def setup_frontend():
 @task
 def deploy_project():
     # Create log directory
-    require.directory(join(env.data_site_path, 'logs'),
-                      owner=env.user, use_sudo=True)
-
-
-    require.files.template_file(env.data_site_path + "/env.sh" % env,
-                                template_contents=ENV_TPL, context=env,
-                                owner=env.user, use_sudo=True)
+    # require.directory(join(env.data_site_path, 'logs'),
+    #                   owner=env.user, use_sudo=True)
+    #
+    #
+    # require.files.template_file(env.data_site_path + "/env.sh" % env,
+    #                             template_contents=ENV_TPL, context=env,
+    #                             owner=env.user, use_sudo=True)
 
     # Surpervisors
-    require.files.template_file("/etc/supervisor/conf.d/%(settings)s.conf" % env,
-                                    template_source="setup/ubuntu/files/supervisord.conf",
-                                    owner=env.user, context=env, use_sudo=True)
-
-    fabtools.supervisor.update_config()
-    fabtools.supervisor.restart_process("%s:*" % env.app_name)
-    require.nginx.site(env.settings+".mx",
-                       template_source="setup/ubuntu/files/nginx.conf" % env,
-                       port=80,
-                       server_alias=env.app_host,
-                       docroot=env.data_site_path,
-                       app_port=env.app_port,
-                       site_path=env.data_site_path,
-                       app_name=env.app_name)
+    # require.files.template_file("/etc/supervisor/conf.d/default.conf" % env,
+    #                                 template_source="/home/gerardo/Documents/Business/ClickSocial/ClickSocialWeb/setup/ubuntu/files/supervisord.conf",
+    #                                 owner=env.user, context=env, use_sudo=True)
+    #
+    # fabtools.supervisor.update_config()
+    # fabtools.supervisor.restart_process("%s:*" % env.app_name)
+    # require.nginx.site(env.settings+".mx",
+    #                    template_source="setup/ubuntu/files/nginx.conf" % env,
+    #                    port=80,
+    #                    server_alias=env.app_host,
+    #                    docroot=env.data_site_path,
+    #                    app_port=env.app_port,
+    #                    site_path=env.data_site_path,
+    #                    app_name=env.app_name)
