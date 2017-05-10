@@ -14,6 +14,26 @@
 }
 @include mq($brk-max-md) {}
 @include mq($brk-max-sm) {
+
+  .web-p {
+    margin-left: -4px;
+  /* margin-bottom: 36px; */
+  margin-top: 90%;
+  }
+
+  .dir-pa {
+    margin-top: 0;
+  margin-left: 0;
+  }
+
+  .megaphone-margin {
+    margin-bottom: 26%;
+  }
+
+
+  .mdl-dialog-width {
+    width: 100%;
+  }
   .mdl-dialog__title {
     font-size: 20px;
   }
@@ -27,6 +47,7 @@
   }
 
   .mdl-card__supporting-text:not(:last-child) {
+    width: 86%;
     display: flex;
     box-sizing: initial;
     height: 110px;
@@ -124,7 +145,7 @@
   }
 
   .mdl-dialog {
-    width: 80%;
+    width: 90%;
   }
 
   .mdl-card__supporting-text {

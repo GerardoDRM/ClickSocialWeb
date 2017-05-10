@@ -892,6 +892,21 @@ img.article-image {
 .anounce-dialog {
   height: inherit; }
 
+.mdl-dialog-width {
+  width: 60%; }
+
+.megaphone-margin {
+  margin-bottom: 9%; }
+
+.dir-pa {
+  margin-top: -27px;
+  margin-left: 36px; }
+
+.web-p {
+  margin-left: -4px;
+  /* margin-bottom: 36px; */
+  margin-top: -38px; }
+
 /**
   * Buttons Partial SASS
   * This SASS file has all
@@ -936,6 +951,21 @@ img.article-image {
     margin: 4px;
     color: #8bc34a !important; } }
 @media (max-width: 768px) {
+  .web-p {
+    margin-left: -4px;
+    /* margin-bottom: 36px; */
+    margin-top: 90%; }
+
+  .dir-pa {
+    margin-top: 0;
+    margin-left: 0; }
+
+  .megaphone-margin {
+    margin-bottom: 26%; }
+
+  .mdl-dialog-width {
+    width: 100%; }
+
   .mdl-dialog__title {
     font-size: 20px; }
 
@@ -946,6 +976,7 @@ img.article-image {
     display: -webkit-inline-box; }
 
   .mdl-card__supporting-text:not(:last-child) {
+    width: 86%;
     display: flex;
     box-sizing: initial;
     height: 110px; }
@@ -1010,7 +1041,7 @@ img.article-image {
     display: none; }
 
   .mdl-dialog {
-    width: 80%; }
+    width: 90%; }
 
   .mdl-card__supporting-text {
     display: block;
