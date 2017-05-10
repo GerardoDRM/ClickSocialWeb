@@ -161,15 +161,10 @@ html {
   * Footer Partial SASS
   * This SASS file has all footers style
 **/
-.mdl-mini-footer {
-  margin-top: 80px;
-  height: 120px;
-  padding: 40px;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: white;
-  box-sizing: border-box; }
+.mdl-mega-footer {
+  padding: 16px 40px;
+  color: #424242;
+  background-color: #fff; }
 
 /**
   * Header Partial SASS
@@ -245,7 +240,7 @@ html {
   margin: 8px 12px;
   top: 0;
   left: 0;
-  color: #8bc34a !important;
+  color: #fff !important;
   z-index: 4; }
 
 .drawer-header {
@@ -292,12 +287,24 @@ html {
   * multiple backgrounds (colors/img)
 **/
 .layout-transparent {
-  background: linear-gradient(rgba(26, 25, 25, 0.68), rgba(132, 203, 50, 0.56) 90%), linear-gradient(0deg, rgba(183, 198, 205, 0.35), transparent), url("../assets/imgs/bg_2880.jpg") center 45%/cover no-repeat; }
+  background: linear-gradient(rgba(139, 195, 74, 0.78), rgba(139, 212, 53, 0.22) 90%), linear-gradient(0deg, rgba(183, 198, 205, 0.35), transparent), url("../assets/imgs/bg_2880.jpg") center 45%/cover no-repeat; }
   .layout-transparent .mdl-layout__drawer-button,
   .layout-transparent .mdl-layout__header {
     /* This background is dark, so we set text to white. Use 87% black instead if
      your background is light. */
-    color: white; }
+    color: white !important; }
+
+.circle-img {
+  width: 180px;
+  height: 100px;
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -ms-border-radius: 20%;
+  border-radius: 20%;
+  margin: 0 auto; }
+
+.mdl-layout__drawer-button i {
+  color: #000 !important; }
 
 /**
   * Forms Partial SASS
@@ -380,8 +387,8 @@ img.article-image {
   background-repeat: no-repeat;
   background-color: transparent;
   margin: 0 16px;
-  width: 24px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
   opacity: 0.46;
   border-radius: 2px; }
@@ -947,10 +954,15 @@ img.article-image {
 **/
 /*Media Queries*/
 @media screen and (max-width: 1024px) {
+  mdl-layout .mdl-layout__drawer-button {
+    color: #000 !important; }
+    mdl-layout .mdl-layout__drawer-button i {
+      color: #000 !important; } }
+@media (max-width: 768px) {
   .mdl-layout__drawer-button {
     margin: 4px;
-    color: #8bc34a !important; } }
-@media (max-width: 768px) {
+    color: #fff !important; }
+
   .web-p {
     margin-left: -4px;
     /* margin-bottom: 36px; */

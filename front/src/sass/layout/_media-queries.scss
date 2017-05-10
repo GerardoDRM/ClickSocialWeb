@@ -7,33 +7,41 @@
 **/
 /*Media Queries*/
 @include mq("screen and (max-width: 1024px)") {
-  .mdl-layout__drawer-button {
-    margin: 4px;
-    color: #8bc34a !important;
+  mdl-layout {
+    .mdl-layout__drawer-button {
+      color: #000 !important;
+
+      i {
+        color: #000 !important;
+      }
+    }
   }
 }
-@include mq($brk-max-md) {}
 @include mq($brk-max-sm) {
+  .mdl-layout__drawer-button {
+    margin: 4px;
+    color: #fff !important;
+  }
 
   .web-p {
     margin-left: -4px;
-  /* margin-bottom: 36px; */
-  margin-top: 90%;
+    /* margin-bottom: 36px; */
+    margin-top: 90%;
   }
 
   .dir-pa {
     margin-top: 0;
-  margin-left: 0;
+    margin-left: 0;
   }
 
   .megaphone-margin {
     margin-bottom: 26%;
   }
 
-
   .mdl-dialog-width {
     width: 100%;
   }
+
   .mdl-dialog__title {
     font-size: 20px;
   }
