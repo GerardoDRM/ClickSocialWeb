@@ -100,7 +100,16 @@
   text-align: center;
 
   img {
-    width: 100px;
+    width: 180px;
+  }
+}
+
+.logo-container-contest {
+  width: 100%;
+  text-align: center;
+
+  img {
+    width: 90px;
   }
 }
 /****************************************************/
@@ -733,16 +742,7 @@
   margin-bottom: 9%;
 }
 
-.dir-pa {
-  margin-top: -27px;
-  margin-left: 36px;
-}
 
-.web-p {
-  margin-left: -4px;
-  /* margin-bottom: 36px; */
-  margin-top: -38px;
-}
 // Cards container
 .card-orgs {
   img {
@@ -762,5 +762,24 @@
     p {
       margin-left: 5px;
     }
+  }
+}
+
+
+// Orgs
+.section-details--org {
+  background: white;
+  margin-bottom: 20px;
+  h4 {
+    width: 100%;
+    background: #2f2f2f;
+    margin: 0;
+    color: white;
+    padding: 20px;
+    font-size: 2em;
+  }
+  .mdl-card {
+    height: auto !important;
+    min-height: auto !important;
   }
 }

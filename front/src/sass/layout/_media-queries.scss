@@ -79,7 +79,6 @@
 
   .mdl-card__supporting-text-directory {
     margin: 0;
-    height: 800px;
   }
 
   .filters-dialog {
@@ -192,4 +191,16 @@
   .challenges {
     margin-bottom: 40%;
   }
+
+  // Dialog
+  .dialog-contest {
+    width: 100%;
+    top: 0;
+    .containt-contest--img {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
 }

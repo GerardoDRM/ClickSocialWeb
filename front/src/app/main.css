@@ -338,6 +338,21 @@ img.article-image {
   * Modals Partial SASS
   * This SASS has the modals dialogs
 **/
+.dialog-contest {
+  width: 50%;
+  top: 10%; }
+  .dialog-contest .containt-contest--img {
+    text-align: center;
+    width: 100%;
+    margin: 20px auto; }
+    .dialog-contest .containt-contest--img img {
+      width: 380px; }
+  .dialog-contest .group {
+    width: 100%;
+    display: inline-flex; }
+    .dialog-contest .group p {
+      margin-left: 5px; }
+
 .main {
   max-width: 1400px;
   padding: 0;
@@ -424,7 +439,13 @@ img.article-image {
   width: 100%;
   text-align: center; }
   .logo-container img {
-    width: 100px; }
+    width: 180px; }
+
+.logo-container-contest {
+  width: 100%;
+  text-align: center; }
+  .logo-container-contest img {
+    width: 90px; }
 
 /****************************************************/
 .demo-blog__posts {
@@ -905,15 +926,6 @@ img.article-image {
 .megaphone-margin {
   margin-bottom: 9%; }
 
-.dir-pa {
-  margin-top: -27px;
-  margin-left: 36px; }
-
-.web-p {
-  margin-left: -4px;
-  /* margin-bottom: 36px; */
-  margin-top: -38px; }
-
 .card-orgs img {
   width: 50px;
   position: absolute;
@@ -928,6 +940,20 @@ img.article-image {
     display: inline-flex; }
     .directory-info .group p {
       margin-left: 5px; }
+
+.section-details--org {
+  background: white;
+  margin-bottom: 20px; }
+  .section-details--org h4 {
+    width: 100%;
+    background: #2f2f2f;
+    margin: 0;
+    color: white;
+    padding: 20px;
+    font-size: 2em; }
+  .section-details--org .mdl-card {
+    height: auto !important;
+    min-height: auto !important; }
 
 /**
   * Buttons Partial SASS
@@ -1017,8 +1043,7 @@ img.article-image {
     margin-bottom: 39%; }
 
   .mdl-card__supporting-text-directory {
-    margin: 0;
-    height: 800px; }
+    margin: 0; }
 
   .filters-dialog {
     width: 300px; }
@@ -1101,6 +1126,12 @@ img.article-image {
     margin-bottom: 5%; }
 
   .challenges {
-    margin-bottom: 40%; } }
+    margin-bottom: 40%; }
+
+  .dialog-contest {
+    width: 100%;
+    top: 0; }
+    .dialog-contest .containt-contest--img img {
+      width: 100%; } }
 
 /*# sourceMappingURL=main.css.map */

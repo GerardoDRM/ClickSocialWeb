@@ -1,13 +1,13 @@
-<main class="mdl-layout__content" style="width:100%; height:400px; text-align:center;" [ngStyle]="{'background':'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.41) 90%), linear-gradient(0deg, rgba(45, 47, 49, 0.3), transparent), url('+organization.img+') center/cover no-repeat'}">
-  <h3 class="slogan">{{organization.entity}}</h3>
+<main class="mdl-layout__content" style="width:100%; height:400px; text-align:center;" [ngStyle]="{'background':'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.41) 90%), linear-gradient(0deg, rgba(45, 47, 49, 0.3), transparent), url('+addWallpaper(organization.type)+') center/cover no-repeat'}">
+  <h3 class="slogan" style="margin-top:150px;">{{organization.entity}}</h3>
 </main>
 
 
 <div class="portfolio-max-width">
 
   <section class="challengess mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-    <header class=" mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone">
-<img class="directory-image disappear" src="../assets/imgs/sky.svg" style="    margin-left: 34px;"  />
+    <header class=" mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+      <img class="directory-image disappear" src="../assets/imgs/sky.svg" style="    margin-left: 34px;" />
     </header>
     <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone description">
       <div class="mdl-card__supporting-text text" style="height:100%;">
@@ -26,43 +26,52 @@
             <p>{{organization.model}}</p>
           </div>
         </div>
-        <p> {{organization.description}} </p>
+        <p> {{addDesc(organization.type)}} </p>
       </div>
     </div>
   </section>
 
-  <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-    <div class="mdl-card mdl-cell mdl-cell--12-col">
-      <div class="mdl-card__supporting-text-directory mdl-grid mdl-grid--no-spacing">
-        <h4 class="mdl-cell mdl-cell--12-col">Detalles</h4>
-        <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-        <img class="directory-image" src="../assets/imgs/fireplace.svg"  />
+  <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp section-details--org">
+    <h4>Detalles</h4>
+    <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--12-col-phone">
+      <div class="mdl-card__supporting-text-directory mdl-grid">
+        <div class="section__circle-container mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">
+          <img class="directory-image" src="../assets/imgs/fireplace.svg" />
         </div>
-        <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-          <h5>Entidad Federativa</h5>
-          {{organization.federal_entity}}
+        <div class="section__text mdl-cell mdl-cell--8-col mdl-cell--10-col-phone">
+          <h5>Entidad Federativa</h5> {{organization.federal_entity}}
         </div>
-        <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-          <img class="directory-image" src="../assets/imgs/user.svg"  />
+      </div>
+    </div>
+    <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--12-col-phone">
+      <div class="mdl-card__supporting-text-directory mdl-grid">
+        <div class="section__circle-container mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">
+          <img class="directory-image" src="../assets/imgs/user.svg" />
         </div>
-        <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-          <h5>Grupo Social</h5>
-          {{organization.social_group}}
+        <div class="section__text mdl-cell mdl-cell--8-col mdl-cell--10-col-phone">
+          <h5>Grupo Social</h5> {{organization.social_group}}
         </div>
-        <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-        <img class="directory-image" src="../assets/imgs/worldwide.svg"  />
+      </div>
+    </div>
+    <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--12-col-phone">
+      <div class="mdl-card__supporting-text-directory mdl-grid ">
+        <div class="section__circle-container mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">
+          <img class="directory-image" src="../assets/imgs/worldwide.svg" />
         </div>
-        <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-          <h5>Incidencia Geografica</h5>
-          {{organization.geo_issue}}
+        <div class="section__text mdl-cell mdl-cell--8-col mdl-cell--10-col-phone">
+          <h5>Incidencia Geografica</h5> {{organization.geo_issue}}
         </div>
-        <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-        <img class="directory-image" src="../assets/imgs/email.svg"  />
+      </div>
+    </div>
+    <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--12-col-phone">
+      <div class="mdl-card__supporting-text-directory mdl-grid ">
+        <div class="section__circle-container mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">
+          <img class="directory-image" src="../assets/imgs/email.svg" />
         </div>
-        <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+        <div class="section__text mdl-cell mdl-cell--8-col mdl-cell--10-col-phone">
           <h5>Contacto</h5>
-          <p *ngFor="let c of organization?.contact">
-            {{c}}
+          <p>
+            {{organization.contact}}
           </p>
         </div>
       </div>

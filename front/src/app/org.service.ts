@@ -15,7 +15,7 @@ export interface Organization {
   email:string,
   type:string,
   img:string,
-  contact: Array<string>
+  contact: string
 
  }
 

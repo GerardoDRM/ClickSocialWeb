@@ -2,3 +2,24 @@
   * Modals Partial SASS
   * This SASS has the modals dialogs
 **/
+.dialog-contest {
+  width: 50%;
+  top: 10%;
+  .containt-contest--img {
+    text-align: center;
+    width: 100%;
+    margin: 20px auto;
+    img {
+      width: 380px;
+    }
+  }
+
+  .group {
+    width: 100%;
+    display: inline-flex;
+    p {
+      margin-left: 5px;
+    }
+
+  }
+}

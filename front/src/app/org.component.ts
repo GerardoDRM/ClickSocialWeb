@@ -19,7 +19,7 @@ export interface Organization {
   email:string,
   type:string,
   img: string,
-  contact: Array<string>,
+  contact: string,
  }
 
 @Component({
@@ -39,7 +39,7 @@ export class OrgComponent implements AfterViewInit,OnInit, OnDestroy {
     email:"",
     type:"",
     img: "",
-    contact: []
+    contact: ""
   };
   mode = 'Observable';
   private sub: any;
@@ -62,5 +62,53 @@ export class OrgComponent implements AfterViewInit,OnInit, OnDestroy {
   }
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+  addWallpaper(model) {
+    var img = "";
+    switch (model) {
+      case "Desarrollo Integral":
+        img = "../assets/imgs/road_big.jpg";
+        break;
+      case "Sociedad Incluyente":
+        img = "../assets/imgs/nodes.jpeg";
+        break;
+      case "Alimentación":
+        img = "../assets/imgs/alim.jpeg";
+        break;
+      case "Equidad de Género":
+        img = "../assets/imgs/gender.jpg";
+        break;
+      case "Profesionalización":
+        img = "../assets/imgs/prof.jpg";
+        break;
+      case "Investigación":
+        img = "../assets/imgs/research.jpg";
+        break;
+    }
+   return img;
+  }
+  addDesc(model) {
+    var text = "";
+    switch (model) {
+      case "Desarrollo Integral":
+        text = "Decripcion para desarrollo integral";
+        break;
+      case "Sociedad Incluyente":
+        text = "Decripcion para Incluyente";
+        break;
+      case "Alimentación":
+        text = "Decripcion para Alimentación";
+        break;
+      case "Equidad de Género":
+        text = "Decripcion para Género";
+        break;
+      case "Profesionalización":
+        text = "Decripcion para Profesionalización";
+        break;
+      case "Investigación":
+        text = "Decripcion para Investigación";
+        break;
+    }
+   return text;
   }
 }
