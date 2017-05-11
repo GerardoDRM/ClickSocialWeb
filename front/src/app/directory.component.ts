@@ -16,7 +16,6 @@ export interface Organization {
   web: string,
   email: string,
   type: string,
-  img: string;
 }
 
 @Component({
@@ -31,10 +30,10 @@ export class DirectoryComponent implements AfterViewInit {
   type_filter = [
     "Desarrollo Integral",
     "Sociedad Incluyente",
-    "Alimentacion",
-    "Equidad de genero",
-    "Profesionalizacion",
-    "Investigacion"
+    "Alimentación",
+    "Equidad de Género",
+    "Profesionalización",
+    "Investigación"
   ]
   group_filter = [
     "Población en general",
@@ -45,7 +44,7 @@ export class DirectoryComponent implements AfterViewInit {
     "Nacional",
     "Estatal",
     "Municipal",
-    "Delegacion"
+    "Delegación"
   ]
 
   selectedTypes=[
@@ -124,5 +123,53 @@ export class DirectoryComponent implements AfterViewInit {
     this.challengesService.getData().subscribe(
       response => this.organizations = response
     )
+  }
+  addImg(model) {
+    var img = "";
+    switch (model) {
+      case "Desarrollo Integral":
+        img = "../assets/imgs/integral.svg";
+        break;
+      case "Sociedad Incluyente":
+        img = "../assets/imgs/incluyente.svg";
+        break;
+      case "Alimentación":
+        img = "../assets/imgs/food.svg";
+        break;
+      case "Equidad de Género":
+        img = "../assets/imgs/gender.svg";
+        break;
+      case "Profesionalización":
+        img = "../assets/imgs/pro.svg";
+        break;
+      case "Investigación":
+        img = "../assets/imgs/research.svg";
+        break;
+    }
+   return img;
+  }
+  addColor(model) {
+    var color = "";
+    switch (model) {
+      case "Desarrollo Integral":
+        color = "#2962FF";
+        break;
+      case "Sociedad Incluyente":
+        color = "#304FFE";
+        break;
+      case "Alimentación":
+        color = "#FFC107";
+        break;
+      case "Equidad de Género":
+        color = "#607D8B";
+        break;
+      case "Profesionalización":
+        color = "#795548";
+        break;
+      case "Investigación":
+        color = "#009688";
+        break;
+    }
+   return color;
   }
 }

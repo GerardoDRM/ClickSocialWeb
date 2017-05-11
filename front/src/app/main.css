@@ -914,6 +914,21 @@ img.article-image {
   /* margin-bottom: 36px; */
   margin-top: -38px; }
 
+.card-orgs img {
+  width: 50px;
+  position: absolute;
+  right: 10px;
+  top: 20px; }
+
+.directory-info {
+  width: 100%;
+  padding: 20px; }
+  .directory-info .group {
+    width: 100%;
+    display: inline-flex; }
+    .directory-info .group p {
+      margin-left: 5px; }
+
 /**
   * Buttons Partial SASS
   * This SASS file has all

@@ -88,7 +88,6 @@
 }
 
 .slogan {
-
   text-align: center;
   color: white;
   font-weight: 300;
@@ -615,6 +614,7 @@
   /* min-height: 360px; */
 }
 // Challenges section
+
 .challenges {
   width: 100%;
   margin-bottom: 15%;
@@ -683,6 +683,7 @@
   background: #212121;
   border: none;
   z-index: 9999;
+
   a {
     color: white;
   }
@@ -734,11 +735,32 @@
 
 .dir-pa {
   margin-top: -27px;
-margin-left: 36px;
+  margin-left: 36px;
 }
 
 .web-p {
   margin-left: -4px;
-/* margin-bottom: 36px; */
-margin-top: -38px;
+  /* margin-bottom: 36px; */
+  margin-top: -38px;
+}
+// Cards container
+.card-orgs {
+  img {
+    width: 50px;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+  }
+}
+
+.directory-info {
+  width: 100%;
+  padding: 20px;
+  .group {
+    width: 100%;
+    display: inline-flex;
+    p {
+      margin-left: 5px;
+    }
+  }
 }

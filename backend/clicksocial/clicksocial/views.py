@@ -383,62 +383,11 @@ class Organization(Resource):
                 }))
             else:
                 s = create_dic(mongo.db.organizations.find({}))
-
-            test = [
-                {
-                    "_id": "58f4efe9516ea6d697a45bc6",
-                    "model": "Fundacion Empresarial",
-                    "entity": "American Express, S.A. de C.V",
-                    "social_group": "Poblacion en general",
-                    "federal_entity": "Ciudad de Mexico",
-                    "geo_issue": "Nacional",
-                    "web": "www.americanexpress.com",
-                    "contact": [
-                        "Adriana Rivera, Directora de Asuntos Corporativos y Comunicacion"
-                    ],
-                    "email": "adriana.a.rivera@aexp.com",
-                    "type": "Desarrollo Integral",
-                    "img":"https://www.sams.com.mx/Images/Informativas/amex_1.jpg",
-                    "description": "ok"
-                },
-                {
-                    "_id": "58f4efe9516ea6d697a45bc6",
-                    "model": "Fundacion Empresarial",
-                    "entity": "American Express, S.A. de C.V",
-                    "social_group": "Poblacion en general",
-                    "federal_entity": "Ciudad de Mexico",
-                    "geo_issue": "Nacional",
-                    "web": "www.americanexpress.com",
-                    "contact": [
-                        "Adriana Rivera, Directora de Asuntos Corporativos y Comunicacion"
-                    ],
-                    "email": "adriana.a.rivera@aexp.com",
-                    "type": "Desarrollo Integral",
-                    "img":"https://www.sams.com.mx/Images/Informativas/amex_1.jpg",
-                    "description": "ok"
-                }
-            ]
         else:
             organization = mongo.db.organization.find_one(
                 {"_id": ObjectId(id)})
-            test = {
-                "_id": "58f4efe9516ea6d697a45bc6",
-                "model": "Fundacion Empresarial",
-                "entity": "American Express, S.A. de C.V",
-                "social_group": "Poblacion en general",
-                "federal_entity": "Ciudad de Mexico",
-                "description": "ok",
-                "geo_issue": "Nacional",
-                "web": "www.americanexpress.com",
-                "contact": [
-                    "Adriana Rivera, Directora de Asuntos Corporativos y Comunicacion"
-                ],
-                "email": "adriana.a.rivera@aexp.com",
-                "type": "Desarrollo Integral",
-                "img":"https://www.sams.com.mx/Images/Informativas/amex_1.jpg"
-            }
-            return jsonify(test)
-        return jsonify(organizations=test)
+            return jsonify(organization)
+        return jsonify(organizations=s)
 
 
 api.add_resource(HelloWorld, '/')
