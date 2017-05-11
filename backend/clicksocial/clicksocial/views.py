@@ -384,7 +384,7 @@ class Organization(Resource):
             else:
                 s = create_dic(mongo.db.organizations.find({}))
         else:
-            organization = mongo.db.organization.find_one(
+            organization = mongo.db.organizations.find_one(
                 {"_id": ObjectId(id)})
             return jsonify(organization)
         return jsonify(organizations=s)
