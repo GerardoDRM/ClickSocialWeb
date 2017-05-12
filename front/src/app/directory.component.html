@@ -1,6 +1,6 @@
 <main class="mdl-layout__content" style="width:100%; text-align:center">
   <div class="logo-container"><img src="../assets/imgs/teamwork.svg" width="100px" /></div>
-  <h3 class="slogan">Directorio</h3>
+  <h3 class="slogan">Donantes</h3>
   <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="openDialog()">
   <i class="material-icons">search</i>
 </button>
@@ -50,7 +50,7 @@
       <div class="mdl-cell mdl-cell--4-col">
         <h4>Tipo</h4>
         <div *ngFor="let t of type_filter; let i = index">
-          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="t-{{i}}">
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="t-{{i}}" style="height:auto; margin-bottom:5px;">
             <input type="checkbox" id="t-{{i}}" class="mdl-checkbox__input" [(ngModel)]="selectedTypes[i].value">
             <span class="mdl-checkbox__label">{{t}}</span>
           </label>
@@ -59,7 +59,7 @@
       <div class="mdl-cell mdl-cell--4-col">
         <h4>Grupo Social</h4>
         <div *ngFor="let g of group_filter; let i = index">
-          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="g-{{i}}">
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="g-{{i}}" style="height:auto;  margin-bottom:5px;">
             <input type="checkbox" id="g-{{i}}" class="mdl-checkbox__input" [(ngModel)]="selectedGroup[i].value">
             <span class="mdl-checkbox__label">{{g}}</span>
           </label>
@@ -68,7 +68,7 @@
       <div class="mdl-cell mdl-cell--4-col">
         <h4>Tipo</h4>
         <div *ngFor="let s of issue_filter; let i = index">
-          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="s-{{i}}">
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="s-{{i}}" style="height:auto;  margin-bottom:5px;">
             <input type="checkbox" id="s-{{i}}" class="mdl-checkbox__input" [(ngModel)]="selectedIssue[i].value">
             <span class="mdl-checkbox__label">{{s}}</span>
           </label>
