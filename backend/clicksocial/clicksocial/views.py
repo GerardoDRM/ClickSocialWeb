@@ -236,6 +236,18 @@ class Organization(Resource):
             return jsonify(organization)
         return jsonify(organizations=s)
 
+'''
+    Get all data from directory stored on the database
+    this class just retrieve all data without any constraint
+'''
+
+
+class Directory(Resource):
+
+    @cross_origin()
+    def get(self):
+        s = create_dic(mongo.db.directory.find({}))
+        return jsonify(directory=s)
 
 api.add_resource(HelloWorld, '/')
 api.add_resource(Convocations,
@@ -254,3 +266,6 @@ api.add_resource(Organization,
                  '/api/v0/organizations',
                  '/api/v0/organizations/<id>',
                  endpoint="organizations")
+api.add_resource(Directory,
+                 '/api/v0/directory',
+                 endpoint="directory")
