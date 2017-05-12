@@ -29,7 +29,7 @@ export class organizationService {
   }
   private extractData(res: Response) {
     let body = res.json();
-    return body.organizations || {};
+    return body.directory || {};
   }
   private handleError(error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure

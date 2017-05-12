@@ -4,29 +4,29 @@
 </main>
 
 <div class="portfolio-max-width">
-  <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp">
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp" style="width:300px">
     <thead>
       <tr>
         <th>Razon Social</th>
         <th>Figura Juridica</th>
         <th>Entidad Federal</th>
         <th class="disappear">Representantes</th>
-        <th class="disappear">Correos</th>
+        <!-- <th class="disappear">Correos</th> -->
         <th class="disappear">Asentamiento</th>
-        <th class="disappear">Calle</th>
+        <!-- <th class="disappear">Calle</th> -->
         <th class="disappear">Redes</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody style="white-space: pre-wrap;">
       <tr *ngFor="let o of organizations">
-        <td>o.social_reason</td>
-        <td>o.figure</td>
-        <td>o.federal_entity</td>
-        <td class="disappear">o.representants</td>
-        <td class="disappear">o.emails</td>
-        <td class="disappear">o.place</td>
-        <td class="disappear">o.street</td>
-        <td class="disappear">o.network</td>
+        <td>{{o.social_reason}}</td>
+        <td>{{o.figure}}</td>
+        <td>{{o.federal_entity}}</td>
+        <td class="disappear">{{o.representants}}</td>
+        <!-- <td class="disappear">{{o.emails}}</td> -->
+        <td class="disappear">{{o.place}}</td>
+        <!-- <td class="disappear">{{o.street}}</td> -->
+        <td class="disappear">{{o.network}}</td>
       </tr>
     </tbody>
   </table>

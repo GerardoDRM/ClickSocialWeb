@@ -211,13 +211,13 @@ class Organization(Resource):
             # Check filters
             if args.filters is 1: # Add filters
                 # Check which filter to apply
-                type_list = [Regex.from_native(re.compile(r""+i+".*")) for i in args.type.split(',')]
+                type_list = [Regex.from_native(re.compile(str(i).replace("\"", "")+'.*')) for i in args.type.split(',')]
                 for t in type_list:
                     t.flags ^= re.UNICODE
-                group_list = [Regex.from_native(re.compile(r""+i+".*")) for i in args.group.split(',')]
+                group_list = [Regex.from_native(re.compile(str(i).replace("\"", "")+'.*')) for i in args.group.split(',')]
                 for g in group_list:
                     g.flags ^= re.UNICODE
-                issue_list = [Regex.from_native(re.compile(r""+i+".*")) for i in args.issue.split(',')]
+                issue_list = [Regex.from_native(re.compile(str(i).replace("\"", "")+'.*')) for i in args.issue.split(',')]
                 for i in issue_list:
                     i.flags ^= re.UNICODE
 
