@@ -4,5 +4,30 @@
 </main>
 
 <div class="portfolio-max-width">
-
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp">
+    <thead>
+      <tr>
+        <th>Entidad Federal</th>
+        <th class="disappear">Municipio</th>
+        <th>Asentamiento</th>
+        <th class="disappear">Calle</th>
+        <th class="disappear"># Interios</th>
+        <th class="disappear"># Exterior</th>
+        <th class="disappear">CP</th>
+        <th>Redes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let o of organizations">
+        <td>o.federal_entity</td>
+        <td class="disappear">o.municipio</td>
+        <td>o.place</td>
+        <td class="disappear">o.street</td>
+        <td class="disappear">o.inter_number</td>
+        <td class="disappear">o.extern_number</td>
+        <td class="disappear">o.cp</td>
+        <td>o.network</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

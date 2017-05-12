@@ -6,25 +6,24 @@ import 'rxjs/add/operator/map';
 
 export interface DirectoryTable {
   _id:string,
-  model:string,
-  entity:string,
-  social_group:string,
   federal_entity:string,
-  geo_issue:string,
-  web:string,
-  email:string,
-  type:string
+  municipio:string,
+  place:string,
+  street:string,
+  inter_number:string,
+  extern_number:string,
+  cp:number,
+  network:string
  }
 
 @Injectable()
 export class organizationService {
-  private orgUrl = 'http://clicksocial.mx/api/v0/organizations';  // URL to web API
+  private orgUrl = 'http://clicksocial.mx/api/v0/directory';  // URL to web API
   params = new URLSearchParams();
 
   constructor(private http: Http) { }
   getData(): Observable<DirectoryTable[]> {
-    this.params.set('filters', '0');
-    return this.http.get(this.orgUrl, {search:this.params})
+    return this.http.get(this.orgUrl)
       .map(this.extractData)
       .catch(this.handleError);
   }

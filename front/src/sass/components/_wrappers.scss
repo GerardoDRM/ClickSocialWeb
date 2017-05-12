@@ -741,8 +741,6 @@
 .megaphone-margin {
   margin-bottom: 9%;
 }
-
-
 // Cards container
 .card-orgs {
   img {
@@ -756,20 +754,21 @@
 .directory-info {
   width: 100%;
   padding: 20px;
+
   .group {
     width: 100%;
     display: inline-flex;
+
     p {
       margin-left: 5px;
     }
   }
 }
-
-
 // Orgs
 .section-details--org {
   background: white;
   margin-bottom: 20px;
+
   h4 {
     width: 100%;
     background: #2f2f2f;
@@ -778,6 +777,7 @@
     padding: 20px;
     font-size: 2em;
   }
+
   .mdl-card {
     height: auto !important;
     min-height: auto !important;

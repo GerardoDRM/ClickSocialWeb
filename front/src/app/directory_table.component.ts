@@ -7,19 +7,19 @@ import { organizationService } from './directory_table.service';
 declare var dialogPolyfill: any;
 
 export interface DirectoryTable {
-  _id: string,
-  model: string,
-  entity: string,
-  social_group: string,
-  federal_entity: string,
-  geo_issue: string,
-  web: string,
-  email: string,
-  type: string,
+  _id:string,
+  federal_entity:string,
+  municipio:string,
+  place:string,
+  street:string,
+  inter_number:string,
+  extern_number:string,
+  cp:number,
+  network:string
 }
 
 @Component({
-  templateUrl: './directory.component.html',
+  templateUrl: './directory_table.component.html',
   styleUrls: ['./main.css'],
   providers: [organizationService]
 })
