@@ -3,7 +3,8 @@ from flask_restful import Resource, reqparse
 from flask import jsonify
 from flask_cors import cross_origin
 from bson.objectid import ObjectId
-
+from bson.regex import Regex
+import re
 
 def create_dic(cursor):
     k = []
@@ -119,34 +120,8 @@ class Convocations(Resource):
                 }
             ]
         else:
-            convocation = mongo.db.convocation.find_one({"_id": ObjectId(id)})
-            test = {
-                "_id": "58f4f269516ea6d697a45bc8",
-                "addresses": [
-                    {
-                        "city": "Puebla",
-                        "state": "Puebla",
-                        "street": "Calle 2"
-                    }
-                ],
-                "authors": [
-                    {
-                        "email": "",
-                        "name": "Coparmex"
-                    }
-                ],
-                "creation_date": 1492659697,
-                "description": "Lorem Ipsum",
-                "img": "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg",
-                "model": [
-                    "Pobreza",
-                    "Sustentabilidad"
-                ],
-                "title": "Convocatoria",
-                "type": "Municipal",
-                "web": "www.google.com"
-            }
-            return jsonify(test)
+            convocation = mongo.db.convocation.find_one({"_id": ObjectId(id)}, {"_id":0})
+            return jsonify(convocation)
 
         return jsonify(convocations=test)
 
@@ -163,66 +138,11 @@ class Stories(Resource):
         if id is None:
             s = create_dic(mongo.db.success_stories.find(
                 {}, {"creation_date": 1, "description": 1, "img": 1, "title": 1}))
-            test = [
-                {
-                    "_id": "58f4f2fa516ea6d697a45bc9",
-                    "creation_date": 1492659697,
-                    "description": '''
-                        Busca formar líderes con valores en procesos democráticos para incidir en lo nacional con
-                        participación ciudadana desde lo local (escuela, colonia, municipio).
-                        De manera que los jóvenes puedan vivir los procesos que conforman la Democracia
-                        para comprenderlos en un espacio micro y mostrándoles que pueden participar resolviendo
-                        problemas juntos.
-                        Está dirigido hacia jóvenes entre 15 y 18 años ya que son aquellos que se encuentran muy
-                        cercanos a participar en los procesos democráticos aunque se puede trabajar con otros sectores
-                        además de que puede ser adaptable a Educación Formal Escuelas Y Educación No Formal
-                        (unidades habitacionales y comunidades indígenas.
-                    ''',
-                    "img": "https://media.licdn.com/media/p/2/000/2bd/1d5/249157f.png",
-                    "title": "Código Ciudadania"
-                },
-                {
-                    "_id": "58f4f2fa516ea6d697a45bc9",
-                    "creation_date": 1492659697,
-                    "description": '''
-                        Sociedad en Movimiento, A.C. es una organización
-                        de la sociedad civil de naturaleza apartidista y sin fines
-                        de lucro que busca –entre otros objetivos–, promover,
-                        fomentar y articular la participación ciudadana en la
-                        vida social, educativa y cultural de México.
-                        En cumplimiento de sus objetivos, en los años
-                        recientes, Sociedad en Movimiento ha desarrollado una
-                        propuesta didáctica que denomina Democracia del
-                        Futuro, con base en un enfoque educativo que facilita
-                        la solución de retos mediante el diálogo, la creación de
-                        propuestas y la toma de decisiones grupales.
-                    ''',
-                    "img": "http://www.movilidad.enmovimientorevista.com/wp-content/uploads/2014/04/peatones.jpg",
-                    "title": "Talleres breves para la formación ciudadana"
-                }
-            ]
         else:
-            story = mongo.db.success_stories.find_one({"_id": ObjectId(id)})
-            test = {
-                "_id": "58f4f2fa516ea6d697a45bc9",
-                "creation_date": 1492659697,
-                "description": '''
-                    Busca formar líderes con valores en procesos democráticos para incidir en lo nacional con
-                    participación ciudadana desde lo local (escuela, colonia, municipio).
-                    De manera que los jóvenes puedan vivir los procesos que conforman la Democracia
-                    para comprenderlos en un espacio micro y mostrándoles que pueden participar resolviendo
-                    problemas juntos.
-                    Está dirigido hacia jóvenes entre 15 y 18 años ya que son aquellos que se encuentran muy
-                    cercanos a participar en los procesos democráticos aunque se puede trabajar con otros sectores
-                    además de que puede ser adaptable a Educación Formal Escuelas Y Educación No Formal
-                    (unidades habitacionales y comunidades indígenas.
-                ''',
-                "img": "https://media.licdn.com/media/p/2/000/2bd/1d5/249157f.png",
-                "title": "Código Ciudadania"
-            }
-            return jsonify(test)
+            story = mongo.db.success_stories.find_one({"_id": ObjectId(id)}, {"_id":0})
+            return jsonify(story)
 
-        return jsonify(stories=test)
+        return jsonify(stories=s)
 
 '''
     Get all challenges stored on the database
@@ -237,94 +157,11 @@ class Challenge(Resource):
         if id is None:
             s = create_dic(mongo.db.challenges.find(
                 {}, {"creation_date": 1, "description": 1, "img": 1, "title": 1, "likes": 1}))
-            test = [
-                {
-                    "_id": "58f4f2fa516ea6d697a45bc9",
-                    "creation_date": 1492659697,
-                    "description": """
-                        Transformar  Nuestro Mundo es el  lema de la Agenda 2030,
-                        la nueva agenda internacional que desgrana los objetivos
-                        de la comunidad internacional en el periodo 2016-2030 para
-                        erradicar la pobreza y favorecer un desarrollo sostenible e igualitario.
-                    """,
-                    "img": "http://www.aecid.es/Centro-Documentacion/PublishingImages/Noticias/2015/09/V%C3%ADdeo%20Agenda%202030.png?RenditionID=8",
-                    "title": "El reto de los ODS",
-                    "likes": 10
-                },
-                {
-                    "_id": "58f4f2fa516ea6d697a45bc9",
-                    "creation_date": 1492659697,
-                    "description": '''
-                        A pesar de los avances de grandes industrias, de
-                        pequeñas y medianas empresas innovando y demostrando
-                        diferentes maneras de pensar, hacer y actuar,
-                        hay grandes retos a corto, mediano y largo plazo que
-                        se deben enfrentar para que una región tan compleja y
-                        diversa como lo es Latinoamérica pueda ser referente
-                        mundial en temas de sostenibilidad:
-                    ''',
-                    "img": "http://ep01.epimg.net/elpais/imagenes/2016/02/18/planeta_futuro/1455818338_104124_1455818881_noticia_normal_recorte1.jpg",
-                    "title": "El reto de los ODS",
-                    "likes": 10
-                }
-            ]
         else:
-            challenge = mongo.db.challenges.find_one({"_id": ObjectId(id)})
-            test = {
-                "_id": "58f4f144516ea6d697a45bc7",
-                "title": "El reto de los ODS",
-                "model": [
-                    "Pobreza",
-                    "Sustentabilidad"
-                ],
-                "creation_date": 1492659697,
-                "description": '''
-                    A pesar de los avances de grandes industrias, de
-                    pequeñas y medianas empresas innovando y demostrando
-                    diferentes maneras de pensar, hacer y actuar,
-                    hay grandes retos a corto, mediano y largo plazo que
-                    se deben enfrentar para que una región tan compleja y
-                    diversa como lo es Latinoamérica pueda ser referente
-                    mundial en temas de sostenibilidad:
-                ''',
-                "challenge": '''
-                    Se deben establecer sistemas de apoyo de apoyo gubernamental
-                    y financiero para acompañar organizaciones que nunca han
-                    hablado de sostenibilidad. Aún se conservan estilos
-                    gerenciales basados en paradigmas sobre la importancia
-                    estratégica de la sostenibilidad y con los cuales hay que
-                    realizar un proceso de entendimiento para que se comprendan
-                    que se pueden tener beneficios sociales, ambientales pero también económicos.
-                    Innovadores y adaptadores tempranos lo hacen actualmente,
-                    el reto es llegar a las mayorías tempranas y tardías,
-                    empresas que aún no saben cómo establecer prácticas más sostenibles.
-                 ''',
-                "img": "http://ep01.epimg.net/elpais/imagenes/2016/02/18/planeta_futuro/1455818338_104124_1455818881_noticia_normal_recorte1.jpg",
-                "comments": [
-                    {
-                        "user": "0124",
-                        "name": "Test",
-                        "content": "test",
-                        "publish_date": 1492659697
-                    }
-                ],
-                "authors": [
-                    {
-                        "name": "Gerar de la Rosa",
-                        "email": "contacto.craftcode@gmail.com"
-                    }
-                ],
-                "likes": 10,
-                "participants": 20,
-                "address": [
-                    {
-                        "state": "Puebla",
-                        "city": "Puebla"
-                    }
-                ]
-            }
-            return jsonify(test)
-        return jsonify(challenges=test)
+            challenge = mongo.db.challenges.find_one({"_id": ObjectId(id)}, {"_id":0})
+            return jsonify(challenge)
+
+        return jsonify(challenges=s)
 
 '''
     This class inserts and gets comments on specific challenge
@@ -374,11 +211,21 @@ class Organization(Resource):
             # Check filters
             if args.filters is 1: # Add filters
                 # Check which filter to apply
+                type_list = [Regex.from_native(re.compile(r""+i+".*")) for i in args.type.split(',')]
+                for t in type_list:
+                    t.flags ^= re.UNICODE
+                group_list = [Regex.from_native(re.compile(r""+i+".*")) for i in args.group.split(',')]
+                for g in group_list:
+                    g.flags ^= re.UNICODE
+                issue_list = [Regex.from_native(re.compile(r""+i+".*")) for i in args.issue.split(',')]
+                for i in issue_list:
+                    i.flags ^= re.UNICODE
+
                 s = create_dic(mongo.db.organizations.find({
                     "$or": [
-                        {"social_group": {"$in": args.group.split(',')}},
-                        {"type": {"$in": args.type.split(',')}},
-                        {"issue": {"$in": args.issue.split(',')}}
+                        {"social_group": {"$in": group_list}},
+                        {"type": {"$in": type_list}},
+                        {"issue": {"$in": issue_list}}
                     ]
                 }))
             else:
