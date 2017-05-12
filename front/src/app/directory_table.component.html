@@ -7,26 +7,26 @@
   <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp">
     <thead>
       <tr>
+        <th>Razon Social</th>
+        <th>Figura Juridica</th>
         <th>Entidad Federal</th>
-        <th class="disappear">Municipio</th>
-        <th>Asentamiento</th>
+        <th class="disappear">Representantes</th>
+        <th class="disappear">Correos</th>
+        <th class="disappear">Asentamiento</th>
         <th class="disappear">Calle</th>
-        <th class="disappear"># Interios</th>
-        <th class="disappear"># Exterior</th>
-        <th class="disappear">CP</th>
-        <th>Redes</th>
+        <th class="disappear">Redes</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let o of organizations">
+        <td>o.social_reason</td>
+        <td>o.figure</td>
         <td>o.federal_entity</td>
-        <td class="disappear">o.municipio</td>
-        <td>o.place</td>
+        <td class="disappear">o.representants</td>
+        <td class="disappear">o.emails</td>
+        <td class="disappear">o.place</td>
         <td class="disappear">o.street</td>
-        <td class="disappear">o.inter_number</td>
-        <td class="disappear">o.extern_number</td>
-        <td class="disappear">o.cp</td>
-        <td>o.network</td>
+        <td class="disappear">o.network</td>
       </tr>
     </tbody>
   </table>

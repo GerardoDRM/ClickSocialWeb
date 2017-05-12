@@ -8,13 +8,13 @@ declare var dialogPolyfill: any;
 
 export interface DirectoryTable {
   _id:string,
+  social_reason: string,
+  figure: string,
   federal_entity:string,
-  municipio:string,
+  representants: string,
+  emails: string,
   place:string,
   street:string,
-  inter_number:string,
-  extern_number:string,
-  cp:number,
   network:string
 }
 
