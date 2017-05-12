@@ -225,7 +225,7 @@ class Organization(Resource):
                     "$or": [
                         {"social_group": {"$in": group_list}},
                         {"type": {"$in": type_list}},
-                        {"issue": {"$in": issue_list}}
+                        {"geo_issue": {"$in": issue_list}}
                     ]
                 }))
             else:
