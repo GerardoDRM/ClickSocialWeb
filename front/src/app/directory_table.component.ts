@@ -3,7 +3,6 @@ import { ElementRef } from "@angular/core";
 import { ViewChild } from "@angular/core";
 import { AfterViewInit } from "@angular/core";
 import { organizationService } from './directory_table.service';
-import { FilterPipe } from './filtersearch.pipe';
 
 declare var dialogPolyfill: any;
 
@@ -38,8 +37,5 @@ export class DirectoryTableComponent {
     this.challengesService.getData().subscribe(
       response => this.organizations = response
     )
-  }
-  searchData() {
-
   }
 }

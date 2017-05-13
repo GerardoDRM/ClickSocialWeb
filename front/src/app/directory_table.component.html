@@ -4,9 +4,20 @@
 </main>
 
 <div class="portfolio-max-width">
-  <!-- <input type="text" [(ngModel)]="data" /> -->
+  <div class="search-bar">
+    <label class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">search</i>
+    </label>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" [(ngModel)]="data" />
+      <label class="mdl-textfield__label">Busca organizaciones...</label>
+    </div>
+
+
+  </div>
+
   <ul class="mdl-list">
-    <li class=" mdl-card mdl-list__item mdl-list__item--three-line dir-list" *ngFor="let o of organizations">
+    <li class=" mdl-card mdl-list__item mdl-list__item--three-line dir-list" *ngFor="let o of organizations | filterdata:data">
       <span class="mdl-list__item-primary-content">
       <i class="material-icons mdl-list__item-icon	">account_balance</i>
       <span>{{o.social_reason}}</span>
