@@ -14,7 +14,7 @@ import { DirectoryComponent } from './directory.component'
 import { DirectoryTableComponent } from './directory_table.component'
 import { ChallengeComponent } from './challenge.component'
 import { OrgComponent } from './org.component'
-
+import { FilterPipe } from './filtersearch.pipe'
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cases', component: SuccesCasesComponent },
@@ -47,7 +47,8 @@ const appRoutes: Routes = [
     DirectoryComponent,
     ChallengeComponent,
     DirectoryTableComponent,
-    OrgComponent
+    OrgComponent,
+    FilterPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

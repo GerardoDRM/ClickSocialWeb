@@ -742,6 +742,7 @@
   margin-bottom: 9%;
 }
 // Cards container
+
 .card-orgs {
   img {
     width: 50px;
@@ -765,6 +766,7 @@
   }
 }
 // Orgs
+
 .section-details--org {
   background: white;
   margin-bottom: 20px;
@@ -781,5 +783,24 @@
   .mdl-card {
     height: auto !important;
     min-height: auto !important;
+  }
+}
+
+.dir-list {
+  width: 100%;
+  height: auto !important;
+  min-height: auto !important;
+  margin: 5px 0;
+
+  .mdl-list__item-primary-content {
+    height: auto !important;
+  }
+
+  .mdl-list__item-text-body {
+    height: auto !important;
+  }
+
+  .mdl-cell {
+    word-wrap: break-word;
   }
 }

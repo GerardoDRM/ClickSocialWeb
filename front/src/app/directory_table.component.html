@@ -1,33 +1,28 @@
 <main class="mdl-layout__content" style="width:100%; text-align:center">
   <div class="logo-container"><img src="../assets/imgs/teamwork.svg" width="100px" /></div>
-  <h3 class="slogan">Directorio</h3>
+  <h3 class="slogan">Directorio de Organizaciones</h3>
 </main>
 
 <div class="portfolio-max-width">
-  <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp" style="width:300px">
-    <thead>
-      <tr>
-        <th>Razon Social</th>
-        <th>Figura Juridica</th>
-        <th>Entidad Federal</th>
-        <th class="disappear">Representantes</th>
-        <!-- <th class="disappear">Correos</th> -->
-        <th class="disappear">Asentamiento</th>
-        <!-- <th class="disappear">Calle</th> -->
-        <th class="disappear">Redes</th>
-      </tr>
-    </thead>
-    <tbody style="white-space: pre-wrap;">
-      <tr *ngFor="let o of organizations">
-        <td>{{o.social_reason}}</td>
-        <td>{{o.figure}}</td>
-        <td>{{o.federal_entity}}</td>
-        <td class="disappear">{{o.representants}}</td>
-        <!-- <td class="disappear">{{o.emails}}</td> -->
-        <td class="disappear">{{o.place}}</td>
-        <!-- <td class="disappear">{{o.street}}</td> -->
-        <td class="disappear">{{o.network}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- <input type="text" [(ngModel)]="data" /> -->
+  <ul class="mdl-list">
+    <li class=" mdl-card mdl-list__item mdl-list__item--three-line dir-list" *ngFor="let o of organizations">
+      <span class="mdl-list__item-primary-content">
+      <i class="material-icons mdl-list__item-icon	">account_balance</i>
+      <span>{{o.social_reason}}</span>
+      <span class="mdl-list__item-text-body">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col"><i class="material-icons">dashboard</i></div>
+          <div class="mdl-cell mdl-cell-10-col">{{o.figure}}</div>
+          <div class="mdl-cell mdl-cell--2-col"><i class="material-icons">place</i></div>
+          <div class="mdl-cell mdl-cell-10-col">{{o.federal_entity}}</div>
+          <div class="mdl-cell mdl-cell--2-col"><i class="material-icons">email</i></div>
+          <div class="mdl-cell mdl-cell-10-col">{{o.emails}}</div>
+          <div class="mdl-cell mdl-cell--2-col"><i class="material-icons">face</i></div>
+          <div class="mdl-cell mdl-cell-10-col">{{o.representants}}</div>
+        </div>
+      </span>
+      </span>
+    </li>
+  </ul>
 </div>
