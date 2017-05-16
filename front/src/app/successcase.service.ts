@@ -5,19 +5,19 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 export interface Contact {
-  name:string;
-  email:string;
+  name: string;
+  email: string;
 }
 
 export interface Story {
-    _id: string;
-    title: string;
-    description: string;
-    img: string;
-    creation_date: number;
-    web:string;
-    contact: Contact;
- }
+  _id: string;
+  title: string;
+  description: string;
+  img: string;
+  creation_date: number;
+  web: string;
+  videos: Array<string>
+}
 
 
 @Injectable()

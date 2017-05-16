@@ -15,6 +15,7 @@ export interface Story {
     img: string;
     creation_date: number;
     web:string;
+    videos:Array<string>
  }
 
 
@@ -33,7 +34,8 @@ export class SuccesCaseComponent implements OnInit, OnDestroy {
     description: "",
     img: "",
     creation_date: 0,
-    web: ""
+    web: "",
+    videos: []
   };
   mode = 'Observable';
 

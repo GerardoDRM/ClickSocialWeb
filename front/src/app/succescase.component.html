@@ -20,6 +20,11 @@
       <p style="width:92%;">
         {{story.description}}
       </p>
+      <div style="width:90%;" *ngFor="let v of story.videos">
+        <iframe width="90%" height="315" [src]="v | safe">
+            </iframe>
+      </div>
+
     </div>
   </div>
 </div>

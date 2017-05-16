@@ -15,6 +15,7 @@ import { DirectoryTableComponent } from './directory_table.component'
 import { ChallengeComponent } from './challenge.component'
 import { OrgComponent } from './org.component'
 import { FilterData } from './filtersearch.pipe'
+import { SafePipe } from './safepipe.pipe'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     ChallengeComponent,
     DirectoryTableComponent,
     OrgComponent,
-    FilterData
+    FilterData,
+    SafePipe
   ],
   providers: [],
   bootstrap: [AppComponent]
