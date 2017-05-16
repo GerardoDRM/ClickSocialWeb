@@ -249,6 +249,67 @@ class Directory(Resource):
         s = create_dic(mongo.db.directory.find({}))
         return jsonify(directory=s)
 
+
+
+'''
+    Get all organization stored on the database
+    this class just retrieve all data without any constraint
+    just on mobile
+'''
+
+
+class OrganizationMobile(Resource):
+
+    @cross_origin()
+    def get(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('group', type=str, required=False)
+        parser.add_argument('type', type=str, required=False)
+        parser.add_argument('issue', type=str, required=False)
+        parser.add_argument('filters', type=int, required=True)
+        parser.add_argument('page', type=int, required=True)
+
+        args = parser.parse_args()
+
+        # Check filters
+        if args.filters is 1: # Add filters
+            # Check which filter to apply
+            type_list = [Regex.from_native(re.compile(str(i).replace("\"", "")+'.*')) for i in args.type.split(',') if len(i) > 2]
+            for t in type_list:
+                t.flags ^= re.UNICODE
+            group_list = [Regex.from_native(re.compile(str(i).replace("\"", "")+'.*')) for i in args.group.split(',') if len(i) > 2]
+            for g in group_list:
+                g.flags ^= re.UNICODE
+            issue_list = [Regex.from_native(re.compile(str(i).replace("\"", "")+'.*')) for i in args.issue.split(',') if len(i) > 2]
+            for i in issue_list:
+                i.flags ^= re.UNICODE
+
+            s = create_dic(mongo.db.organizations.find({
+                "$or": [
+                    {"social_group": {"$in": group_list}},
+                    {"type": {"$in": type_list}},
+                    {"geo_issue": {"$in": issue_list}}
+                ]
+            }).skip(args.page * 25).limit(25))
+        else:
+            s = create_dic(mongo.db.organizations.find({}).skip(args.page * 25).limit(25))
+
+        return jsonify(organizations=s)
+
+'''
+    Get all data from directory stored on the database
+    this class just retrieve all data without any constraint
+'''
+
+
+class DirectoryMobile(Resource):
+
+    @cross_origin()
+    def get(self):
+        s = create_dic(mongo.db.directory.find({}).skip(args.page * 25).limit(25))
+        return jsonify(directory=s)
+
+
 api.add_resource(HelloWorld, '/')
 api.add_resource(Convocations,
                  '/api/v0/convocations',
@@ -266,6 +327,12 @@ api.add_resource(Organization,
                  '/api/v0/organizations',
                  '/api/v0/organizations/<id>',
                  endpoint="organizations")
+api.add_resource(OrganizationMobile,
+                 '/api/v0/organizations_mobile',
+                 endpoint="organizations_mobile")
 api.add_resource(Directory,
                  '/api/v0/directory',
                  endpoint="directory")
+api.add_resource(DirectoryMobile,
+                 '/api/v0/directory_mobile',
+                 endpoint="directory_mobile")
