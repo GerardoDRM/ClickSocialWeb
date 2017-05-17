@@ -31,99 +31,11 @@ class Convocations(Resource):
     def get(self, id=None):
         if id is None:
             c = create_dic(mongo.db.convocation.find())
-            test = [
-                {
-                    "_id": "58f4f269516ea6d697a45bc8",
-                    "addresses": [
-                        {
-                            "city": "Puebla",
-                            "state": "Puebla",
-                            "street": "Calle 2"
-                        }
-                    ],
-                    "authors": [
-                        {
-                            "email": "",
-                            "name": "Coparmex"
-                        }
-                    ],
-                    "creation_date": 1492659697,
-                    "description": '''
-                        Programa dirigido a empresas legalmente establecidas que generen productos, servicios
-                        y/o modelos de negocio innovadores con un alto impacto social y económico, que además
-                        contribuyan positivamente al medio ambiente, generen beneficios para su comunidad y
-                        tengan potencial para volverse global.
-                        La convocatoria 3.3 “Impulso a Emprendimientos de Alto Impacto” del Fondo Nacional
-                        Emprendedor, busca apoyar emprendimientos de alto impacto que cuenten con alto
-                        potencial económico, basados en nuevas y/o mejores soluciones que se traduzcan en
-                        productos, servicios y/o modelos de negocio con un impacto integral en su entorno y que
-                        requieran herramientas para fortalecer su operación, generar valor agregado y maximizar
-                        su crecimiento.
-                        No importa si te acabas de constituir (startup) o ya estás creciendo (scaleup), si requieres
-                        de acompañamiento y asesoría especializada para poder generar valor en tu negocio y
-                        crecer, esta convocatoria te brinda la oportunidad de acercarte a los expertos, adquirir e
-                        implementar tecnología y maquinaria para eficientar procesos de innovación y obtener
-                        validaciones nacionales e internacionales que faciliten tu operación y posicionamiento en
-                        el mercado.
-                    ''',
-                    "img": "http://s3-us-west-2.amazonaws.com/puntoapunto.com.ar/wp-content/uploads/2017/02/07103647/startups-696x450-696x450.jpg",
-                    "model": [
-                        "Pobreza",
-                        "Sustentabilidad"
-                    ],
-                    "title": "Convocatoria para Emprendimiento de alto impacto",
-                    "type": "Municipal",
-                    "web": "www.inadem.mx"
-                },
-                {
-                    "_id": "58f4f269516ea6d697a45bc8",
-                    "addresses": [
-                        {
-                            "city": "Puebla",
-                            "state": "Puebla",
-                            "street": "Calle 2"
-                        }
-                    ],
-                    "authors": [
-                        {
-                            "email": "",
-                            "name": "Coparmex"
-                        }
-                    ],
-                    "creation_date": 1492659697,
-                    "description": '''
-                                        Programa dirigido a empresas legalmente establecidas que generen productos, servicios
-                                        y/o modelos de negocio innovadores con un alto impacto social y económico, que además
-                                        contribuyan positivamente al medio ambiente, generen beneficios para su comunidad y
-                                        tengan potencial para volverse global.
-                                        La convocatoria 3.3 “Impulso a Emprendimientos de Alto Impacto” del Fondo Nacional
-                                        Emprendedor, busca apoyar emprendimientos de alto impacto que cuenten con alto
-                                        potencial económico, basados en nuevas y/o mejores soluciones que se traduzcan en
-                                        productos, servicios y/o modelos de negocio con un impacto integral en su entorno y que
-                                        requieran herramientas para fortalecer su operación, generar valor agregado y maximizar
-                                        su crecimiento.
-                                        No importa si te acabas de constituir (startup) o ya estás creciendo (scaleup), si requieres
-                                        de acompañamiento y asesoría especializada para poder generar valor en tu negocio y
-                                        crecer, esta convocatoria te brinda la oportunidad de acercarte a los expertos, adquirir e
-                                        implementar tecnología y maquinaria para eficientar procesos de innovación y obtener
-                                        validaciones nacionales e internacionales que faciliten tu operación y posicionamiento en
-                                        el mercado.
-                                    ''',
-                    "img": "https://assets.entrepreneur.com/content/16x9/822/20161027155704-Depositphotos-126342088-l-2015.jpeg",
-                    "model": [
-                        "Pobreza",
-                        "Sustentabilidad"
-                    ],
-                    "title": "Alto Impacto Coparmex",
-                    "type": "Municipal",
-                    "web": "www.inadem.mx"
-                }
-            ]
         else:
             convocation = mongo.db.convocation.find_one({"_id": ObjectId(id)}, {"_id":0})
             return jsonify(convocation)
 
-        return jsonify(convocations=test)
+        return jsonify(convocations=c)
 
 '''
     Get all stories stored on the database
