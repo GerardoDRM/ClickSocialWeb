@@ -10,7 +10,7 @@
 
   <div class="mdl-grid ">
     <div class="card-orgs mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col" *ngFor="let o of organizations">
-      <div class="mdl-card__title mdl-card--expand" style="height: 150px;" [ngStyle]="{'background': addColor(o.type)}">
+      <div class="mdl-card__title mdl-card--expand" style="height: 200px;" [ngStyle]="{'background': addColor(o.type)}">
         <img class="inner-img" src={{addImg(o.type)}}/>
         <h2 class="mdl-card__title-text" style="color: white;">{{o.entity}}</h2>
       </div>
@@ -18,7 +18,9 @@
         <div class="group">
           <div class="icon material-icons">public</div>
           <p>
-            {{o.web}}
+            <a href="{{o.web}}">
+              {{o.web}}
+            </a>
           </p>
         </div>
         <div class="group">

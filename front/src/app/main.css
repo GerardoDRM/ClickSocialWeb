@@ -421,8 +421,8 @@ img.article-image {
 .social-btn__blogger {
   background-image: url("https://www.gstatic.com/images/icons/material/system/2x/post_facebook_black_24dp.png"); }
 
-.social-btn__gplus {
-  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/post_gplus_black_24dp.png"); }
+.social-btn__youtube {
+  background-image: url("https://www.gstatic.com/images/icons/material/system/2x/post_youtube_black_24dp.png"); }
 
 .social-btn__share {
   color: rgba(0, 0, 0, 0.54);
@@ -946,7 +946,17 @@ img.article-image {
     width: 100%;
     display: inline-flex; }
     .directory-info .group p {
-      margin-left: 5px; }
+      margin-left: 5px;
+      padding-right: 12%;
+      word-break: break-word; }
+      .directory-info .group p a {
+        word-break: break-word; }
+
+.grid-dict-table {
+  margin-top: 10px; }
+  .grid-dict-table .data {
+    padding-right: 15px;
+    word-break: break-word; }
 
 .section-details--org {
   background: white;

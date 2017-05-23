@@ -70,8 +70,8 @@
   background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_facebook_black_24dp.png');
 }
 
-.social-btn__gplus {
-  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_black_24dp.png');
+.social-btn__youtube {
+  background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_youtube_black_24dp.png');
 }
 
 .social-btn__share {
@@ -759,10 +759,23 @@
   .group {
     width: 100%;
     display: inline-flex;
-
     p {
       margin-left: 5px;
+      padding-right: 12%;
+      word-break: break-word;
+      a {
+        word-break: break-word;
+      }
+
     }
+  }
+}
+
+.grid-dict-table {
+  margin-top: 10px;
+  .data {
+    padding-right: 15px;
+    word-break: break-word;
   }
 }
 // Orgs
