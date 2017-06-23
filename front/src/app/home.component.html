@@ -89,6 +89,20 @@ Adicionalmente, Click Social ofrece a las iniciativas sociales, las organizacion
           </div> -->
         <a class="twitter-timeline" data-height="300" href="https://twitter.com/ClickSocial2">Tweets por ClickSocial2</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>        </div>
       </div>
+
+      <div class="mdl-cell mdl-cell--12-col">
+        <div class="mdl-card mdl-shadow--2dp card-box">
+          <div class="partners">
+            <h2>Video Conferencias</h2>
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--4-col" *ngFor="let v of videos">
+                <iframe width="90%" height="315" [src]="v | safe"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="mdl-cell mdl-cell--12-col">
         <div class="mdl-card mdl-shadow--2dp card-box">
           <div class="partners">

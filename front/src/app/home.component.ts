@@ -9,6 +9,8 @@ import { Router, NavigationEnd } from '@angular/router';
 export class HomeComponent implements AfterViewInit {
   private sub: any;
 
+  videos:Array<String> = ["https://www.youtube.com/embed/B1ZJrWHJmV0", "https://www.youtube.com/embed/gmgVcmHm2YE", "https://www.youtube.com/embed/NT6J_suUQm4"];
+
   constructor(private _router : Router) {
   }
   ngAfterViewInit() {
