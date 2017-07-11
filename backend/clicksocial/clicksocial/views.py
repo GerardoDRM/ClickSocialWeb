@@ -1,10 +1,20 @@
-from clicksocial import app, api, mongo
+from clicksocial import app, api, mongo, babel, admin
 from flask_restful import Resource, reqparse
-from flask import jsonify
+from flask import jsonify, request, session
 from flask_cors import cross_origin
 from bson.objectid import ObjectId
 from bson.regex import Regex
 import re
+from flask_mongoengine import MongoEngine
+from flask_admin.form import rules
+from flask_admin.contrib.mongoengine import ModelView
+
+app.config['MONGODB_SETTINGS'] = {'DB': 'clicksocial'}
+
+# Create models
+db = MongoEngine()
+db.init_app(app)
+
 
 def create_dic(cursor):
     k = []
@@ -13,6 +23,12 @@ def create_dic(cursor):
                   for key, value in doc.items()})
     return k
 
+
+@babel.localeselector
+def get_locale():
+    if request.args.get('lang'):
+        session['lang'] = request.args.get('lang')
+    return session.get('lang', 'es')
 
 class HelloWorld(Resource):
 
@@ -222,6 +238,7 @@ class DirectoryMobile(Resource):
         return jsonify(directory=s)
 
 
+
 api.add_resource(HelloWorld, '/')
 api.add_resource(Convocations,
                  '/api/v0/convocations',
@@ -248,3 +265,23 @@ api.add_resource(Directory,
 api.add_resource(DirectoryMobile,
                  '/api/v0/directory_mobile',
                  endpoint="directory_mobile")
+
+
+# Admin views
+# Define mongoengine documents
+class Convocation(db.Document):
+    title = db.StringField(max_length=255)
+    type = db.StringField(max_length=5)
+    description = db.StringField(max_length=255)
+    img = db.StringField(max_length=255)
+    web = db.StringField(max_length=255)
+    creation_date = db.DateTimeField()
+    addresses = db.ListField(db.DictField())
+    authors = db.ListField(db.DictField())
+    model = db.ListField(db.StringField(max_length=255))
+
+
+    def __unicode__(self):
+        return self.title
+
+admin.add_view(ModelView(Convocation))

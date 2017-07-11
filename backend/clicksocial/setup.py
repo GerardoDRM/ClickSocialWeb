@@ -9,6 +9,9 @@ setup(
         'flask-restful',
         'flask-pymongo',
         'flask-cors',
-        'gunicorn'
+        'gunicorn',
+        'flask-admin',
+        'flask-babelex',
+        'flask_mongoengine'
     ],
 )
