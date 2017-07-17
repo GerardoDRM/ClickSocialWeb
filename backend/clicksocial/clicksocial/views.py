@@ -8,6 +8,7 @@ import re
 from flask_mongoengine import MongoEngine
 from flask_admin.form import rules
 from flask_admin.contrib.mongoengine import ModelView
+from datetime import datetime
 
 app.config['MONGODB_SETTINGS'] = {'DB': 'clicksocial'}
 
@@ -273,9 +274,9 @@ class Convocation(db.Document):
     title = db.StringField(max_length=255)
     type = db.StringField(max_length=5)
     description = db.StringField(max_length=255)
-    img = db.StringField(max_length=255)
+    img = db.StringField(max_length=355)
     web = db.StringField(max_length=255)
-    creation_date = db.DateTimeField()
+    creation_date = db.DateTimeField(default=datetime.now)
     addresses = db.ListField(db.DictField())
     authors = db.ListField(db.DictField())
     model = db.ListField(db.StringField(max_length=255))
@@ -284,4 +285,107 @@ class Convocation(db.Document):
     def __unicode__(self):
         return self.title
 
+
+class Author(db.EmbeddedDocument):
+    name = db.StringField(max_length=255, required=True)
+    email = db.StringField(max_length=255)
+
+class Address(db.EmbeddedDocument):
+    state = db.StringField(max_length=255, required=True)
+    city = db.StringField(max_length=255)
+
+class Challenges(db.Document):
+    title = db.StringField(max_length=255)
+    model = db.ListField(db.StringField(max_length=255))
+    creation_date = db.DateTimeField(default=datetime.now)
+    description = db.StringField(max_length=255)
+    challenge = db.StringField(max_length=255)
+    img = db.StringField(max_length=355)
+    comments = db.ListField(db.DictField())
+    authors = db.ListField(db.EmbeddedDocumentField(Author))
+    address = db.ListField(db.EmbeddedDocumentField(Address))
+    likes = db.IntField()
+    participants = db.IntField()
+
+
+    def __unicode__(self):
+        return self.title
+
+
+class success_stories(db.Document):
+    creation_date = db.DateTimeField(default=datetime.now)
+    description = db.StringField(max_length=255)
+    img = db.StringField(max_length=355)
+    title = db.StringField(max_length=255)
+    videos = db.ListField(db.StringField(max_length=255))
+
+
+    def __unicode__(self):
+        return self.title
+
+class organizations(db.Document):
+    model = db.StringField(max_length=255)
+    entity = db.StringField(max_length=255)
+    social_group = db.StringField(max_length=255)
+    federal_entity = db.StringField(max_length=255)
+    geo_issue = db.StringField(max_length=255)
+    web = db.StringField(max_length=255)
+    contact = db.StringField(max_length=255)
+    email = db.StringField(max_length=255)
+    type = db.StringField(max_length=255)
+
+    def __unicode__(self):
+        return self.entity
+
+class directory(db.Document):
+    social_reason = db.StringField(max_length=255)
+    figure = db.StringField(max_length=255)
+    representants = db.StringField(max_length=255)
+    emails = db.StringField(max_length=255)
+    federal_entity = db.StringField(max_length=255)
+    place = db.StringField(max_length=255)
+    street = db.StringField(max_length=255)
+    network = db.StringField(max_length=255)
+
+    def __unicode__(self):
+        return self.figure
+
+
+# Customized admin views
+class ChallengesView(ModelView):
+    column_filters = ['title']
+    column_labels = dict(title='Titulo', model='Modelo', description='Descripcion', challenge='Reto', img='URL imagen')
+
+    column_exclude_list = ['creation_date', 'comments', 'likes', 'participants', 'address', 'authors' ]
+    form_excluded_columns = ['creation_date', 'comments', 'likes', 'participants', ]
+
+    form_args = {
+        'title': {
+            'label': 'Titulo',
+        },
+        'model': {
+            'label': 'Modelo',
+        },
+        'description': {
+            'label': 'Descripcion',
+        },
+        'challenge': {
+            'label': 'Reto',
+        },
+        'img': {
+            'label': 'URL de imagen',
+        },
+        'authors': {
+            'label': 'Autores',
+        },
+        'address': {
+            'label': 'Direcciones',
+        },
+
+    }
+
 admin.add_view(ModelView(Convocation))
+admin.add_view(ChallengesView(Challenges))
+admin.add_view(ModelView(success_stories))
+admin.add_view(ModelView(directory))
+admin.add_view(ModelView(organizations))
