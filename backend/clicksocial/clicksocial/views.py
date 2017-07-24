@@ -384,8 +384,133 @@ class ChallengesView(ModelView):
 
     }
 
-admin.add_view(ModelView(Convocation))
+class ConvocationView(ModelView):
+    column_filters = ['title']
+    column_labels = dict(title='Titulo', model='Modelo', description='Descripcion', web='Sitio web', img='URL imagen')
+
+    column_exclude_list = ['creation_date', 'type', 'address', 'authors' ]
+    form_excluded_columns = ['creation_date', 'type', ]
+
+    form_args = {
+        'title': {
+            'label': 'Titulo',
+        },
+        'model': {
+            'label': 'Modelo',
+        },
+        'description': {
+            'label': 'Descripcion',
+        },
+        'web': {
+            'label': 'URL de sitio web',
+        },
+        'img': {
+            'label': 'URL de imagen',
+        },
+        'authors': {
+            'label': 'Autores',
+        },
+        'address': {
+            'label': 'Direcciones',
+        },
+
+    }
+
+
+class SuccessStoriesView(ModelView):
+    column_filters = ['title']
+    column_labels = dict(title='Titulo', videos='Videos', description='Descripcion', img='URL imagen')
+
+    column_exclude_list = ['creation_date',]
+    form_excluded_columns = ['creation_date',]
+
+    form_args = {
+        'title': {
+            'label': 'Titulo',
+        },
+        'videos': {
+            'label': 'URL de videos',
+        },
+        'description': {
+            'label': 'Descripcion',
+        },
+        'img': {
+            'label': 'URL de imagen',
+        },
+    }
+
+class DirectoryView(ModelView):
+    column_filters = ['social_reason']
+    column_labels = dict(social_reason='Razon Social', federal_entity='Entidad Federativa', figure='Figura',)
+
+    column_exclude_list = ['representants', 'emails', 'place', 'street', 'network', ]
+
+    form_args = {
+        'social_reason': {
+            'label': 'Razon Social',
+        },
+        'figure': {
+            'label': 'Figura',
+        },
+        'representants': {
+            'label': 'Representantes',
+        },
+        'emails': {
+            'label': 'Emails',
+        },
+        'federal_entity': {
+            'label': 'Entidad Federativa',
+        },
+        'place': {
+            'label': 'Ubicacion',
+        },
+        'street': {
+            'label': 'Calle',
+        },
+        'network': {
+            'label': 'Red',
+        },
+
+    }
+
+class OrganizationView(ModelView):
+    column_filters = ['entity']
+    column_labels = dict(model='Modelo', entity='Entidad', social_group='Grupo Social', federal_entity='Entidad Federativa',)
+
+    column_exclude_list = ['geo_issue', 'web', 'contact', 'email', 'type', ]
+
+    form_args = {
+        'model': {
+            'label': 'Modelo',
+        },
+        'entity': {
+            'label': 'Entidad',
+        },
+        'social_group': {
+            'label': 'Grupo Social',
+        },
+        'federal_entity': {
+            'label': 'Entidad Federativa',
+        },
+        'geo_issue': {
+            'label': 'Ubicacion',
+        },
+        'web': {
+            'label': 'Sitio web',
+        },
+        'contact': {
+            'label': 'Contacto',
+        },
+        'email': {
+            'label': 'Email',
+        },
+        'type': {
+            'label': 'Tipo',
+        },
+
+    }
+admin.add_view(ConvocationView(Convocation))
 admin.add_view(ChallengesView(Challenges))
-admin.add_view(ModelView(success_stories))
-admin.add_view(ModelView(directory))
-admin.add_view(ModelView(organizations))
+admin.add_view(SuccessStoriesView(success_stories))
+admin.add_view(DirectoryView(directory))
+admin.add_view(OrganizationView(organizations))
