@@ -269,6 +269,15 @@ api.add_resource(DirectoryMobile,
 
 
 # Admin views
+class Author(db.EmbeddedDocument):
+    name = db.StringField(max_length=255, required=True)
+    email = db.StringField(max_length=255)
+
+class Address(db.EmbeddedDocument):
+    state = db.StringField(max_length=255, required=True)
+    city = db.StringField(max_length=255)
+    street = db.StringField(max_length=255)
+
 # Define mongoengine documents
 class Convocation(db.Document):
     title = db.StringField(max_length=255)
@@ -277,22 +286,14 @@ class Convocation(db.Document):
     img = db.StringField(max_length=355)
     web = db.StringField(max_length=255)
     creation_date = db.DateTimeField(default=datetime.now)
-    addresses = db.ListField(db.DictField())
-    authors = db.ListField(db.DictField())
+    addresses =  db.ListField(db.EmbeddedDocumentField(Address))
+    authors = db.ListField(db.EmbeddedDocumentField(Author))
     model = db.ListField(db.StringField(max_length=255))
 
 
     def __unicode__(self):
         return self.title
 
-
-class Author(db.EmbeddedDocument):
-    name = db.StringField(max_length=255, required=True)
-    email = db.StringField(max_length=255)
-
-class Address(db.EmbeddedDocument):
-    state = db.StringField(max_length=255, required=True)
-    city = db.StringField(max_length=255)
 
 class Challenges(db.Document):
     title = db.StringField(max_length=255)
@@ -410,7 +411,7 @@ class ConvocationView(ModelView):
         'authors': {
             'label': 'Autores',
         },
-        'address': {
+        'addresses': {
             'label': 'Direcciones',
         },
 
@@ -509,8 +510,8 @@ class OrganizationView(ModelView):
         },
 
     }
-admin.add_view(ConvocationView(Convocation))
-admin.add_view(ChallengesView(Challenges))
-admin.add_view(SuccessStoriesView(success_stories))
-admin.add_view(DirectoryView(directory))
-admin.add_view(OrganizationView(organizations))
+admin.add_view(ConvocationView(Convocation, 'Convocatorias'))
+admin.add_view(ChallengesView(Challenges, 'Retos'))
+admin.add_view(SuccessStoriesView(success_stories, 'Historias de Exito'))
+admin.add_view(DirectoryView(directory, 'Directorio'))
+admin.add_view(OrganizationView(organizations, 'Organizaciones'))
