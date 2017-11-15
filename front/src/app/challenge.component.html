@@ -15,7 +15,7 @@
         <span class="visuallyhidden">favorites</span>
       </div>
     </div>
-    <div class="mdl-color-text--grey-700 mdl-card__supporting-text" style="height:100%; width:95%;">
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text" style="height:auto; width:95%;">
       <h3>Info</h3>
       <p>
         {{challenge.description}}
@@ -40,17 +40,24 @@
         </div>
       </div>
     </div>
-    <!-- <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
-      <form>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <textarea rows=1 class="mdl-textfield__input" id="comment"></textarea>
-          <label for="comment" class="mdl-textfield__label">Agrega un comentario</label>
+    <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
+      <form style="width: 100%; display:block;">
+        <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">
+          <input type="text" class="mdl-textfield__input" id="author" />
+          <label for="author" class="mdl-textfield__label">Nombre</label>
+        </div>
+        <div style="display:inline-flex; width:100%;">
+        <div class="mdl-textfield mdl-js-textfield" style="width: 80%;">
+          <textarea rows=2  class="mdl-textfield__input" id="comment"></textarea>
+          <label for="comment" class="mdl-textfield__label">Participa</label>
         </div>
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
           <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
         </button>
+      </div>
+
       </form>
-      <div class="comment mdl-color-text--grey-700">
+      <!-- <div class="comment mdl-color-text--grey-700" style="margin-top: 100px;">
         <header class="comment__header">
           <img src="../assets/imgs/co1.jpg" class="comment__avatar">
           <div class="comment__author">
@@ -61,7 +68,7 @@
         <div class="comment__text">
           Entre las aportaciones que se pueden presentar sobre este tema....
         </div>
-      </div>
-    </div> -->
+      </div> -->
+    </div>
   </div>
 </div>

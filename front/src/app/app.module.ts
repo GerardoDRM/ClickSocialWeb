@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SuccesCaseComponent } from './succescase.component'
 import { SuccesCasesComponent } from './succescases.component'
 import { HomeComponent } from './home.component'
+import { VideosComponent } from './videos.component'
 import { ContestComponent } from './contest.component'
 import { AnnouncesComponent } from './announces.component'
 import { DirectoryComponent } from './directory.component'
@@ -19,6 +20,7 @@ import { SafePipe } from './safepipe.pipe'
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'videos', component:  VideosComponent},
   { path: 'cases', component: SuccesCasesComponent },
   { path: 'case/:id', component: SuccesCaseComponent },
   { path: 'contests', component: ContestComponent },
@@ -44,6 +46,7 @@ const appRoutes: Routes = [
     SuccesCasesComponent,
     SuccesCaseComponent,
     HomeComponent,
+    VideosComponent,
     ContestComponent,
     AnnouncesComponent,
     DirectoryComponent,

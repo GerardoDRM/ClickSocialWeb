@@ -1,0 +1,31 @@
+<main class="mdl-layout__content" style="width:100%; text-align:center">
+  <div class="logo-container"><img src="../assets/imgs/video-player.svg" width="100px" /></div>
+  <h3 class="megaphone-margin slogan" style="">Videos</h3>
+</main>
+
+<div class="mdl-grid portfolio-max-width" style="margin-top:-5%;">
+  <div class="mdl-card mdl-shadow--2dp card-box">
+    <div class="partners">
+      <h2>Video Conferencias</h2>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col" *ngFor="let v of conferences">
+          <iframe width="90%" height="315" [src]="v | safe"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="mdl-grid portfolio-max-width">
+  <div class="mdl-card mdl-shadow--2dp card-box">
+    <div class="partners">
+      <h2>Video Capsulas</h2>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col" *ngFor="let v of capsules">
+          <iframe width="90%" height="315" [src]="v | safe"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
