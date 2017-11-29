@@ -100,7 +100,7 @@ class Comments(Resource):
     @cross_origin()
     def get(self, id):
         challenge = mongo.db.challenges.find_one({"_id": ObjectId(id)}, {"comments":1})
-        return jsonify(challenge)
+        return jsonify(challenge["comments"])
 
     @cross_origin()
     def post(self, id):
@@ -108,7 +108,7 @@ class Comments(Resource):
         parser.add_argument('comment', type=dict, required=True)
         args = parser.parse_args()
 
-        result = mongo.db.challenge.update_one({"_id":ObjectId(id)}, {"$push": args.comment})
+        result = mongo.db.challenge.update_one({"_id":ObjectId(id)}, {"$push": {"comments":args.comment}})
         message = {
             "status": 500
         }
@@ -281,6 +281,9 @@ api.add_resource(Challenge,
                  '/api/v0/challenges',
                  '/api/v0/challenges/<id>',
                  endpoint="challenges")
+api.add_resource(Comments,
+                 '/api/v0/comments/<id>',
+                 endpoint="comments")
 api.add_resource(Organization,
                  '/api/v0/organizations',
                  '/api/v0/organizations/<id>',

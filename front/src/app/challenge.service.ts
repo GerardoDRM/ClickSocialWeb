@@ -1,48 +1,58 @@
-import { Injectable }              from '@angular/core';
-import { Http, Response }          from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 
 export interface Address {
-  state:string;
-  city:string;
+  state: string;
+  city: string;
 }
 export interface Author {
-  name:string;
-  email:string;
+  name: string;
+  email: string;
 }
 export interface Commnet {
-  user:string;
-  name:string;
-  content:string;
+  author: string;
+  comment: string;
 }
 export interface Challenge {
-    _id: string;
-    title: string;
-    description: string;
-    challenge:string;
-    img: string;
-    creation_date: number;
-    likes: number;
-    comments: Comment[];
-    authors: Array<Author>;
-    address: Array<Address>;
- }
+  _id: string;
+  title: string;
+  description: string;
+  challenge: string;
+  img: string;
+  creation_date: number;
+  likes: number;
+  comments: Comment[];
+  authors: Array<Author>;
+  address: Array<Address>;
+}
 
 @Injectable()
 export class ChallengeService {
   private challengesUrl = 'http://clicksocial.mx/api/v0/challenges';  // URL to web API
+  private commentsUrl = 'http://clicksocial.mx/api/v0/comments';  // URL to web API
   constructor(private http: Http) { }
+
   getChallenge(id): Observable<Challenge> {
-    return this.http.get(this.challengesUrl+"/"+id)
+    return this.http.get(this.challengesUrl + "/" + id)
       .map(this.extractData)
       .catch(this.handleError);
   }
+  sendComment(author, comment, id): Observable<Comment[]> {
+    return this.http.post(this.commentsUrl+"/"+id, {"comment": {"author": author, "comment": comment}}).map(this.extractData).catch(this.handleError);
+  }
+
+  getComments(id): Observable<Challenge> {
+    return this.http.get(this.commentsUrl + "/" + id)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   private extractData(res: Response) {
     let body = res.json();
-    console.log(body);
     return body || {};
   }
   private handleError(error: Response | any) {

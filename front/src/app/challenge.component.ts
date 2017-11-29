@@ -11,9 +11,8 @@ export interface Author {
   email:string;
 }
 export interface Comment {
-  user:string;
-  name:string;
-  content:string;
+  author:string;
+  comment:string;
 }
 export interface Challenge {
     _id: string;
@@ -47,10 +46,17 @@ export class ChallengeComponent implements OnInit, OnDestroy {
     authors: [],
     address: []
   };
+  comments: Comment[];
+
+  author:string;
+  comment:string;
   mode = 'Observable';
 
   constructor(private route: ActivatedRoute, private challengesService: ChallengeService) { }
   ngOnInit() {
+    this.author = "";
+    this.comment = "";
+
     this.sub = this.route.params.subscribe(params => {
       this.id = params['id'];
       this.getData(this.id);
@@ -60,11 +66,23 @@ export class ChallengeComponent implements OnInit, OnDestroy {
     var t = new Date( number * 1000 );
     return t.getDate() + "/" + (t.getMonth()+1) + "/" + t.getFullYear();
   }
+  addCommet() {
+    // Send comment
+    this.challengesService.sendComment(this.author, this.comment, this.id);
+    // Get new comments list
+    this.challengesService.getComments(this.id).subscribe(
+      response => this.comments = response
+    );
+    this.author = "";
+    this.comment = "";
+  }
   getData(id) {
     this.challengesService.getChallenge(id).subscribe(
      response => this.challenge = response
-
     )
+    this.challengesService.getComments(id).subscribe(
+      response => this.comments = response
+    );
   }
   ngOnDestroy() {
     this.sub.unsubscribe();

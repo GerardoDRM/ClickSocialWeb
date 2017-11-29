@@ -43,15 +43,15 @@
     <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
       <form style="width: 100%; display:block;">
         <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">
-          <input type="text" class="mdl-textfield__input" id="author" />
+          <input type="text" class="mdl-textfield__input" id="author" name="athor" [(ngModel)]="author" required/>
           <label for="author" class="mdl-textfield__label">Nombre</label>
         </div>
         <div style="display:inline-flex; width:100%;">
         <div class="mdl-textfield mdl-js-textfield" style="width: 80%;">
-          <textarea rows=2  class="mdl-textfield__input" id="comment"></textarea>
+          <textarea rows=2  class="mdl-textfield__input" id="comment" name="comment" [(ngModel)]="comment" required></textarea>
           <label for="comment" class="mdl-textfield__label">Participa</label>
         </div>
-        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" (click)="addCommet()">
           <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
         </button>
       </div>
