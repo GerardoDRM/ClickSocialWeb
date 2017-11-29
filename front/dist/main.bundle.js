@@ -1146,7 +1146,8 @@ var organizationService = (function () {
         this.params = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* URLSearchParams */]();
     }
     organizationService.prototype.getData = function () {
-        return this.http.get(this.orgUrl)
+        this.params.set('filters', '0');
+        return this.http.get(this.orgUrl, { search: this.params })
             .map(this.extractData)
             .catch(this.handleError);
     };
