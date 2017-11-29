@@ -57,18 +57,19 @@
       </div>
 
       </form>
-      <!-- <div class="comment mdl-color-text--grey-700" style="margin-top: 100px;">
-        <header class="comment__header">
-          <img src="../assets/imgs/co1.jpg" class="comment__avatar">
-          <div class="comment__author">
-            <strong>Juan Perez</strong>
-            <span>Hace 2 dias</span>
-          </div>
-        </header>
-        <div class="comment__text">
-          Entre las aportaciones que se pueden presentar sobre este tema....
+      <div class="comment mdl-color-text--grey-700" style="margin-top: 100px;">
+        <div *ngFor="let c of comments">
+          <header class="comment__header">
+            <img src="../assets/imgs/co1.jpg" class="comment__avatar">
+            <div class="comment__author">
+              <strong>{{c.author}}</strong>
+              <div class="comment__text">
+                {{c.comment}}
+              </div>
+            </div>
+          </header>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </div>

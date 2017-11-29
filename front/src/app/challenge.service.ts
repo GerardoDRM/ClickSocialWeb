@@ -13,7 +13,7 @@ export interface Author {
   name: string;
   email: string;
 }
-export interface Commnet {
+export interface Comment {
   author: string;
   comment: string;
 }
@@ -41,11 +41,12 @@ export class ChallengeService {
       .map(this.extractData)
       .catch(this.handleError);
   }
-  sendComment(author, comment, id): Observable<Comment[]> {
+
+  sendComment(author, comment, id): Observable<number> {
     return this.http.post(this.commentsUrl+"/"+id, {"comment": {"author": author, "comment": comment}}).map(this.extractData).catch(this.handleError);
   }
 
-  getComments(id): Observable<Challenge> {
+  getComments(id): Obsuscribeservable<Comment[]> {
     return this.http.get(this.commentsUrl + "/" + id)
       .map(this.extractData)
       .catch(this.handleError);
@@ -53,6 +54,7 @@ export class ChallengeService {
 
   private extractData(res: Response) {
     let body = res.json();
+    console.log(body)
     return body || {};
   }
   private handleError(error: Response | any) {

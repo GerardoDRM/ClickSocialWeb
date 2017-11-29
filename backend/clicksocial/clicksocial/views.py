@@ -108,7 +108,7 @@ class Comments(Resource):
         parser.add_argument('comment', type=dict, required=True)
         args = parser.parse_args()
 
-        result = mongo.db.challenge.update_one({"_id":ObjectId(id)}, {"$push": {"comments":args.comment}})
+        result = mongo.db.challenges.update_one({"_id":ObjectId(id)}, {"$push": {"comments":args.comment}})
         message = {
             "status": 500
         }
