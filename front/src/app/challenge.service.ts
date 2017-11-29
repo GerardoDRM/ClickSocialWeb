@@ -46,7 +46,7 @@ export class ChallengeService {
     return this.http.post(this.commentsUrl+"/"+id, {"comment": {"author": author, "comment": comment}}).map(this.extractData).catch(this.handleError);
   }
 
-  getComments(id): Obsuscribeservable<Comment[]> {
+  getComments(id): Observable<Comment[]> {
     return this.http.get(this.commentsUrl + "/" + id)
       .map(this.extractData)
       .catch(this.handleError);
