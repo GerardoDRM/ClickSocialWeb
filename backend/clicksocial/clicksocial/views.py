@@ -174,8 +174,36 @@ class Organization(Resource):
 class Directory(Resource):
 
     @cross_origin()
-    def get(self):
-        s = create_dic(mongo.db.directory.find({}))
+    def get(self, id=None):
+
+        if id is None:
+            parser = reqparse.RequestParser()
+            parser.add_argument('figure', type=str, required=False)
+            parser.add_argument('issue', type=str, required=False)
+            parser.add_argument('filters', type=int, required=True)
+            args = parser.parse_args()
+
+            # Check filters
+            if args.filters is 1: # Add filters
+                # Check which filter to apply
+                figure_list = [Regex.from_native(re.compile(str(i).replace("\"", "")+'.*')) for i in args.figure.split(',') if len(i) > 2]
+                for t in figure_list:
+                    t.flags ^= re.UNICODE
+                issue_list = [Regex.from_native(re.compile(str(i).replace("\"", "")+'.*')) for i in args.issue.split(',') if len(i) > 2]
+                for i in issue_list:
+                    i.flags ^= re.UNICODE
+
+                s = create_dic(mongo.db.directory.find({
+                    "$or": [
+                        {"figure": {"$in": figure_list}},
+                        {"federal_entity": {"$in": issue_list}}
+                    ]
+                }))
+            else:
+                s = create_dic(mongo.db.directory.find({}))
+        else:
+            s = create_dic(mongo.db.directory.find({}))
+
         return jsonify(directory=s)
 
 
@@ -262,6 +290,7 @@ api.add_resource(OrganizationMobile,
                  endpoint="organizations_mobile")
 api.add_resource(Directory,
                  '/api/v0/directory',
+                 '/api/v0/directory/<id>',
                  endpoint="directory")
 api.add_resource(DirectoryMobile,
                  '/api/v0/directory_mobile',

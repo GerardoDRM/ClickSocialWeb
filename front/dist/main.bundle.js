@@ -962,13 +962,130 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var DirectoryTableComponent = (function () {
     function DirectoryTableComponent(_elRef, challengesService) {
         this._elRef = _elRef;
         this.challengesService = challengesService;
         this.mode = 'Observable';
         this.data = '';
+        this.figure_filter = [
+            "Institución de Asistencia Privada",
+            "Asociación Civil",
+            "Otra",
+            "Sociedad Civil",
+            "Asociación de Beneficiencia Privada",
+            "Institución de Beneficiencia Privada (IBP)"
+        ];
+        this.issue_filter = [
+            "Querétaro",
+            "Tamaulipas",
+            "Distrito Federal",
+            "Estado de México",
+            "Sinaloa",
+            "Coahuila",
+            "Jalisco",
+            "Campeche",
+            "Oaxaca",
+            "Nuevo León",
+            "Sonora",
+            "San Luis Potosí",
+            "Guanajuato",
+            "Puebla",
+            "Chiapas",
+            "Tabasco",
+            "Veracruz",
+            "Guerrero",
+            "Hidalgo",
+            "Yucatán",
+            "Michoacán",
+            "Morelos",
+            "Tlaxcala",
+            "Baja California",
+            "Aguascalientes",
+            "Chihuahua",
+            "Quintana Roo",
+            "Durango",
+            "Colima",
+            "Zacatecas",
+            "Baja California Sur"
+        ];
+        this.selectedFigure = [
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false }
+        ];
+        this.selectedIssue = [
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false },
+            { "value": false }
+        ];
     }
+    DirectoryTableComponent.prototype.ngAfterViewInit = function () {
+        var d = this.dialog.nativeElement;
+        if (!d.showModal) {
+            dialogPolyfill.registerDialog(d);
+        }
+    };
+    DirectoryTableComponent.prototype.searchData = function () {
+        var _this = this;
+        var newFigures = "";
+        var newIssues = "";
+        for (var i = 0; i < this.selectedFigure.length; i++) {
+            if (this.selectedFigure[i].value) {
+                newFigures += this.figure_filter[i] + ',';
+            }
+        }
+        newFigures = newFigures.slice(0, -1);
+        for (var i = 0; i < this.selectedIssue.length; i++) {
+            if (this.selectedIssue[i].value) {
+                newIssues += this.issue_filter[i] + ',';
+            }
+        }
+        newIssues = newIssues.slice(0, -1);
+        this.challengesService.getFilterData(newFigures, newIssues).subscribe(function (response) { return _this.organizations = response; });
+        var d = this.dialog.nativeElement;
+        d.close();
+    };
+    DirectoryTableComponent.prototype.openDialog = function () {
+        var d = this.dialog.nativeElement;
+        d.showModal();
+    };
+    DirectoryTableComponent.prototype.closeDialog = function () {
+        var d = this.dialog.nativeElement;
+        d.close();
+    };
     DirectoryTableComponent.prototype.ngOnInit = function () {
         this.getOrganizations();
     };
@@ -976,16 +1093,20 @@ var DirectoryTableComponent = (function () {
         var _this = this;
         this.challengesService.getData().subscribe(function (response) { return _this.organizations = response; });
     };
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* ViewChild */])('dialog'), 
+        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* ElementRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* ElementRef */]) === 'function' && _a) || Object)
+    ], DirectoryTableComponent.prototype, "dialog", void 0);
     DirectoryTableComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
             template: __webpack_require__(535),
             styles: [__webpack_require__(18)],
             providers: [__WEBPACK_IMPORTED_MODULE_1__directory_table_service__["a" /* organizationService */]]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* ElementRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* ElementRef */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__directory_table_service__["a" /* organizationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__directory_table_service__["a" /* organizationService */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* ElementRef */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* ElementRef */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__directory_table_service__["a" /* organizationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__directory_table_service__["a" /* organizationService */]) === 'function' && _c) || Object])
     ], DirectoryTableComponent);
     return DirectoryTableComponent;
-    var _a, _b;
+    var _a, _b, _c;
 }());
 //# sourceMappingURL=directory_table.component.js.map
 
@@ -1026,6 +1147,14 @@ var organizationService = (function () {
     }
     organizationService.prototype.getData = function () {
         return this.http.get(this.orgUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    organizationService.prototype.getFilterData = function (f, i) {
+        this.params.set('filters', '1');
+        this.params.set('figure', f);
+        this.params.set('issue', i);
+        return this.http.get(this.orgUrl, { search: this.params })
             .map(this.extractData)
             .catch(this.handleError);
     };
@@ -1742,7 +1871,7 @@ module.exports = "<main class=\"mdl-layout__content\" style=\"width:100%; text-a
 /***/ 535:
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"mdl-layout__content\" style=\"width:100%; text-align:center\">\n  <div class=\"logo-container\"><img src=\"../assets/imgs/teamwork.svg\" width=\"100px\" /></div>\n  <h3 class=\"slogan\">Directorio de Organizaciones de la sociedad civil</h3>\n</main>\n\n<div class=\"portfolio-max-width\">\n  <div class=\"search-bar\">\n    <label class=\"mdl-button mdl-js-button mdl-button--icon\">\n        <i class=\"material-icons\">search</i>\n    </label>\n    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n      <input class=\"mdl-textfield__input\" type=\"text\" [(ngModel)]=\"data\" />\n      <label class=\"mdl-textfield__label\">Busca organizaciones...</label>\n    </div>\n\n\n  </div>\n\n  <ul class=\"mdl-list\">\n    <li class=\" mdl-card mdl-list__item mdl-list__item--three-line dir-list\" *ngFor=\"let o of organizations | filterdata:data\">\n      <span class=\"mdl-list__item-primary-content\">\n      <i class=\"material-icons mdl-list__item-icon\t\">account_balance</i>\n      <span>{{o.social_reason}}</span>\n      <span class=\"mdl-list__item-text-body grid-dict-table\">\n        <div class=\"mdl-grid\">\n          <div class=\"mdl-cell mdl-cell--2-col\"><i class=\"material-icons\">dashboard</i></div>\n          <div class=\"mdl-cell mdl-cell-10-col data\">{{o.figure}}</div>\n          <div class=\"mdl-cell mdl-cell--2-col \"><i class=\"material-icons\">place</i></div>\n          <div class=\"mdl-cell mdl-cell-10-col data\">{{o.federal_entity}}</div>\n          <div class=\"mdl-cell mdl-cell--2-col\"><i class=\"material-icons\">email</i></div>\n          <div class=\"mdl-cell mdl-cell-10-col data\">{{o.emails}}</div>\n          <div class=\"mdl-cell mdl-cell--2-col\"><i class=\"material-icons\">face</i></div>\n          <div class=\"mdl-cell mdl-cell-10-col data\">{{o.representants}}</div>\n        </div>\n      </span>\n      </span>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "<main class=\"mdl-layout__content\" style=\"width:100%; text-align:center\">\n  <div class=\"logo-container\"><img src=\"../assets/imgs/teamwork.svg\" width=\"100px\" /></div>\n  <h3 class=\"slogan\">Directorio de Organizaciones de la sociedad civil</h3>\n  <button class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored\" (click)=\"openDialog()\">\n  <i class=\"material-icons\">search</i>\n</button>\n</main>\n\n<div class=\"portfolio-max-width\">\n  <div class=\"search-bar\">\n    <label class=\"mdl-button mdl-js-button mdl-button--icon\">\n        <i class=\"material-icons\">search</i>\n    </label>\n    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n      <input class=\"mdl-textfield__input\" type=\"text\" [(ngModel)]=\"data\" />\n      <label class=\"mdl-textfield__label\">Busca organizaciones...</label>\n    </div>\n\n\n  </div>\n\n  <ul class=\"mdl-list\">\n    <li class=\" mdl-card mdl-list__item mdl-list__item--three-line dir-list\" *ngFor=\"let o of organizations | filterdata:data\">\n      <span class=\"mdl-list__item-primary-content\">\n      <i class=\"material-icons mdl-list__item-icon\t\">account_balance</i>\n      <span>{{o.social_reason}}</span>\n      <span class=\"mdl-list__item-text-body grid-dict-table\">\n        <div class=\"mdl-grid\">\n          <div class=\"mdl-cell mdl-cell--2-col\"><i class=\"material-icons\">dashboard</i></div>\n          <div class=\"mdl-cell mdl-cell-10-col data\">{{o.figure}}</div>\n          <div class=\"mdl-cell mdl-cell--2-col \"><i class=\"material-icons\">place</i></div>\n          <div class=\"mdl-cell mdl-cell-10-col data\">{{o.federal_entity}}</div>\n          <div class=\"mdl-cell mdl-cell--2-col\"><i class=\"material-icons\">email</i></div>\n          <div class=\"mdl-cell mdl-cell-10-col data\">{{o.emails}}</div>\n          <div class=\"mdl-cell mdl-cell--2-col\"><i class=\"material-icons\">face</i></div>\n          <div class=\"mdl-cell mdl-cell-10-col data\">{{o.representants}}</div>\n        </div>\n      </span>\n      </span>\n    </li>\n  </ul>\n</div>\n\n<dialog class=\"filters-dialog mdl-dialog\" style=\"\" #dialog>\n  <h4 class=\"mdl-dialog__title\">Filtros</h4>\n  <div class=\"mdl-dialog__content\">\n    <p>\n      Busca a traves de nuestro catalogo\n    </p>\n    <div class=\"mdl-grid\">\n      <div class=\"mdl-cell mdl-cell--6-col\">\n        <h4>Figura</h4>\n        <div *ngFor=\"let g of figure_filter; let i = index\">\n          <label class=\"mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect\" for=\"g-{{i}}\" style=\"height:auto;  margin-bottom:5px;\">\n            <input type=\"checkbox\" id=\"g-{{i}}\" class=\"mdl-checkbox__input\" [(ngModel)]=\"selectedFigure[i].value\">\n            <span class=\"mdl-checkbox__label\">{{g}}</span>\n          </label>\n        </div>\n      </div>\n      <div class=\"mdl-cell mdl-cell--6-col\">\n        <h4>Entidad Federativa</h4>\n        <div *ngFor=\"let s of issue_filter; let i = index\">\n          <label class=\"mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect\" for=\"s-{{i}}\" style=\"height:auto;  margin-bottom:5px;\">\n            <input type=\"checkbox\" id=\"s-{{i}}\" class=\"mdl-checkbox__input\" [(ngModel)]=\"selectedIssue[i].value\">\n            <span class=\"mdl-checkbox__label\">{{s}}</span>\n          </label>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"mdl-dialog__actions\">\n    <button type=\"button\" class=\"mdl-button close\" (click)=\"searchData()\">Buscar</button>\n    <button type=\"button\" class=\"mdl-button close\" (click)=\"closeDialog()\">Cerrar</button>\n  </div>\n</dialog>\n"
 
 /***/ }),
 

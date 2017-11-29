@@ -1,6 +1,9 @@
 <main class="mdl-layout__content" style="width:100%; text-align:center">
   <div class="logo-container"><img src="../assets/imgs/teamwork.svg" width="100px" /></div>
   <h3 class="slogan">Directorio de Organizaciones de la sociedad civil</h3>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="openDialog()">
+  <i class="material-icons">search</i>
+</button>
 </main>
 
 <div class="portfolio-max-width">
@@ -37,3 +40,36 @@
     </li>
   </ul>
 </div>
+
+<dialog class="filters-dialog mdl-dialog" style="" #dialog>
+  <h4 class="mdl-dialog__title">Filtros</h4>
+  <div class="mdl-dialog__content">
+    <p>
+      Busca a traves de nuestro catalogo
+    </p>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col">
+        <h4>Figura</h4>
+        <div *ngFor="let g of figure_filter; let i = index">
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="g-{{i}}" style="height:auto;  margin-bottom:5px;">
+            <input type="checkbox" id="g-{{i}}" class="mdl-checkbox__input" [(ngModel)]="selectedFigure[i].value">
+            <span class="mdl-checkbox__label">{{g}}</span>
+          </label>
+        </div>
+      </div>
+      <div class="mdl-cell mdl-cell--6-col">
+        <h4>Entidad Federativa</h4>
+        <div *ngFor="let s of issue_filter; let i = index">
+          <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="s-{{i}}" style="height:auto;  margin-bottom:5px;">
+            <input type="checkbox" id="s-{{i}}" class="mdl-checkbox__input" [(ngModel)]="selectedIssue[i].value">
+            <span class="mdl-checkbox__label">{{s}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mdl-dialog__actions">
+    <button type="button" class="mdl-button close" (click)="searchData()">Buscar</button>
+    <button type="button" class="mdl-button close" (click)="closeDialog()">Cerrar</button>
+  </div>
+</dialog>

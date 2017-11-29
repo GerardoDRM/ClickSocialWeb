@@ -27,6 +27,16 @@ export class organizationService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  getFilterData(f, i): Observable<DirectoryTable[]> {
+    this.params.set('filters', '1');
+    this.params.set('figure', f);
+    this.params.set('issue', i);
+    return this.http.get(this.orgUrl, {search:this.params})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+  
   private extractData(res: Response) {
     let body = res.json();
     return body.directory || {};
